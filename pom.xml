@@ -9,7 +9,8 @@
 	
   <modules>
   	<module>jun_ssh_easyui</module>
-	<module>jun_ssh</module> 
+	<module>jun_ssh</module>
+	<module>jun_ssh_util</module>
   </modules> 
 
   <name>jun_ssh_parent</name>
