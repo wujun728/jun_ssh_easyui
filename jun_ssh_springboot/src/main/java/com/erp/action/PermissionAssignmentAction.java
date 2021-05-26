@@ -14,9 +14,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Namespace;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.erp.model.Role;
@@ -24,7 +26,8 @@ import com.erp.service.PermissionAssignmentService;
 import com.erp.util.Constants;
 import com.erp.viewModel.GridModel;
 import com.erp.viewModel.Json;
-import com.opensymphony.xwork2.ModelDriven;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * 类功能说明 TODO:
@@ -39,9 +42,10 @@ import com.opensymphony.xwork2.ModelDriven;
  * @date 2013-5-17 下午3:16:55
  * @version V1.0
  */
-@Namespace("/permission")
-@Action(value = "permissionAssignmentAction")
-public class PermissionAssignmentAction extends BaseAction implements ModelDriven<Role>
+@Controller
+@RequestMapping("/permission")
+@Slf4j
+public class PermissionAssignmentAction extends BaseAction 
 {
 	private static final long serialVersionUID = -7653440308109010857L;
 	private PermissionAssignmentService permissionAssignmentService;
@@ -99,6 +103,8 @@ public class PermissionAssignmentAction extends BaseAction implements ModelDrive
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findAllFunctionList")
 	public String findAllFunctionList() throws Exception
 	{
 		OutputJson(permissionAssignmentService.findAllFunctionsList(id));
@@ -117,6 +123,8 @@ public class PermissionAssignmentAction extends BaseAction implements ModelDrive
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findAllRoleList")
 	public String findAllRoleList() throws Exception
 	{
 		Map<String, Object> map = searchRole();
@@ -149,6 +157,8 @@ public class PermissionAssignmentAction extends BaseAction implements ModelDrive
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findAllRoleListNotPage")
 	public String findAllRoleListNotPage() throws Exception
 	{
 		Map<String, Object> map = searchRole();
@@ -170,6 +180,8 @@ public class PermissionAssignmentAction extends BaseAction implements ModelDrive
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/getRolePermission")
 	public String getRolePermission() throws Exception
 	{
 		OutputJson(permissionAssignmentService.getRolePermission(getModel().getRoleId()));
@@ -188,6 +200,8 @@ public class PermissionAssignmentAction extends BaseAction implements ModelDrive
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/savePermission")
 	public String savePermission() throws Exception
 	{
 		Json json=new Json();
@@ -214,6 +228,8 @@ public class PermissionAssignmentAction extends BaseAction implements ModelDrive
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/persistenceRole")
 	public String persistenceRole() throws Exception
 	{	
 		Map<String, List<Role>> map=new HashMap<String, List<Role>>();
@@ -243,12 +259,16 @@ public class PermissionAssignmentAction extends BaseAction implements ModelDrive
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/persistenceRoleDlg")
 	public String persistenceRoleDlg() throws Exception
 	{
 		OutputJson(getMessage(permissionAssignmentService.persistenceRole(getModel())),Constants.TEXT_TYPE_PLAIN);
 		return null;
 	}
-	
+
+	@ResponseBody
+	@GetMapping(value = "/delRole")
 	public String delRole() throws Exception
 	{
 		OutputJson(getMessage(permissionAssignmentService.persistenceRole(getModel().getRoleId())));

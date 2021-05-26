@@ -4,9 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Namespace;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.erp.model.OrderPurchase;
@@ -15,11 +17,13 @@ import com.erp.service.OrderPurchaseService;
 import com.erp.util.Constants;
 import com.erp.util.PageUtil;
 import com.erp.viewModel.GridModel;
-import com.opensymphony.xwork2.ModelDriven;
 
-@Namespace("/orderPurchase")
-@Action(value = "orderPurchaseAction")
-public class OrderPurchaseAction extends BaseAction implements ModelDriven<OrderPurchase>
+import lombok.extern.slf4j.Slf4j;
+
+@Controller
+@RequestMapping("/orderPurchase")
+@Slf4j
+public class OrderPurchaseAction extends BaseAction 
 {
 	private static final long serialVersionUID = 1635368739863491430L;
 	private OrderPurchaseService orderPurchaseService;
@@ -53,6 +57,8 @@ public class OrderPurchaseAction extends BaseAction implements ModelDriven<Order
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findPurchaseOrderLineList")
 	public String findPurchaseOrderLineList() throws Exception
 	{
 		GridModel gridModel=new GridModel();
@@ -62,7 +68,8 @@ public class OrderPurchaseAction extends BaseAction implements ModelDriven<Order
 		return null;
 	}
 	
-	
+	@ResponseBody
+	@GetMapping(value = "/findPurchaseOrderList")
 	public String findPurchaseOrderList() throws Exception
 	{
 		Map<String, Object> map=new HashMap<String, Object>();
@@ -89,6 +96,8 @@ public class OrderPurchaseAction extends BaseAction implements ModelDriven<Order
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/persistenceOrderPurchase")
 	public String persistenceOrderPurchase() throws Exception
 	{
 		Map<String, List<OrderPurchaseLine>> map=new HashMap<String, List<OrderPurchaseLine>>();
@@ -120,6 +129,8 @@ public class OrderPurchaseAction extends BaseAction implements ModelDriven<Order
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/delOrderPurchase")
 	public String delOrderPurchase() throws Exception
 	{
 		OutputJson(getMessage(orderPurchaseService.delOrderPurchase(getModel().getOrderPurchaseId())));

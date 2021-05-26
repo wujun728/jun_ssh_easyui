@@ -4,9 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Namespace;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.erp.model.Suplier;
@@ -15,10 +17,12 @@ import com.erp.service.SupService;
 import com.erp.util.Constants;
 import com.erp.util.PageUtil;
 import com.erp.viewModel.GridModel;
-import com.opensymphony.xwork2.ModelDriven;
-@Namespace("/sup")
-@Action(value = "supAction")
-public class SupAction extends BaseAction implements ModelDriven<Suplier>
+
+import lombok.extern.slf4j.Slf4j;
+@Controller
+@RequestMapping("/sup")
+@Slf4j
+public class SupAction extends BaseAction 
 {
 	private static final long serialVersionUID = -1687326503418955787L;
 	private Suplier suplier;
@@ -52,6 +56,8 @@ public class SupAction extends BaseAction implements ModelDriven<Suplier>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findSuplierContactList")
 	public String findSuplierContactList() throws Exception
 	{
 		GridModel gridModel=new GridModel();
@@ -73,6 +79,8 @@ public class SupAction extends BaseAction implements ModelDriven<Suplier>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findSuplierContactListCombobox")
 	public String findSuplierContactListCombobox() throws Exception
 	{
 		OutputJson(supService.findSuplierContactList(getModel().getSuplierId()));
@@ -90,6 +98,8 @@ public class SupAction extends BaseAction implements ModelDriven<Suplier>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findSuplierList")
 	public String findSuplierList() throws Exception
 	{
 		Map<String, Object> map=new HashMap<String, Object>();
@@ -117,6 +127,8 @@ public class SupAction extends BaseAction implements ModelDriven<Suplier>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findSuplierListNoPage")
 	public String findSuplierListNoPage() throws Exception
 	{
 		Map<String, Object> map=new HashMap<String, Object>();
@@ -129,7 +141,7 @@ public class SupAction extends BaseAction implements ModelDriven<Suplier>
 		gridModel.setRows(supService.findSuplierListNoPage(map, pageUtil));
 		gridModel.setTotal(null);
 		OutputJson(gridModel);
-		return super.execute();
+		return null;
 	}
 	/**  
 	* 函数功能说明
@@ -143,6 +155,8 @@ public class SupAction extends BaseAction implements ModelDriven<Suplier>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/persistenceSuplier")
 	public String persistenceSuplier() throws Exception
 	{
 		Map<String, List<SuplierContact>> map=new HashMap<String, List<SuplierContact>>();
@@ -174,6 +188,8 @@ public class SupAction extends BaseAction implements ModelDriven<Suplier>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/delSuplier")
 	public String delSuplier() throws Exception
 	{
 		OutputJson(getMessage(supService.delSuplier(getModel().getSuplierId())));

@@ -1,14 +1,17 @@
 package com.erp.action;
 
-import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Namespace;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.erp.model.Organization;
 import com.erp.service.OrganizationService;
 import com.erp.util.Constants;
 import com.erp.viewModel.Json;
-import com.opensymphony.xwork2.ModelDriven;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
 * 类功能说明 TODO:组织action
@@ -24,9 +27,10 @@ import com.opensymphony.xwork2.ModelDriven;
 * @version V1.0
 */
 
-@Namespace("/orgz")
-@Action(value = "organizationAction")
-public class OrganizationAction extends BaseAction implements ModelDriven<Organization>
+@Controller
+@RequestMapping("/orgz")
+@Slf4j
+public class OrganizationAction extends BaseAction 
 {
 	private static final long serialVersionUID = -4604242185439314975L;
 	private OrganizationService organizationService;
@@ -70,6 +74,8 @@ public class OrganizationAction extends BaseAction implements ModelDriven<Organi
 	* @return String    返回类型 
 	* @throws Exception
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findOrganizationList")
 	public String findOrganizationList() throws Exception
 	{
 		OutputJson(organizationService.findOrganizationList());
@@ -88,6 +94,8 @@ public class OrganizationAction extends BaseAction implements ModelDriven<Organi
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findOrganizationListTreeGrid")
 	public String findOrganizationListTreeGrid() throws Exception
 	{
 		OutputJson(organizationService.findOrganizationList(id));
@@ -106,6 +114,8 @@ public class OrganizationAction extends BaseAction implements ModelDriven<Organi
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/persistenceOrganization")
 	public String persistenceOrganization() throws Exception
 	{
 		OutputJson(getMessage(organizationService.persistenceOrganization(getModel())), Constants.TEXT_TYPE_PLAIN);
@@ -124,6 +134,8 @@ public class OrganizationAction extends BaseAction implements ModelDriven<Organi
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/delOrganization")
 	public String delOrganization() throws Exception
 	{
 		Json json=new Json();

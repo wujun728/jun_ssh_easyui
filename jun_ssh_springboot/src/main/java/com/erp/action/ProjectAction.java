@@ -4,9 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Namespace;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.erp.model.Project;
@@ -15,10 +17,12 @@ import com.erp.service.ProjectService;
 import com.erp.util.Constants;
 import com.erp.util.PageUtil;
 import com.erp.viewModel.GridModel;
-import com.opensymphony.xwork2.ModelDriven;
-@Namespace("/project")
-@Action(value = "projectAction")
-public class ProjectAction extends BaseAction implements ModelDriven<Project>
+
+import lombok.extern.slf4j.Slf4j;
+@Controller
+@RequestMapping("/project")
+@Slf4j
+public class ProjectAction extends BaseAction 
 {
 	private static final long serialVersionUID = -8785609987685604362L;
 	private ProjectService projectService;
@@ -50,6 +54,8 @@ public class ProjectAction extends BaseAction implements ModelDriven<Project>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findCustomers")
 	public String findCustomers() throws Exception
 	{
 		OutputJson(projectService.findCustomers());
@@ -67,6 +73,8 @@ public class ProjectAction extends BaseAction implements ModelDriven<Project>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findProjectFollowsList")
 	public String findProjectFollowsList() throws Exception
 	{
 		OutputJson(projectService.findProjectFollowsList(getModel().getProjectId()));
@@ -85,6 +93,8 @@ public class ProjectAction extends BaseAction implements ModelDriven<Project>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findProjectList")
 	public String findProjectList() throws Exception
 	{
 		Map<String, Object> map=new HashMap<String, Object>();
@@ -112,6 +122,8 @@ public class ProjectAction extends BaseAction implements ModelDriven<Project>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findProjectListCombobox")
 	public String findProjectListCombobox() throws Exception
 	{
 		OutputJson(projectService.findProjectListCombobox());
@@ -129,6 +141,8 @@ public class ProjectAction extends BaseAction implements ModelDriven<Project>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/persistenceProject")
 	public String persistenceProject() throws Exception
 	{
 		Map<String, List<ProjectFollow>> map=new HashMap<String, List<ProjectFollow>>();
@@ -160,6 +174,8 @@ public class ProjectAction extends BaseAction implements ModelDriven<Project>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/delProject")
 	public String delProject() throws Exception
 	{
 		OutputJson(getMessage(projectService.delProject(getModel().getProjectId())));

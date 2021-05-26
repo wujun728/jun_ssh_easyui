@@ -3,19 +3,23 @@ package com.erp.action;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Namespace;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.erp.model.Log;
 import com.erp.service.LogsService;
 import com.erp.util.Constants;
 import com.erp.util.PageUtil;
 import com.erp.viewModel.GridModel;
-import com.opensymphony.xwork2.ModelDriven;
-@Namespace("/logs")
-@Action(value = "logsAction")
-public class LogsAction extends BaseAction implements ModelDriven<Log>
+
+import lombok.extern.slf4j.Slf4j;
+@Controller
+@RequestMapping("/logs")
+@Slf4j
+public class LogsAction extends BaseAction 
 {
 	private static final long serialVersionUID = 3658084064057123814L;
 	private Log log;
@@ -49,6 +53,8 @@ public class LogsAction extends BaseAction implements ModelDriven<Log>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findLogsAllList")
 	public String findLogsAllList() throws Exception
 	{
 		Map<String, Object> map=new HashMap<String, Object>();
@@ -76,6 +82,8 @@ public class LogsAction extends BaseAction implements ModelDriven<Log>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/persistenceLogs")
 	public String persistenceLogs() throws Exception
 	{
 		OutputJson(getMessage(logsService.persistenceLogs(getModel())),Constants.TEXT_TYPE_PLAIN);
@@ -94,6 +102,8 @@ public class LogsAction extends BaseAction implements ModelDriven<Log>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/delLogs")
 	public String delLogs() throws Exception
 	{
 		OutputJson(getMessage(logsService.delLogs(getModel().getLogId())));

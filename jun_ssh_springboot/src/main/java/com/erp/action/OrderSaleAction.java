@@ -4,9 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Namespace;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.erp.model.OrderSale;
@@ -15,11 +17,13 @@ import com.erp.service.OrderSaleService;
 import com.erp.util.Constants;
 import com.erp.util.PageUtil;
 import com.erp.viewModel.GridModel;
-import com.opensymphony.xwork2.ModelDriven;
 
-@Namespace("/orderSale")
-@Action(value = "orderSaleAction")
-public class OrderSaleAction extends BaseAction implements ModelDriven<OrderSale>
+import lombok.extern.slf4j.Slf4j;
+
+@Controller
+@RequestMapping("/orderSale")
+@Slf4j
+public class OrderSaleAction extends BaseAction
 {
 	private static final long serialVersionUID = -7570327381936186436L;
 	private OrderSaleService orderSaleService;
@@ -50,6 +54,8 @@ public class OrderSaleAction extends BaseAction implements ModelDriven<OrderSale
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findOrderSaleLineList")
 	public String findOrderSaleLineList() throws Exception
 	{
 		GridModel gridModel=new GridModel();
@@ -72,6 +78,8 @@ public class OrderSaleAction extends BaseAction implements ModelDriven<OrderSale
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findOrderSaleList")
 	public String findOrderSaleList() throws Exception
 	{
 		Map<String, Object> map=new HashMap<String, Object>();
@@ -99,6 +107,8 @@ public class OrderSaleAction extends BaseAction implements ModelDriven<OrderSale
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/persistenceOrderSale")
 	public String persistenceOrderSale() throws Exception
 	{
 		Map<String, List<OrderSaleLine>> map=new HashMap<String, List<OrderSaleLine>>();
@@ -130,6 +140,8 @@ public class OrderSaleAction extends BaseAction implements ModelDriven<OrderSale
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/delOrderSale")
 	public String delOrderSale() throws Exception
 	{
 		OutputJson(getMessage(orderSaleService.delOrderSale(getModel().getOrderSaleId())));
