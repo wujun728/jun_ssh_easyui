@@ -273,7 +273,45 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>4.2.6.Final</version>
 		</dependency>
- 
+
+		<!-- 加入struts2依赖包 -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-core</artifactId>
+			<version>2.3.15.2</version>
+			<exclusions>
+				<!-- 由于hibernate里面已经包含了javassist包，跟struts2的javassist冲突，所以struts2要排除这个引用 -->
+				<exclusion>
+					<groupId>javassist</groupId>
+					<artifactId>javassist</artifactId>
+				</exclusion>
+				<exclusion>
+					<groupId>commons-io</groupId>
+					<artifactId>commons-io</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<!-- struts2整合spring插件 -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-spring-plugin</artifactId>
+			<version>2.3.15.2</version>
+		</dependency>
+		<!-- struts2注解插件 -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-convention-plugin</artifactId>
+			<version>2.3.15.2</version>
+		</dependency>
+		<!-- 可以看到struts2应用里的Action等各种资源的影射情况 -->
+		<!-- 可以使用类似http://localhost:9999/sshe/config-browser/showConstants.sy的url来访问 -->
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-config-browser-plugin</artifactId>
+			<version>2.3.15.2</version>
+		</dependency>
+		
+    
     
   </dependencies>
   
