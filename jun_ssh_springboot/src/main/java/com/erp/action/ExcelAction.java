@@ -10,17 +10,22 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.struts2.ServletActionContext;
-import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Namespace;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.erp.model.CompanyInfo;
 import com.erp.service.ExcelService;
 import com.erp.util.ExcelUtil;
 import com.erp.util.FileUtil;
-@Namespace("/excel")
-@Action(value = "excelAction")
+
+import lombok.extern.slf4j.Slf4j;
+@Controller
+@RequestMapping("/excel")
+@Slf4j
 public class ExcelAction extends BaseAction
 {
 	private static final long serialVersionUID = 6711372422886609823L;
@@ -41,14 +46,15 @@ public class ExcelAction extends BaseAction
 		this.excelService = excelService;
 	}
 	
+	@GetMapping(value = "/CompanyInfoExcelExport")
 	public String CompanyInfoExcelExport() throws Exception
 	{
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
 		String excelName = format.format(new Date());
 		String path = "CompanyInfo-"+excelName+".xls";
 		String fegefu = File.separator;
-		HttpServletRequest request = ServletActionContext.getRequest();
-		HttpServletResponse response = ServletActionContext.getResponse();
+		HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
+		HttpServletResponse response = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getResponse();
 		String severPath = request.getSession().getServletContext().getRealPath(fegefu);
 		String allPath = severPath + "attachment" + fegefu + path;
 		FileOutputStream out = null;

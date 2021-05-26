@@ -3,15 +3,16 @@ package com.erp.action;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.struts2.ServletActionContext;
-import org.apache.struts2.convention.annotation.Namespace;
-import org.apache.struts2.convention.annotation.ParentPackage;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.alibaba.fastjson.JSON;
+import com.erp.common.BaseController;
 import com.erp.viewModel.Json;
-import com.opensymphony.xwork2.ActionSupport;
 
 /**
  * 类功能说明 TODO:基类action
@@ -25,9 +26,9 @@ import com.opensymphony.xwork2.ActionSupport;
  * @date 2013-4-19 上午08:18:21
  * @version V1.0
  */
-@ParentPackage("default-package")
-@Namespace("/")
-public class BaseAction extends ActionSupport
+//@ParentPackage("default-package")
+//@Namespace("/")
+public class BaseAction extends BaseController
 {
 	private static final long	serialVersionUID	= 7493364888065600947L;
 	public String searchName;
@@ -41,6 +42,13 @@ public class BaseAction extends ActionSupport
 	public String searchColumnNames;
 	public String searchConditions;
 	public String searchVals;
+	
+	@Autowired
+    private HttpServletRequest request1;
+	
+    @Autowired
+    private HttpServletResponse response1;
+
 	public String getSearchName()
 	{
 		return searchName;
@@ -130,13 +138,14 @@ public class BaseAction extends ActionSupport
 		this.searchVals = searchVals;
 	}
 	public void OutputJson(Object object) {
+		HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
+		HttpServletResponse response = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getResponse();
 		PrintWriter out = null;
-		HttpServletResponse httpServletResponse = ServletActionContext.getResponse();
-		httpServletResponse.setContentType("application/json");
-		httpServletResponse.setCharacterEncoding("utf-8");
+		response.setContentType("application/json");
+		response.setCharacterEncoding("utf-8");
 		String json=null;
 		try {
-			out = httpServletResponse.getWriter();
+			out = response.getWriter();
 			json = JSON.toJSONStringWithDateFormat(object, "yyyy-MM-dd HH:mm:ss");
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -145,13 +154,14 @@ public class BaseAction extends ActionSupport
 		out.close();
 	}
 	public void OutputJson(Object object,String type) {
+		HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
+		HttpServletResponse response = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getResponse();
 		PrintWriter out = null;
-		HttpServletResponse httpServletResponse = ServletActionContext.getResponse();
-		httpServletResponse.setContentType(type);
-		httpServletResponse.setCharacterEncoding("utf-8");
+		response.setContentType(type);
+		response.setCharacterEncoding("utf-8");
 		String json=null;
 		try {
-			out = httpServletResponse.getWriter();
+			out = response.getWriter();
 			json = JSON.toJSONStringWithDateFormat(object, "yyyy-MM-dd HH:mm:ss");
 		} catch (IOException e) {
 			e.printStackTrace();

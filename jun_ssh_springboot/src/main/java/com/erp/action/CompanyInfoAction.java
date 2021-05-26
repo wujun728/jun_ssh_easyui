@@ -5,9 +5,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Namespace;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.erp.model.CompanyInfo;
@@ -15,7 +17,8 @@ import com.erp.service.CompanyInfoService;
 import com.erp.util.Constants;
 import com.erp.util.PageUtil;
 import com.erp.viewModel.GridModel;
-import com.opensymphony.xwork2.ModelDriven;
+
+import lombok.extern.slf4j.Slf4j;
 
 /**
 * 类功能说明 TODO:公司信息处理action
@@ -30,9 +33,10 @@ import com.opensymphony.xwork2.ModelDriven;
 * @date 2013-4-28 下午12:51:26
 * @version V1.0
 */
-@Namespace("/companyInfo")
-@Action(value = "companyInfoAction")
-public class CompanyInfoAction extends BaseAction implements ModelDriven<CompanyInfo>{
+@Controller
+@RequestMapping("/companyInfo")
+@Slf4j
+public class CompanyInfoAction extends BaseAction{
 	//private static final Logger logger = Logger.getLogger(LoginAction.class);
 	private static final long serialVersionUID = -3276708781259160129L;
 	private CompanyInfoService companyInfoService;
@@ -65,6 +69,8 @@ public class CompanyInfoAction extends BaseAction implements ModelDriven<Company
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/persistenceCompanyInfo")
 	public String persistenceCompanyInfo() throws Exception {
 		System.out.println(inserted);
 		//String sdfString="[{"name":"123123","tel":"123","fax":"123","address":"123","zip":"123","email":"123123@qq.com","contact":"123","description":"123123"}]";
@@ -88,6 +94,8 @@ public class CompanyInfoAction extends BaseAction implements ModelDriven<Company
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/persistenceCompanyInfoDlg")
 	public String persistenceCompanyInfoDlg() throws Exception
 	{
 		List<CompanyInfo> list=new ArrayList<CompanyInfo>();
@@ -114,6 +122,8 @@ public class CompanyInfoAction extends BaseAction implements ModelDriven<Company
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findAllCompanyInfoList")
 	public String findAllCompanyInfoList() throws Exception {
 		Map<String, Object> map=new HashMap<String, Object>();
 		if (null!=searchValue&&!"".equals(searchValue))
@@ -140,6 +150,8 @@ public class CompanyInfoAction extends BaseAction implements ModelDriven<Company
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/delCompanyInfo")
 	public String delCompanyInfo() throws Exception
 	{
 		OutputJson(getMessage(companyInfoService.delCompanyInfo(getModel().getCompanyId())));

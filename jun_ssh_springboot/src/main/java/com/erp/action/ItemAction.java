@@ -3,20 +3,24 @@ package com.erp.action;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Namespace;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.erp.model.Item;
 import com.erp.service.ItemService;
 import com.erp.util.Constants;
 import com.erp.util.PageUtil;
 import com.erp.viewModel.GridModel;
-import com.opensymphony.xwork2.ModelDriven;
 
-@Namespace("/item")
-@Action(value = "itemAction")
-public class ItemAction extends BaseAction implements ModelDriven<Item>
+import lombok.extern.slf4j.Slf4j;
+
+@Controller
+@RequestMapping("/item")
+@Slf4j
+public class ItemAction extends BaseAction
 {	
 	private static final long serialVersionUID = -5649548096030365832L;
 	private ItemService itemService;
@@ -60,6 +64,8 @@ public class ItemAction extends BaseAction implements ModelDriven<Item>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findItemByMyid")
 	public String findItemByMyid() throws Exception
 	{
 		OutputJson(itemService.findItemByMyid(getModel().getMyid(),suplierId));
@@ -78,6 +84,8 @@ public class ItemAction extends BaseAction implements ModelDriven<Item>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findBrandList")
 	public String findBrandList() throws Exception{
 		OutputJson(itemService.findBrandList());
 		return null;
@@ -95,6 +103,8 @@ public class ItemAction extends BaseAction implements ModelDriven<Item>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/addBrands")
 	public String addBrands() throws Exception
 	{
 		OutputJson(getMessage(itemService.addBrands(getModel().getName())));
@@ -112,6 +122,8 @@ public class ItemAction extends BaseAction implements ModelDriven<Item>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findItemList")
 	public String findItemList() throws Exception
 	{
 		Map<String, Object> map=new HashMap<String, Object>();
@@ -139,6 +151,8 @@ public class ItemAction extends BaseAction implements ModelDriven<Item>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/persistenceItem")
 	public String persistenceItem() throws Exception
 	{
 		OutputJson(getMessage(itemService.persistenceItem(getModel())),Constants.TEXT_TYPE_PLAIN);
@@ -157,6 +171,8 @@ public class ItemAction extends BaseAction implements ModelDriven<Item>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/delItem")
 	public String delItem() throws Exception
 	{
 		OutputJson(getMessage(itemService.delItem(getModel().getItemId())));
