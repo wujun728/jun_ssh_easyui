@@ -8,9 +8,11 @@ import org.apache.shiro.authc.LockedAccountException;
 import org.apache.shiro.authc.UnknownAccountException;
 import org.apache.shiro.session.UnknownSessionException;
 import org.apache.shiro.subject.Subject;
-import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Result;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.erp.service.LoginService;
 import com.erp.shiro.CaptchaUsernamePasswordToken;
@@ -18,21 +20,14 @@ import com.erp.shiro.IncorrectCaptchaException;
 import com.erp.util.Constants;
 import com.erp.viewModel.Json;
 
-/**
- * 类功能说明 TODO:
- * 类修改者	修改日期
- * 修改说明
- * <p>Title: LoginAction.java</p>
- * <p>Description:福产流通科技</p>
- * <p>Copyright: Copyright (c) 2012</p>
- * <p>Company:福产流通科技</p>
- * @author Wujun
- * @date 2013-4-19 上午10:13:47
- * @version V1.0
- */
-@Action(value = "systemAction", results = { @Result(name = Constants.LOGIN_SUCCESS_URL, location = "/index.jsp"),
-		@Result(name = Constants.LOGIN_URL,location = "/login.jsp"),
-		@Result(name = Constants.LOGIN_LOGIN_OUT_URL,type="redirect",location = "systemAction!loginInit.action")})
+import lombok.extern.slf4j.Slf4j;
+
+//@Action(value = "systemAction", results = { @Result(name = Constants.LOGIN_SUCCESS_URL, location = "/index.jsp"),
+//		@Result(name = Constants.LOGIN_URL,location = "/login.jsp"),
+//		@Result(name = Constants.LOGIN_LOGIN_OUT_URL,type="redirect",location = "systemAction!loginInit.action")})
+@Slf4j
+@Controller
+@RequestMapping("/")
 public class LoginAction extends BaseAction
 {	
 	private static final Logger logger = Logger.getLogger(LoginAction.class);
@@ -95,6 +90,9 @@ public class LoginAction extends BaseAction
 	{
 		this.password = password;
 	}
+
+	@ResponseBody
+	@GetMapping(value = "/load")
 	public String load() throws Exception
 	{	
 		Subject subject=SecurityUtils.getSubject();
@@ -150,6 +148,9 @@ public class LoginAction extends BaseAction
 	* @return String    返回类型 
 	* @throws 
 	*/
+
+	@ResponseBody
+	@GetMapping(value = "/logout")
 	public String logout() throws Exception
 	{
 		SecurityUtils.getSubject().logout();
@@ -170,6 +171,9 @@ public class LoginAction extends BaseAction
 	* @return String    返回类型 
 	* @throws 
 	*/
+
+	@ResponseBody
+	@GetMapping(value = "/findAllFunctionList")
 	public String findAllFunctionList() throws Exception
 	{
 		OutputJson(loginService.findMenuList());

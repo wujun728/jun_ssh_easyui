@@ -1,16 +1,20 @@
 package com.erp.action;
 
-import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Namespace;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.erp.model.Warehouse;
 import com.erp.service.WarehouseService;
-import com.opensymphony.xwork2.ModelDriven;
 
-@Namespace("/warehouse")
-@Action(value = "warehouseAction")
-public class WarehouseAction extends BaseAction implements ModelDriven<Warehouse>
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Controller
+@RequestMapping("/warehouse")
+public class WarehouseAction extends BaseAction 
 {
 	private static final long serialVersionUID = -4202679640252934032L;
 	private Warehouse warehouse;
@@ -43,6 +47,8 @@ public class WarehouseAction extends BaseAction implements ModelDriven<Warehouse
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findWarehouseListCombobox")
 	public String findWarehouseListCombobox() throws Exception
 	{
 		OutputJson(warehouseService.findWarehouseListCombobox());

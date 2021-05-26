@@ -1,18 +1,22 @@
 package com.erp.action;
 
-import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Namespace;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.erp.model.SystemCode;
 import com.erp.service.SystemCodeService;
 import com.erp.util.Constants;
 import com.erp.viewModel.Json;
-import com.opensymphony.xwork2.ModelDriven;
 
-@Namespace("/systemCode")
-@Action(value = "systemCodeAction")
-public class SystemCodeAction extends BaseAction implements ModelDriven<SystemCode>
+import lombok.extern.slf4j.Slf4j;
+
+@Controller
+@RequestMapping("/systemCode")
+@Slf4j
+public class SystemCodeAction extends BaseAction 
 {
 	private static final long serialVersionUID = -7594149055359363935L;
 	private SystemCodeService systemCodeService;
@@ -79,6 +83,8 @@ public class SystemCodeAction extends BaseAction implements ModelDriven<SystemCo
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findSystemCodeList")
 	public String findSystemCodeList() throws Exception
 	{
 		OutputJson(systemCodeService.findSystemCodeList(id));
@@ -97,6 +103,8 @@ public class SystemCodeAction extends BaseAction implements ModelDriven<SystemCo
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findAllSystemCodeList")
 	public String findAllSystemCodeList() throws Exception
 	{
 		OutputJson(systemCodeService.findSystemCodeList());
@@ -115,6 +123,8 @@ public class SystemCodeAction extends BaseAction implements ModelDriven<SystemCo
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/persistenceSystemCodeDig")
 	public String persistenceSystemCodeDig() throws Exception
 	{
 		OutputJson(getMessage(systemCodeService.persistenceSystemCodeDig(getModel(),permissionName,codePid)),Constants.TEXT_TYPE_PLAIN);
@@ -133,6 +143,8 @@ public class SystemCodeAction extends BaseAction implements ModelDriven<SystemCo
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/delSystemCode")
 	public String delSystemCode() throws Exception
 	{
 		Json json=new Json();
@@ -161,6 +173,8 @@ public class SystemCodeAction extends BaseAction implements ModelDriven<SystemCo
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findSystemCodeByType")
 	public String findSystemCodeByType() throws Exception
 	{
 		OutputJson(systemCodeService.findSystemCodeByType(getModel().getCodeMyid()));

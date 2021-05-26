@@ -18,9 +18,9 @@ import com.erp.util.Constants;
 
 import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Controller
 @RequestMapping("/area")
-@Slf4j
 public class AreaAction extends BaseAction {
 	private static final long serialVersionUID = 5060080266833835121L;
 	

@@ -4,9 +4,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.struts2.convention.annotation.Action;
-import org.apache.struts2.convention.annotation.Namespace;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
 import com.erp.model.Users;
@@ -15,11 +17,13 @@ import com.erp.util.Constants;
 import com.erp.util.PageUtil;
 import com.erp.viewModel.GridModel;
 import com.erp.viewModel.Json;
-import com.opensymphony.xwork2.ModelDriven;
 
-@Namespace("/user")
-@Action(value = "userAction")
-public class UserAction extends BaseAction implements ModelDriven<Users>
+import lombok.extern.slf4j.Slf4j;
+
+@Controller
+@RequestMapping("/user")
+@Slf4j
+public class UserAction extends BaseAction 
 {
 	private static final long serialVersionUID = -8188592660918385632L;
 	private UserService userService;
@@ -63,6 +67,8 @@ public class UserAction extends BaseAction implements ModelDriven<Users>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findAllUserList")
 	public String findAllUserList() throws Exception
 	{
 		Map<String, Object> map=new HashMap<String, Object>();
@@ -90,6 +96,8 @@ public class UserAction extends BaseAction implements ModelDriven<Users>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/persistenceUsers")
 	public String persistenceUsers() throws Exception
 	{
 		Map<String, List<Users>> map=new HashMap<String, List<Users>>();
@@ -119,6 +127,8 @@ public class UserAction extends BaseAction implements ModelDriven<Users>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/persistenceUsersDig")
 	public String persistenceUsersDig() throws Exception
 	{
 		OutputJson(getMessage(userService.persistenceUsers(getModel())),Constants.TEXT_TYPE_PLAIN);
@@ -137,6 +147,8 @@ public class UserAction extends BaseAction implements ModelDriven<Users>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/delUsers")
 	public String delUsers() throws Exception
 	{
 		OutputJson(getMessage(userService.delUsers(getModel().getUserId())));
@@ -154,6 +166,8 @@ public class UserAction extends BaseAction implements ModelDriven<Users>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/findUsersRolesList")
 	public String findUsersRolesList() throws Exception
 	{
 		OutputJson(userService.findUsersRolesList(getModel().getUserId()));
@@ -171,6 +185,8 @@ public class UserAction extends BaseAction implements ModelDriven<Users>
 	* @return String    返回类型 
 	* @throws 
 	*/
+	@ResponseBody
+	@GetMapping(value = "/saveUserRoles")
 	public String saveUserRoles() throws Exception
 	{
 		Json json=new Json();
