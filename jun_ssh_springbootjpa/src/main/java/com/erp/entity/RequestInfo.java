@@ -1,4 +1,4 @@
-package com.erp.request;
+package com.erp.entity;
 
 import java.io.Serializable;
 

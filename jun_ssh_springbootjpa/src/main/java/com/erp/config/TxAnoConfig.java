@@ -18,7 +18,7 @@ import java.util.Map;
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @Configuration
 @EnableJpaRepositories(basePackages = "com.erp.dao")
-@EntityScan(basePackages = "com.erp.entity")
+@EntityScan(basePackages = {"com.erp.entity","com.erp.model"})
 public class TxAnoConfig {
 	/*事务拦截类型*/
     @Bean("txSource")

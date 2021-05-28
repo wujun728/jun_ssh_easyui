@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import com.erp.entity.Oauth2Client;
 import com.erp.entity.Oauth2User;
-import com.erp.request.RequestInfo;
+import com.erp.entity.RequestInfo;
 import com.erp.service.CilentService;
 import com.erp.service.UserService;
 
