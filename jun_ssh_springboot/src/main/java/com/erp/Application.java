@@ -10,12 +10,14 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
 
 //@ComponentScan(value = "com.erp")
+//@ComponentScan(value = {"com.erp.daoImpl","com.erp.serviceImpl"})
 // @EnableTransactionManagement // 开启事务管理
 @MapperScan("com.**.dao")
 //改造过程中先使用旧版本的xml配置文件（后面把XML改造成注解版之后会去掉这个注解）
-@ImportResource(locations = {"classpath:spring.xml"})
+//@ImportResource(locations = {"classpath:spring.xml"})
 //使用hibernate的 sessionFactory ，不使用JPA的自动配置
-@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, JpaRepositoriesAutoConfiguration.class})
+//@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class, JpaRepositoriesAutoConfiguration.class})
+@SpringBootApplication
 public class Application extends SpringBootServletInitializer {
 
 	//这里使用这种方式是因为项目会打成war包，部署到tomcat。

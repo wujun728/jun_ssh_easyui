@@ -14,7 +14,7 @@ import com.erp.dao.PublicDao;
 import com.erp.util.Constants;
 
 @SuppressWarnings("unchecked")
-@Repository("publicDao")
+@Repository("PublicDaoImpl")
 public class PublicDaoImpl<T> implements PublicDao<T> {
 
 	private SessionFactory sessionFactory;
