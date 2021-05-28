@@ -1,19 +1,8 @@
-package com.gs.test;
+package com.erp.test;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @ProjectName: srpingbootdatajpa
- * @Package: com.gs.test
- * @Description: java类作用描述
- * @Author: Administrator
- * @CreateDate: 2018/4/23 16:44
- * @UpdateUser: Administrator
- * @UpdateDate: 2018/4/23 16:44
- * @UpdateRemark: The modified content
- * @Version: 1.0
- **/
 public class MyTest {
     public static int sum_add(int n,int sum){
         boolean is_end=true;

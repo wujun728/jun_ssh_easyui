@@ -10,17 +10,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @ProjectName: srpingbootdatajpa
- * @Package: com.gs.controller
- * @Description: java类作用描述
- * @Author: Administrator
- * @CreateDate: 2018/4/27 9:40
- * @UpdateUser: Administrator
- * @UpdateDate: 2018/4/27 9:40
- * @UpdateRemark: The modified content
- * @Version: 1.0
- **/
 @Controller
 public class IndexController {
 

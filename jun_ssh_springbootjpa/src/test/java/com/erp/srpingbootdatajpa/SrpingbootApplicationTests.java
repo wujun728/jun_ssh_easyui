@@ -1,4 +1,4 @@
-package com.gs.srpingbootdatajpa;
+package com.erp.srpingbootdatajpa;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -7,7 +7,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SrpingbootdatajpaApplicationTests {
+public class SrpingbootApplicationTests {
 
     @Test
     public void contextLoads() {

@@ -15,21 +15,10 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * @ProjectName: srpingbootdatajpa
- * @Package: com.gs.config
- * @Description: java类作用描述
- * @Author: Administrator
- * @CreateDate: 2018/4/24 17:35
- * @UpdateUser: Administrator
- * @UpdateDate: 2018/4/24 17:35
- * @UpdateRemark: The modified content
- * @Version: 1.0
- **/
 @Order(Ordered.HIGHEST_PRECEDENCE)
 @Configuration
-@EnableJpaRepositories(basePackages = "com.gs.dao")
-@EntityScan(basePackages = "com.gs.entity")
+@EnableJpaRepositories(basePackages = "com.erp.dao")
+@EntityScan(basePackages = "com.erp.entity")
 public class TxAnoConfig {
 	/*事务拦截类型*/
     @Bean("txSource")
@@ -66,7 +55,7 @@ public class TxAnoConfig {
     public AspectJExpressionPointcutAdvisor pointcutAdvisor(TransactionInterceptor txInterceptor){
         AspectJExpressionPointcutAdvisor pointcutAdvisor = new AspectJExpressionPointcutAdvisor();
         pointcutAdvisor.setAdvice(txInterceptor);
-        pointcutAdvisor.setExpression("execution(* com.gs.service.impl.*.*(..))");
+        pointcutAdvisor.setExpression("execution(* com.erp.service.impl.*.*(..))");
         return pointcutAdvisor;
     }
 

@@ -9,10 +9,6 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
-/**
- * @Author Administrator
- * @CreateDate 2018/4/17 11:31
- */
 @Repository
 public class ClientDaoImpl implements ClientDao {
 

@@ -15,10 +15,6 @@ import javax.servlet.http.HttpSession;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 
-/**
- * @Author Administrator
- * @CreateDate 2018/4/17 10:21
- */
 
 @RestController
 @RequestMapping("/user")

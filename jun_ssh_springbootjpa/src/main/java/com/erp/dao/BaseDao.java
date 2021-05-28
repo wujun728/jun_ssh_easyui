@@ -8,17 +8,6 @@ import org.hibernate.query.Query;
 
 import com.erp.utils.Pagination;
 
-/**
- * @ProjectName: srpingbootdatajpa
- * @Package: com.gs.dao
- * @Description: java类作用描述
- * @Author: Administrator
- * @CreateDate: 2018/7/6 10:27
- * @UpdateUser: Administrator
- * @UpdateDate: 2018/7/6 10:27
- * @UpdateRemark: The modified content
- * @Version: 1.0
- **/
 public interface BaseDao<T,ID extends Serializable>{
 
     public void save(T o);

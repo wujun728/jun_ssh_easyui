@@ -27,7 +27,7 @@ public class UserServiceImpl implements UserService {
         userDao.save(u);
     }
     
-    public void deleteById() {
-    	userDao.deleteById(1L);;
-    }
+//    public void deleteById() {
+//    	userDao.deleteById(1L);;
+//    }
 }

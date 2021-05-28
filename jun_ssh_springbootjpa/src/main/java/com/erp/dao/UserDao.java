@@ -7,10 +7,6 @@ import org.springframework.stereotype.Repository;
 
 import com.erp.entity.Oauth2User;
 
-/**
- * @Author Administrator
- * @CreateDate 2018/4/17 10:13
- */
 @Repository
 public interface UserDao extends JpaRepository<Oauth2User,Long>{
 
