@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.jun.erp</groupId>
-    <artifactId>jun_ssh_springbootjpa</artifactId>
+    <artifactId>jun_ssh_springboot</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>jun_ssh_springbootjpa</name>
+    <name>jun_ssh_springboot</name>
     <description>Demo project for Spring Boot</description>
 
     <parent>
@@ -19,7 +19,7 @@
 	</parent>
 
     <properties>
-        <project.name>jun_ssh_springbootjpa</project.name>
+        <project.name>jun_ssh_springboot</project.name>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
