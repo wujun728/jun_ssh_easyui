@@ -23,29 +23,32 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/area")
 public class AreaAction extends BaseAction {
 	private static final long serialVersionUID = 5060080266833835121L;
+
+	@Autowired
+	private HttpServletRequest request;
+
+	@Autowired
+	private HttpServletResponse response;
 	
 	@Autowired
-    private HttpServletRequest request;
-	
-    @Autowired
-    private HttpServletResponse response;
-    
 	private AreaService areaService;
+	
+//	@Autowired
 	private City city;
 
-	public City getCity() {
-		return city;
-	}
-
-	@Autowired
-	public void setCity(City city) {
-		this.city = city;
-	}
-
-	@Autowired
-	public void setAreaService(AreaService areaService) {
-		this.areaService = areaService;
-	}
+//	public City getCity() {
+//		return city;
+//	}
+//
+//	@Autowired
+//	public void setCity(City city) {
+//		this.city = city;
+//	}
+//
+//	@Autowired
+//	public void setAreaService(AreaService areaService) {
+//		this.areaService = areaService;
+//	}
 
 	@ResponseBody
 	@GetMapping(value = "/findCities")

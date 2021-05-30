@@ -17,10 +17,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
+import com.erp.dto.Json;
 import com.erp.model.Permission;
 import com.erp.service.FunctionService;
 import com.erp.util.Constants;
-import com.erp.viewModel.Json;
 
 import lombok.extern.slf4j.Slf4j;
 

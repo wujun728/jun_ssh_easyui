@@ -2,8 +2,8 @@ package com.erp.service;
 
 import java.util.List;
 
+import com.erp.dto.TreeModel;
 import com.erp.model.Organization;
-import com.erp.viewModel.TreeModel;
 
 public interface OrganizationService 
 {

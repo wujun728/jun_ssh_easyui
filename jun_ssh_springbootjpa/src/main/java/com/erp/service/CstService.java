@@ -3,10 +3,10 @@ package com.erp.service;
 import java.util.List;
 import java.util.Map;
 
+import com.erp.dto.TreeModel;
 import com.erp.model.Customer;
 import com.erp.model.CustomerContact;
 import com.erp.util.PageUtil;
-import com.erp.viewModel.TreeModel;
 
 public interface CstService
 {

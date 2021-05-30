@@ -2,9 +2,9 @@ package com.erp.service;
 
 import java.util.List;
 
+import com.erp.dto.TreeGridModel;
+import com.erp.dto.TreeModel;
 import com.erp.model.Permission;
-import com.erp.viewModel.TreeGridModel;
-import com.erp.viewModel.TreeModel;
 
 /**
 * 类功能说明 TODO:程式管理service接口

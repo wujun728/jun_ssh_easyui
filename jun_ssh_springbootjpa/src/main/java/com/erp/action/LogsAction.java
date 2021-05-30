@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.erp.dto.GridModel;
 import com.erp.model.Log;
 import com.erp.service.LogsService;
 import com.erp.util.Constants;
 import com.erp.util.PageUtil;
-import com.erp.viewModel.GridModel;
 
 import lombok.extern.slf4j.Slf4j;
 @Controller

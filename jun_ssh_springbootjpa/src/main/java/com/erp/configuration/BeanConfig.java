@@ -21,9 +21,9 @@ public class BeanConfig {
 //		return hemf.getSessionFactory();
 //	}
 	
-	@Bean
-    public SessionFactory sessionFactory(@Qualifier("entityManagerFactory") EntityManagerFactory emf){
-         return emf.unwrap(SessionFactory.class);
-     }
+//	@Bean
+//    public SessionFactory sessionFactory(@Qualifier("entityManagerFactory") EntityManagerFactory emf){
+//         return emf.unwrap(SessionFactory.class);
+//     }
 
 }

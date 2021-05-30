@@ -3,11 +3,9 @@ package com.erp.service;
 import java.util.List;
 import java.util.Map;
 
-import com.erp.entity.Oauth2User;
-import com.erp.exception.MyException;
+import com.erp.dto.UserRoleModel;
 import com.erp.model.Users;
 import com.erp.util.PageUtil;
-import com.erp.viewModel.UserRoleModel;
 
 /**
  * @Author Administrator
@@ -15,8 +13,8 @@ import com.erp.viewModel.UserRoleModel;
  */
 public interface UserService {
 
-    Oauth2User findOauth2UsersByName(String username);
-    void  saveUser(Oauth2User u) throws Exception;
+//    Oauth2User findOauth2UsersByName(String username);
+//    void  saveUser(Oauth2User u) throws Exception;
     
 	boolean persistenceUsers(Map<String, List<Users>> map );
 

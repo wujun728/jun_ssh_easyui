@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.erp.dto.Json;
 import com.erp.service.LoginService;
 import com.erp.shiro.CaptchaUsernamePasswordToken;
 import com.erp.shiro.IncorrectCaptchaException;
 import com.erp.util.Constants;
-import com.erp.viewModel.Json;
 
 import lombok.extern.slf4j.Slf4j;
 

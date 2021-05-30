@@ -27,12 +27,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
+import com.erp.dto.GridModel;
 import com.erp.model.Bug;
 import com.erp.service.BugService;
 import com.erp.util.Constants;
 import com.erp.util.PageUtil;
 import com.erp.util.ResourceUtil;
-import com.erp.viewModel.GridModel;
 
 import lombok.extern.slf4j.Slf4j;
 

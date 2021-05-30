@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.erp.dto.Json;
 import com.erp.model.Organization;
 import com.erp.service.OrganizationService;
 import com.erp.util.Constants;
-import com.erp.viewModel.Json;
 
 import lombok.extern.slf4j.Slf4j;
 

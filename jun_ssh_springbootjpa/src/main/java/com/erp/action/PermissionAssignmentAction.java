@@ -21,11 +21,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
+import com.erp.dto.GridModel;
+import com.erp.dto.Json;
 import com.erp.model.Role;
 import com.erp.service.PermissionAssignmentService;
 import com.erp.util.Constants;
-import com.erp.viewModel.GridModel;
-import com.erp.viewModel.Json;
 
 import lombok.extern.slf4j.Slf4j;
 

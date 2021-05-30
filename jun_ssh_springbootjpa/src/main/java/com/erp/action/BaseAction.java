@@ -12,7 +12,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.alibaba.fastjson.JSON;
 import com.erp.common.BaseController;
-import com.erp.viewModel.Json;
+import com.erp.dto.Json;
 
 /**
  * 类功能说明 TODO:基类action

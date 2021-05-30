@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.erp.dto.GridModel;
 import com.erp.model.CustomerContact;
 import com.erp.service.CstContactService;
-import com.erp.viewModel.GridModel;
 
 import lombok.extern.slf4j.Slf4j;
 

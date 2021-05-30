@@ -11,12 +11,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
+import com.erp.dto.GridModel;
 import com.erp.model.OrderPurchase;
 import com.erp.model.OrderPurchaseLine;
 import com.erp.service.OrderPurchaseService;
 import com.erp.util.Constants;
 import com.erp.util.PageUtil;
-import com.erp.viewModel.GridModel;
 
 import lombok.extern.slf4j.Slf4j;
 
