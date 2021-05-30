@@ -1,5 +1,5 @@
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:760)- testWhileIdle is true, validationQuery not set
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [restartedMain] (com.alibaba.druid.pool.DruidDataSource:760) - testWhileIdle is true, validationQuery not set
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -28,7 +28,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -57,7 +57,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -86,7 +86,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -115,7 +115,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -144,7 +144,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -173,7 +173,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -202,7 +202,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -231,7 +231,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -260,7 +260,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -289,7 +289,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -318,7 +318,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -347,7 +347,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -376,7 +376,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -405,7 +405,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -434,7 +434,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -463,7 +463,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -491,7 +491,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -519,7 +519,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -547,7 +547,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -575,7 +575,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -603,7 +603,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -631,7 +631,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -659,7 +659,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -687,7 +687,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -715,7 +715,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -743,7 +743,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -771,7 +771,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -799,7 +799,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -827,7 +827,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -855,7 +855,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -883,7 +883,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:56:39 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:56:39 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -911,7 +911,7 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:57:09 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:09 ERROR] [Druid-ConnectionPool-Create-1944663405] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLException: The server time zone value 'unknown' is unrecognized or represents more than one time zone. You must configure either the server or JDBC driver (via the serverTimezone configuration property) to use a more specifc time zone value if you want to utilize time zone support.
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:129)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -939,8 +939,8 @@ Caused by: com.mysql.cj.exceptions.InvalidConnectionAttributeException: The serv
 	at com.mysql.cj.jdbc.ConnectionImpl.connectOneTryOnly(ConnectionImpl.java:966)
 	at com.mysql.cj.jdbc.ConnectionImpl.createNewIO(ConnectionImpl.java:825)
 	... 6 more
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:760)- testWhileIdle is true, validationQuery not set
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [restartedMain] (com.alibaba.druid.pool.DruidDataSource:760) - testWhileIdle is true, validationQuery not set
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -952,7 +952,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -964,7 +964,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -976,7 +976,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -988,7 +988,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1000,7 +1000,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1012,7 +1012,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1024,7 +1024,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1036,7 +1036,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1048,7 +1048,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1060,7 +1060,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1072,7 +1072,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1084,7 +1084,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1096,7 +1096,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1108,7 +1108,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1120,7 +1120,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1132,7 +1132,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1144,7 +1144,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1156,7 +1156,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1168,7 +1168,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1180,7 +1180,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1192,7 +1192,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1204,7 +1204,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1216,7 +1216,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1228,7 +1228,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1240,7 +1240,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1252,7 +1252,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1264,7 +1264,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1276,7 +1276,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1288,7 +1288,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1300,7 +1300,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:22 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:22 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1312,8 +1312,8 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:57:46 ERROR (com.alibaba.druid.pool.DruidDataSource:760)- testWhileIdle is true, validationQuery not set
-2021-05-30 23:57:52 ERROR (com.alibaba.druid.pool.DruidDataSource:1651)- create connection error
+[2021-05-30 23:57:46 ERROR] [restartedMain] (com.alibaba.druid.pool.DruidDataSource:760) - testWhileIdle is true, validationQuery not set
+[2021-05-30 23:57:52 ERROR] [Druid-ConnectionPool-Create-2139609363] (com.alibaba.druid.pool.DruidDataSource:1651) - create connection error
 java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
 	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
@@ -1325,5 +1325,4 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1358)
 	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1414)
 	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:1649)
-2021-05-30 23:58:27 ERROR (com.alibaba.druid.pool.DruidDataSource:760)- testWhileIdle is true, validationQuery not set
-2021-05-31 00:00:29 ERROR (com.alibaba.druid.pool.DruidDataSource:760)- testWhileIdle is true, validationQuery not set
+[2021-05-30 23:58:27 ERROR] [restartedMain] (com.alibaba.druid.pool.DruidDataSource:760) - testWhileIdle is true, validationQuery not set

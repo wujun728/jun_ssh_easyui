@@ -1,17 +1,14 @@
 package com.erp;
 
-import javax.persistence.EntityManagerFactory;
-
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
+//@SpringBootApplication(exclude = {JpaRepositoriesAutoConfiguration.class})
 @ServletComponentScan
 //@EntityScan(basePackages = {"com.erp.model","com.erp.entity"})
 //@ComponentScan(basePackages = "com.erp")
