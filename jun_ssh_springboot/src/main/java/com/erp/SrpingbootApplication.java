@@ -8,7 +8,6 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 
 @SpringBootApplication
-//@SpringBootApplication(exclude = {JpaRepositoriesAutoConfiguration.class})
 @ServletComponentScan
 //@EntityScan(basePackages = {"com.erp.model","com.erp.entity"})
 //@ComponentScan(basePackages = "com.erp")
@@ -33,6 +32,5 @@ public class SrpingbootApplication  extends SpringBootServletInitializer {
 //        }
 //        return entityManagerFactory.unwrap(SessionFactory.class);
 //    }
-    
     
 }

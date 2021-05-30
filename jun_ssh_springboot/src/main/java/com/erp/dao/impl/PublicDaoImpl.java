@@ -31,14 +31,20 @@ public class PublicDaoImpl<T>  implements PublicDao<T> {
 	
 	@Autowired
     private JdbcTemplate jdbcTemplate;
+	
+
+	@Autowired
+	private SessionFactory sessionFactory;
+	
+	private Session getCurrentSession() {
+		return sessionFactory.getCurrentSession();
+	}
  
     /**
      * 泛型的类型
      */
     private final Class<Entity> entityClass;
  
-
-    
     /**
      * PublicDaoImpl的构造方法
      */
@@ -59,13 +65,6 @@ public class PublicDaoImpl<T>  implements PublicDao<T> {
         }
         return null;
     }
-    
-	@Autowired
-	private SessionFactory sessionFactory;
-	private Session getCurrentSession() {
-		return sessionFactory.getCurrentSession();
-	}
-	
 	
 	public Serializable save(T o) {
 		Serializable serializable = this.getCurrentSession().save(o);
