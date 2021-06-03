@@ -7,7 +7,8 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	response.setDateHeader("Expires", 0); 
 	response.flushBuffer();*/
 %>
-
+<base href="http://localhost:8081/erp/" />
+<!-- <base target="_blank" /> -->
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
   <head>
@@ -97,7 +98,7 @@ margin-left: 88px;
 				<img src="extend/toplogo-jeecg.png" />
 			</div>
 			<div class="formLogin">
-				<form name="formLogin" action="systemAction!load.action" id="formLogin" method="post">
+				<form name="formLogin" action="<%=basePath%>system/load" id="formLogin" method="post">
 					<input name="userKey" type="hidden" id="userKey" value="D1B5CC2FE46C4CC983C073BCA897935608D926CD32992B5900" />
 					<div class="tip">
 						<input class="userName" name="userName" type="text" id="userName" title="用户名" iscookie="true" value="admin" nullmsg="请输入用户名!" />
