@@ -8,7 +8,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 <html>
   <head>
     <base href="<%=basePath%>">
-    <title>程式管理</title>
+    <title>菜单管理</title>
 	<meta http-equiv="pragma" content="no-cache">
 	<meta http-equiv="cache-control" content="no-cache">
 	<meta http-equiv="expires" content="0">    
@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				 $grid=$dg.treegrid({
 					width : 'auto',
 					height : $(this).height()-90,
-					url : "function/functionAction!findAllFunctionList.action",
+					url : "function/findAllFunctionList",
 					rownumbers:true,
 					animate: true,
 					collapsible: true,
@@ -35,17 +35,17 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					idField: 'permissionId',
 					treeField: 'name',
 					 frozenColumns:[[
-					                 {title:'程式名称',field:'name',editor : {type:'validatebox',options:{required:true}},width:parseInt($(this).width()*0.2),
+					                 {title:'菜单名称',field:'name',editor : {type:'validatebox',options:{required:true}},width:parseInt($(this).width()*0.2),
 					                  formatter:function(value){
 					                   return '<span style="color:red">'+value+'</span>';
 					                  }
 					                 }
 					    ]],
 					columns : [ [ //{field:'ck',checkbox:true},
-					              //{field : 'name',title : '程式名称',width : 250,editor : {type:'validatebox',options:{required:true}}},
-					              {field : 'pname',title : '父程式名称',width : parseInt($(this).width()*0.1),align : 'left'},
+					              //{field : 'name',title : '菜单名称',width : 250,editor : {type:'validatebox',options:{required:true}}},
+					              {field : 'pname',title : '父菜单名称',width : parseInt($(this).width()*0.1),align : 'left'},
 					              {field : 'sort',title : '排序编码',width : parseInt($(this).width()*0.1),editor:{type:'numberbox'}},
-					              {field : 'iconCls',title : '程式图标',align : 'center',width : parseInt($(this).width()*0.1),
+					              {field : 'iconCls',title : '菜单图标',align : 'center',width : parseInt($(this).width()*0.1),
 					            	  formatter:function(value,row){
 					            		  return "<span class='"+row.iconCls+"' style='display:inline-block;vertical-align:middle;width:16px;height:16px;'></span>";
 										},
@@ -61,9 +61,9 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												value : 'wrench'
 											}
 										}},
-					              {field : 'url',title : '程式路径',width : parseInt($(this).width()*0.1),align : 'left',editor : {type:'validatebox',options:{required:true}}},
-					              {field : 'myid',title : '程式编码',width : parseInt($(this).width()*0.1),align : 'left',editor : {type:'validatebox',options:{required:true}}},
-					              {field : 'type',title : '程式类型',width : parseInt($(this).width()*0.1),align : 'left',
+					              {field : 'url',title : '菜单路径',width : parseInt($(this).width()*0.1),align : 'left',editor : {type:'validatebox',options:{required:true}}},
+					              {field : 'myid',title : '菜单编码',width : parseInt($(this).width()*0.1),align : 'left',editor : {type:'validatebox',options:{required:true}}},
+					              {field : 'type',title : '菜单类型',width : parseInt($(this).width()*0.1),align : 'left',
 					            	  formatter:function(value,row){
 					            		  if("F"==row.type)
 												return "<font color=green>菜单<font>";
@@ -88,7 +88,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										},
 										editor:{type:'checkbox',options:{on:'Y',off:'N'}}
 					              },
-					              {field : 'description',title : '程式描述',width : parseInt($(this).width()*0.2),align : 'left',editor : "text"}
+					              {field : 'description',title : '菜单描述',width : parseInt($(this).width()*0.2),align : 'left',editor : "text"}
 					              ] ],toolbar:'#tb'
 				});
 			});
@@ -135,7 +135,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				if(node){
 					parent.$.messager.confirm("提示","确定要删除记录吗?",function(r){  
 					    if (r){  
-					    	$.post("function/functionAction!delFunction.action", {id:node.permissionId}, function(rsp) {
+					    	$.post("function/delFunction", {id:node.permissionId}, function(rsp) {
 								if(rsp.status){
 									$dg.treegrid('remove', node.permissionId);
 								}
@@ -178,7 +178,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						if (updated.length) {
 							effectRow["updated"] = JSON.stringify(updated);
 						}
-						$.post("function/functionAction!persistenceFunction.action", effectRow, function(rsp) {
+						$.post("function/persistenceFunction", effectRow, function(rsp) {
 							if(rsp.status){
 								$dg.datagrid('acceptChanges');
 							}
@@ -242,7 +242,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				var row = $dg.treegrid('getSelected');
 				if (row) {
 					parent.$.modalDialog({
-						title : "编辑程式",
+						title : "编辑菜单",
 						width : 600,
 						height : 400,
 						href : "jsp/function/functionEditDlg.jsp?tempId="+row.type,
@@ -288,7 +288,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						});
 					}else{
 						parent.$.modalDialog({
-							title : "添加程式",
+							title : "添加菜单",
 							width : 600,
 							height : 400,
 							href : "jsp/function/functionEditDlg.jsp",
@@ -319,7 +319,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					}
 				}else{
 					parent.$.modalDialog({
-						title : "添加程式",
+						title : "添加菜单",
 						width : 600,
 						height : 400,
 						href : "jsp/function/functionEditDlg.jsp",
@@ -384,6 +384,6 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			</div>
 			
 		</div>
-  		<table id="dg" title="程式管理"></table>
+  		<table id="dg" title="菜单管理"></table>
   </body>
 </html>

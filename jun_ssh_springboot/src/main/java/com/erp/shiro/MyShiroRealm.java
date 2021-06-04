@@ -20,6 +20,8 @@ import org.apache.shiro.subject.Subject;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.erp.model.Users;
 import com.erp.util.Constants;
@@ -41,28 +43,32 @@ import com.erp.util.Constants;
 public class MyShiroRealm extends AuthorizingRealm
 {
 	 // 用于获取用户信息及用户权限信息的业务接口 
-	@Autowired
-	private SessionFactory hibernateSessionFactory;
-	
 //	@Autowired
-//	private SessionFactory sessionFactory;
+//	private SessionFactory hibernateSessionFactory;
+	
+	@Autowired
+	private SessionFactory sessionFactory;
+	
+	@Autowired
+    private JdbcTemplate jdbcTemplate;
 
-	public SessionFactory getSessionFactory() {
-		return hibernateSessionFactory;
-	}
+//	public SessionFactory getSessionFactory() {
+//		return hibernateSessionFactory;
+//	}
+//
+//	public void setHibernateSessionFactory(SessionFactory hibernateSessionFactory )
+//	{
+//		this.hibernateSessionFactory = hibernateSessionFactory;
+//	}
 
-	public void setHibernateSessionFactory(SessionFactory hibernateSessionFactory )
-	{
-		this.hibernateSessionFactory = hibernateSessionFactory;
-	}
 
-
-	@SuppressWarnings("unused")
-	private Session getCurrentSession() {
-		return hibernateSessionFactory.getCurrentSession();
-	}
+//	@SuppressWarnings("unused")
+//	private Session getCurrentSession() {
+//		return hibernateSessionFactory.getCurrentSession();
+//	}
 
 	@SuppressWarnings("rawtypes")
+	@Transactional
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals)
 	{
 		//String username = (String) principals.fromRealm(getName()).iterator().next();
@@ -77,8 +83,8 @@ public class MyShiroRealm extends AuthorizingRealm
 			//超级管理员默认拥有所有操作权限
 			if (Constants.SYSTEM_ADMINISTRATOR.equals(username))
 			{
-				sql="SELECT p.PERMISSION_ID,p.MYID FROM PERMISSION AS p\n" +
-						"where p.STATUS='A' and p.TYPE='O' and p.ISUSED='Y'";
+				sql="SELECT p.PERMISSION_ID,p.MYID FROM PERMISSION AS p " ;
+//						"where p.STATUS='A' and p.TYPE='O' and p.ISUSED='Y'";
 			}else {
 				sql="SELECT DISTINCT rp.PERMISSION_ID,p.MYID FROM\n" +
 						"ROLE_PERMISSION AS rp\n" +
@@ -89,7 +95,7 @@ public class MyShiroRealm extends AuthorizingRealm
 						"WHERE rp.STATUS='A' and r.STATUS='A' and ur.STATUS='A' and u.STATUS='A' and p.STATUS='A' and p.TYPE='O' and p.ISUSED='Y'\n" +
 						"and u.NAME ='"+username+"'";
 			}
-			 List perList = this.getSessionFactory().getCurrentSession().createSQLQuery(sql).list();
+			 List perList = this.sessionFactory.openSession().createSQLQuery(sql).list();
 			 if (perList!=null&&perList.size()!=0)
 			{
 				 for (Object object : perList)
@@ -111,7 +117,7 @@ public class MyShiroRealm extends AuthorizingRealm
 		if (username != null && !"".equals(username))
 //		if (username != null && !"".equals(username) && doCaptchaValidate(token, null))
 		{
-			SessionFactory s = this.getSessionFactory();
+			SessionFactory s = this.sessionFactory;
 			String hql="from Users t where t.status='A' and t.name=:name";
 			Users users=(Users)s.getCurrentSession().createQuery(hql).setParameter("name", username).uniqueResult();
 			if (users != null)

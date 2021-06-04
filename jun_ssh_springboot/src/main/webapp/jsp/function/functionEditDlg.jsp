@@ -3,7 +3,7 @@
 	$(function() {
 		$("#pid").combotree({
 			width:171,
-			url:"function/functionAction!findAllFunctionLists.action",
+			url:"function/findAllFunctionLists",
 			idFiled:'id',
 		 	textFiled:'name',
 		 	parentField:'pid',
@@ -23,7 +23,7 @@
 			$("#pid").combotree("disable");
 		}
 		$("#form").form({
-			url :"function/functionAction!persistenceFunctionDig.action",
+			url :"function/persistenceFunctionDig",
 			onSubmit : function() {
 				parent.$.messager.progress({
 					title : '提示',

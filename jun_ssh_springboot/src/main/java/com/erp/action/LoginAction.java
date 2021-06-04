@@ -17,6 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,191 +38,171 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 @RequestMapping("/system")
-public class LoginAction extends BaseAction
-{	
-	private static final long	serialVersionUID	= -6019556530071263499L;
+public class LoginAction extends BaseAction {
+	private static final long serialVersionUID = -6019556530071263499L;
 	private String userName;
 	private String password;
 	private String captcha;
 	private String userMacAddr;
 	private String userKey;
-	
-	public String getUserKey()
-	{
+
+	public String getUserKey() {
 		return userKey;
 	}
-	public void setUserKey(String userKey )
-	{
+
+	@ModelAttribute
+	public void setUserKey(String userKey) {
 		this.userKey = userKey;
 	}
-	public String getUserMacAddr()
-	{
+
+	public String getUserMacAddr() {
 		return userMacAddr;
 	}
-	public void setUserMacAddr(String userMacAddr )
-	{
+
+	@ModelAttribute
+	public void setUserMacAddr(String userMacAddr) {
 		this.userMacAddr = userMacAddr;
 	}
+
+	@Autowired
 	private LoginService loginService;
-	
-	public String getCaptcha()
-	{
+
+	public String getCaptcha() {
 		return captcha;
 	}
-	public void setCaptcha(String captcha )
-	{
+
+	public void setCaptcha(String captcha) {
 		this.captcha = captcha;
 	}
-	public LoginService getLoginService()
-	{
+
+	public LoginService getLoginService() {
 		return loginService;
 	}
+
 	@Autowired
-	public void setLoginService(LoginService loginService)
-	{
+	public void setLoginService(LoginService loginService) {
 		this.loginService = loginService;
 	}
-	public String getUserName()
-	{
+
+	public String getUserName() {
 		return userName;
 	}
-	public void setUserName(String userName)
-	{
+
+	@ModelAttribute
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-		
-	public String getPassword()
-	{
+
+	public String getPassword() {
 		return password;
 	}
-	public void setPassword(String password )
-	{
+
+	@ModelAttribute
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
 	@ResponseBody
 	@PostMapping(value = "/load")
-	public String load() throws Exception
-	{	
-		Subject subject=SecurityUtils.getSubject();
-		CaptchaUsernamePasswordToken token=new CaptchaUsernamePasswordToken();
-        token.setUsername(userName);
-        token.setPassword(password.toCharArray());
-        token.setCaptcha(captcha);
-        token.setRememberMe(true);
-        Json json=new Json();
-        json.setTitle("登录提示");
-        try{
-            subject.login(token);
-            System.out.println("sessionTimeout===>"+subject.getSession().getTimeout());
-            json.setStatus(true);	
-        }
-        catch (UnknownSessionException use) {
-            subject = new Subject.Builder().buildSubject();
-            subject.login(token);
-            log.error(Constants.UNKNOWN_SESSION_EXCEPTION);
-            json.setMessage(Constants.UNKNOWN_SESSION_EXCEPTION);
-        }
-        catch(UnknownAccountException ex){
-        	log.error(Constants.UNKNOWN_ACCOUNT_EXCEPTION);
+	public String load() throws Exception {
+		Subject subject = SecurityUtils.getSubject();
+		CaptchaUsernamePasswordToken token = new CaptchaUsernamePasswordToken();
+		token.setUsername(userName);
+		token.setPassword(password.toCharArray());
+		token.setCaptcha(captcha);
+		token.setRememberMe(true);
+		Json json = new Json();
+		json.setTitle("登录提示");
+		try {
+			subject.login(token);
+			System.out.println("sessionTimeout===>" + subject.getSession().getTimeout());
+			json.setStatus(true);
+		} catch (UnknownSessionException use) {
+			subject = new Subject.Builder().buildSubject();
+			subject.login(token);
+			log.error(Constants.UNKNOWN_SESSION_EXCEPTION);
+			json.setMessage(Constants.UNKNOWN_SESSION_EXCEPTION);
+		} catch (UnknownAccountException ex) {
+			log.error(Constants.UNKNOWN_ACCOUNT_EXCEPTION);
 			json.setMessage(Constants.UNKNOWN_ACCOUNT_EXCEPTION);
+		} catch (IncorrectCredentialsException ice) {
+			json.setMessage(Constants.INCORRECT_CREDENTIALS_EXCEPTION);
+		} catch (LockedAccountException lae) {
+			json.setMessage(Constants.LOCKED_ACCOUNT_EXCEPTION);
+		} catch (IncorrectCaptchaException e) {
+			json.setMessage(Constants.INCORRECT_CAPTCHA_EXCEPTION);
+		} catch (AuthenticationException ae) {
+			json.setMessage(Constants.AUTHENTICATION_EXCEPTION);
+		} catch (Exception e) {
+			json.setMessage(Constants.UNKNOWN_EXCEPTION);
 		}
-        catch (IncorrectCredentialsException ice) {
-            json.setMessage(Constants.INCORRECT_CREDENTIALS_EXCEPTION);
-        } 
-        catch (LockedAccountException lae) {
-            json.setMessage(Constants.LOCKED_ACCOUNT_EXCEPTION);
-        }catch (IncorrectCaptchaException e) {
-        	 json.setMessage(Constants.INCORRECT_CAPTCHA_EXCEPTION);
-		}
-        catch (AuthenticationException ae) {
-            json.setMessage(Constants.AUTHENTICATION_EXCEPTION);
-        } 
-        catch(Exception e){
-            json.setMessage(Constants.UNKNOWN_EXCEPTION);
-        }
-        OutputJson(json,Constants.TEXT_TYPE_PLAIN);
-        //token.clear();
+		OutputJson(json, Constants.TEXT_TYPE_PLAIN);
+		// token.clear();
 		return null;
 	}
-	
+
 	@PostMapping(value = "/login")
-	public ResponseEntity<Void> login(
-			/* @RequestBody UserDto loginInfo, */HttpServletRequest request, HttpServletResponse response){      
-        Subject subject = SecurityUtils.getSubject();
-        try {
-            //将用户请求参数封装后，直接提交给Shiro处理
-            UsernamePasswordToken token = new UsernamePasswordToken(userName, password.toCharArray());
-            token.setRememberMe(true);
-            subject.login(token);
-            //Shiro认证通过后会将user信息放到subject内，生成token并返回
+	public ResponseEntity<Void> login(/* @RequestBody UserDto loginInfo, */HttpServletRequest request,
+			HttpServletResponse response) {
+		Subject subject = SecurityUtils.getSubject();
+		try {
+			// 将用户请求参数封装后，直接提交给Shiro处理
+			UsernamePasswordToken token = new UsernamePasswordToken(userName, password.toCharArray());
+			token.setRememberMe(true);
+			subject.login(token);
+			// Shiro认证通过后会将user信息放到subject内，生成token并返回
 //            UserDto user = (UserDto) subject.getPrincipal();
 //            String newToken = userService.generateJwtToken(user.getUsername());
 //            response.setHeader("x-auth-token", newToken);
-            
-            return ResponseEntity.ok().build();
-        } catch (AuthenticationException e) { 
-           // 如果校验失败，shiro会抛出异常，返回客户端失败
-        	log.error("User {} login fail, Reason:{}", userName, e.getMessage());
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-        } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
-        }
-    }
-	
- 	@GetMapping(value = "/logout2")
-    public ResponseEntity<Void> logout2() {
-        Subject subject = SecurityUtils.getSubject();
-        if(subject.getPrincipals() != null) {
+
+			return ResponseEntity.ok().build();
+		} catch (AuthenticationException e) {
+			// 如果校验失败，shiro会抛出异常，返回客户端失败
+			log.error("User {} login fail, Reason:{}", userName, e.getMessage());
+			return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+		}
+	}
+
+	@GetMapping(value = "/logout2")
+	public ResponseEntity<Void> logout2() {
+		Subject subject = SecurityUtils.getSubject();
+		if (subject.getPrincipals() != null) {
 //            UserDto user = (UserDto)subject.getPrincipals().getPrimaryPrincipal();
 //            userService.deleteLoginInfo(user.getUsername());
-        }
-        SecurityUtils.getSubject().logout();
-        return ResponseEntity.ok().build();
-    }
-	
-	/**  
-	* 函数功能说明 TODO:用户登出
-	* Administrator修改者名字
-	* 2013-5-9修改日期
-	* 修改内容
-	* @Title: logout 
-	* @Description:
-	* @param @return
-	* @param @throws Exception    设定文件 
-	* @return String    返回类型 
-	* @throws 
-	*/
+		}
+		SecurityUtils.getSubject().logout();
+		return ResponseEntity.ok().build();
+	}
+
+	/**
+	 * 函数功能说明 TODO:用户登出 Administrator修改者名字 2013-5-9修改日期 修改内容 @Title:
+	 * logout @Description: @param @return @param @throws Exception 设定文件 @return
+	 * String 返回类型 @throws
+	 */
 
 	@ResponseBody
-	@GetMapping(value = "/logout")
-	public String logout() throws Exception
-	{
+	@PostMapping(value = "/logout")
+	public String logout() throws Exception {
 		SecurityUtils.getSubject().logout();
-		Json json=new Json();
+		Json json = new Json();
 		json.setStatus(true);
 		OutputJson(json);
 		return null;
 	}
-	/**  
-	* 函数功能说明 TODO:查询用户所有权限菜单
-	* Administrator修改者名字
-	* 2013-5-9修改日期
-	* 修改内容
-	* @Title: findAllFunctionList 
-	* @Description: 
-	* @param @return
-	* @param @throws Exception    设定文件 
-	* @return String    返回类型 
-	* @throws 
-	*/
+
+	/**
+	 * 函数功能说明 TODO:查询用户所有权限菜单 Administrator修改者名字 2013-5-9修改日期 修改内容 @Title:
+	 * findAllFunctionList @Description: @param @return @param @throws Exception
+	 * 设定文件 @return String 返回类型 @throws
+	 */
 
 	@ResponseBody
-	@GetMapping(value = "/findAllFunctionList")
-	public String findAllFunctionList() throws Exception
-	{
+	@PostMapping(value = "/findAllFunctionList")
+	public String findAllFunctionList() throws Exception {
 		OutputJson(loginService.findMenuList());
 		return null;
 	}
-	
+
 }

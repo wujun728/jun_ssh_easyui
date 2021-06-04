@@ -254,7 +254,7 @@ public class DbBackUpServiceImpl implements DbBackUpService
 			log.setUserId(user.getUserId());
 			log.setName(user.getAccount());
 			log.setMac(Constants.getMacAddr());
-			log.setIp(Constants.getIpAddrNew(null));
+			log.setIp(Constants.getIpAddrNew());
 		}
 		log.setEventName("数据备份");
 		log.setEventRecord(path);

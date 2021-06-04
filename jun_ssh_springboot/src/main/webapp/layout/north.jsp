@@ -1,7 +1,7 @@
 <%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
 <script type="text/javascript" charset="utf-8">
 	function logout(b) {
-		/*$.post('systemAction!logout.action', function() {
+		/*$.post('system/logout', function() {
 			if (b) {
 				if (jqueryUtil.isLessThanIe8()) {
 					loginAndRegDialog.dialog('open');
@@ -18,7 +18,7 @@
 					async : false,
 					cache : false,
 					type : "POST",
-					url : "systemAction!logout.action",
+					url : "system/logout",
 					error : function() {
 					},
 					success : function(json) {
@@ -40,7 +40,7 @@
 			collapsible : false,
 			minimizable : false,
 			maximizable : false,
-			//href : 'userAction!showUserInfo.action',
+			//href : 'user/showUserInfo',
 			onClose : function() {
 				$(this).window('destroy');
 			}

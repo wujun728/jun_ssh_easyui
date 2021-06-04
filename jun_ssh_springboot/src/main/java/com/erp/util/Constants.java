@@ -31,6 +31,8 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.hibernate.Session;
 import org.springframework.util.Assert;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
 
 import com.erp.model.Log;
 import com.erp.shiro.ShiroUser;
@@ -218,7 +220,7 @@ public class Constants
 	{
 		if (!LOGS_TB_NAME.equals(o.getClass().getSimpleName()))
 		{
-			String ip = getIpAddrNew(null);
+			String ip = getIpAddrNew();
 			String mac="null";//getMacAddr();
 			String[] sdf = getFiledName(o);
 			String id = getFieldValueByName(sdf[1], o).toString();
@@ -329,8 +331,8 @@ public class Constants
      * @param request 
      * @return 
      */  
-    public static String getIpAddrNew(HttpServletRequest request){  
-    	Assert.isNull(request);
+    public static String getIpAddrNew(){ 
+    	HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.getRequestAttributes()).getRequest();
         String ipAddress = request.getHeader("x-forwarded-for");  
             if(ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {  
                 ipAddress = request.getHeader("Proxy-Client-IP");  
@@ -376,7 +378,7 @@ public class Constants
 		String smac = "";
 		try
 		{
-			UdpGetClientMacAddr umac = new UdpGetClientMacAddr(getIpAddrNew(null));
+			UdpGetClientMacAddr umac = new UdpGetClientMacAddr(getIpAddrNew());
 			smac = umac.GetRemoteMacAddr();
 		} catch (Exception e)
 		{

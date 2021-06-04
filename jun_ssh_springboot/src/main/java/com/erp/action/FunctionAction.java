@@ -11,8 +11,11 @@
 package com.erp.action;
 
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -49,22 +52,26 @@ import lombok.extern.slf4j.Slf4j;
 public class FunctionAction extends BaseAction {
 	private static final Logger logger = Logger.getLogger(FunctionAction.class);
 	private static final long serialVersionUID = -834064728613242979L;
+	@Autowired
 	private FunctionService functionService;
-	private Permission permission;
+
+//	private Permission permission;
+	
 	private Integer id;
 
-	public Permission getPermission() {
-		return permission;
-	}
-
-	public void setPermission(Permission permission) {
-		this.permission = permission;
-	}
+//	public Permission getPermission() {
+//		return permission;
+//	}
+//	@ModelAttribute
+//	public void setPermission(Permission permission) {
+//		this.permission = permission;
+//	}
 
 	public Integer getId() {
 		return id;
 	}
 
+	@ModelAttribute
 	public void setId(Integer id) {
 		this.id = id;
 	}
@@ -99,9 +106,9 @@ public class FunctionAction extends BaseAction {
 	 * 设定文件 @return String 返回类型 @throws
 	 */
 	@ResponseBody
-	@GetMapping(value = "/persistenceFunctionDig")
-	public String persistenceFunctionDig() throws Exception {
-		OutputJson(getMessage(functionService.persistenceFunction(getModel())), Constants.TEXT_TYPE_PLAIN);
+	@PostMapping(value = "/persistenceFunctionDig")
+	public String persistenceFunctionDig(Permission permission) throws Exception {
+		OutputJson(getMessage(functionService.persistenceFunction(permission)), Constants.TEXT_TYPE_PLAIN);
 		return null;
 	}
 
@@ -130,7 +137,7 @@ public class FunctionAction extends BaseAction {
 	 * 设定文件 @return String 返回类型 @throws
 	 */
 	@ResponseBody
-	@GetMapping(value = "/findAllFunctionList")
+	@PostMapping(value = "/findAllFunctionList")
 	public String findAllFunctionList() throws Exception {
 		OutputJson(functionService.findAllFunctionList(id));
 		return null;
@@ -142,16 +149,17 @@ public class FunctionAction extends BaseAction {
 	 * 设定文件 @return String 返回类型 @throws
 	 */
 	@ResponseBody
-	@GetMapping(value = "/findAllFunctionLists")
+	@PostMapping(value = "/findAllFunctionLists")
 	public String findAllFunctionLists() throws Exception {
 		OutputJson(functionService.findAllFunctionList());
 		return null;
 	}
 
-	public Permission getModel() {
-		if (null == permission) {
-			permission = new Permission();
-		}
-		return permission;
-	}
+//	@ModelAttribute
+//	public Permission getModel() {
+//		if (null == permission) {
+//			permission = new Permission();
+//		}
+//		return permission;
+//	}
 }
