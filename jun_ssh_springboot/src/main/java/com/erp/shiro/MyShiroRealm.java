@@ -19,6 +19,7 @@ import org.apache.shiro.subject.Subject;
 //import org.apache.struts2.ServletActionContext;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.erp.model.Users;
 import com.erp.util.Constants;
@@ -40,7 +41,11 @@ import com.erp.util.Constants;
 public class MyShiroRealm extends AuthorizingRealm
 {
 	 // 用于获取用户信息及用户权限信息的业务接口 
+	@Autowired
 	private SessionFactory hibernateSessionFactory;
+	
+//	@Autowired
+//	private SessionFactory sessionFactory;
 
 	public SessionFactory getSessionFactory() {
 		return hibernateSessionFactory;

@@ -1353,3 +1353,7 @@ java.sql.SQLSyntaxErrorException: Unknown database 'db_misdb_mis'
 2021-06-04 01:43:57 ERROR (com.alibaba.druid.pool.DruidDataSource:760)- testWhileIdle is true, validationQuery not set
 2021-06-04 01:49:57 ERROR (com.alibaba.druid.pool.DruidDataSource:760)- testWhileIdle is true, validationQuery not set
 2021-06-04 01:51:04 ERROR (com.alibaba.druid.pool.DruidDataSource:760)- testWhileIdle is true, validationQuery not set
+2021-06-04 23:43:50 ERROR (com.alibaba.druid.pool.DruidDataSource:760)- testWhileIdle is true, validationQuery not set
+2021-06-04 23:48:50 ERROR (com.alibaba.druid.pool.DruidDataSource:760)- testWhileIdle is true, validationQuery not set
+2021-06-04 23:56:01 ERROR (com.alibaba.druid.pool.DruidDataSource:760)- testWhileIdle is true, validationQuery not set
+2021-06-04 23:57:03 ERROR (com.alibaba.druid.pool.DruidDataSource:760)- testWhileIdle is true, validationQuery not set
