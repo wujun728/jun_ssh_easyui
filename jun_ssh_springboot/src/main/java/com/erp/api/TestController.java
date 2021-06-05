@@ -70,7 +70,7 @@ public class TestController extends BaseController {
 		}
 		System.out.println("用户id=" + userId + "，登录成功！");
 		log.info("用户id=" + userId + "，登录成功！");
-//		BkSysLog bkSysLog = testService.selectByPrimaryKey(userId);
+		testService.selectByPrimaryKey(userId);
 		Header header = new Header();
 		header.setMsg_type("1");
 		header.setData_type(2+""+userId);

@@ -118,7 +118,7 @@ public class FunctionAction extends BaseAction {
 	 * 设定文件 @return String 返回类型 @throws
 	 */
 	@ResponseBody
-	@GetMapping(value = "/delFunction")
+	@PostMapping(value = "/delFunction")
 	public String delFunction() throws Exception {
 		Json json = new Json();
 		if (functionService.delFunction(id)) {

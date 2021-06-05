@@ -35,9 +35,9 @@
 
        <!-- <logger name="com.gs.service" level="debug"/>-->
 
-        <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE"  />
-        <logger name="org.hibernate.type.descriptor.sql.BasicExtractor" level="TRACE"   />
-        <logger name="org.hibernate.SQL" level="TRACE"/>
+        <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="info"  />
+        <logger name="org.hibernate.type.descriptor.sql.BasicExtractor" level="info"   />
+        <logger name="org.hibernate.SQL" level="info"/>
         <logger name="org.hibernate.engine.QueryParameters" level="info" />
         <logger name="org.hibernate.engine.query.HQLQueryPlan" level="info"  />
         <root level="info">

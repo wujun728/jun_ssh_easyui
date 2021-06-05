@@ -30,6 +30,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.hibernate.Session;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.util.Assert;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -460,4 +461,25 @@ public class Constants
 			}
 			return sqlName;
 		}
+	public static <T> void getLogs(HibernateTemplate hibernateTemplate,T o,String eventName,String er,String name) {
+		if (!LOGS_TB_NAME.equals(o.getClass().getSimpleName()))
+		{
+			String ip = getIpAddrNew();
+			String mac="null";//getMacAddr();
+			String[] sdf = getFiledName(o);
+			String id = getFieldValueByName(sdf[1], o).toString();
+			Log l=new Log();
+			l.setUserId(Constants.getCurrendUser().getUserId());
+			l.setName(Constants.getCurrendUser().getAccount());
+			l.setLogDate(new Date());
+			l.setEventName(eventName+o.getClass().getSimpleName());
+			l.setEventRecord(er+o.getClass().getName());
+			l.setObjectId(id);
+			l.setType(2);
+			l.setIp(ip);
+			l.setMac(mac);
+			hibernateTemplate.save(l);
+		}
+		
+	}
 }

@@ -185,11 +185,11 @@
 		</dependency>
 		
 		<!-- 加入slf4j依赖包 -->
-		<dependency>
+		<!-- <dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-log4j12</artifactId>
 			<version>1.7.5</version>
-		</dependency> 
+		</dependency>  -->
 		
 		<!-- 该依赖必加，里面有sping对schedule的支持 -->
 		<dependency>

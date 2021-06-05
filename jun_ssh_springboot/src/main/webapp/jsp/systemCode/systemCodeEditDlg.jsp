@@ -3,14 +3,14 @@
 	$(function() {
 		$("#parentId").combotree({
 			width:171,
-			url:"systemCode/systemCodeAction!findAllSystemCodeList.action",
+			url:"systemCode/findAllSystemCodeList",
 			idFiled:'id',
 		 	textFiled:'name',
 		 	parentField:'pid',
 		});
 		$("#permissionId").combobox({
 			width:171,
-			url:"function/functionAction!findAllFunctionList.action",
+			url:"function/findAllFunctionList",
 			valueField: 'permissionId',
 			textField: 'name',
 			onSelect:function(value){
@@ -33,7 +33,7 @@
 		}
 		$("#parentId").combotree("disable");
 		$("#form").form({
-			url :"systemCode/systemCodeAction!persistenceSystemCodeDig.action",
+			url :"systemCode/persistenceSystemCodeDig",
 			onSubmit : function() {
 				parent.$.messager.progress({
 					title : '提示',

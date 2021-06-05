@@ -6,13 +6,16 @@ import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfig
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.ImportResource;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @ServletComponentScan
+//@EnableTransactionManagement(proxyTargetClass = true)
 //@ImportResource(locations = {"classpath:config/kaptcha.xml"})
 //@EntityScan(basePackages = {"com.erp.model","com.erp.entity"})
-//@ComponentScan(basePackages = "com.erp")
+@ComponentScan(basePackages = "com.erp")
 public class SrpingbootApplication  extends SpringBootServletInitializer {
 
     @Override

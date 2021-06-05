@@ -24,7 +24,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				 $grid=$dg.treegrid({
 					width : 'auto',
 					height : $(this).height()-90,
-					url : "systemCode/systemCodeAction!findSystemCodeList.action",
+					url : "systemCode/findSystemCodeList",
 					rownumbers:true,
 					animate: true,
 					collapsible: true,
@@ -50,7 +50,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			function removeNode(){
 				var node = $dg.treegrid('getSelected');
 				if(node){
-					$.post("systemCode/systemCodeAction!delSystemCode.action", {codeId:node.codeId}, function(rsp) {
+					$.post("systemCode/delSystemCode", {codeId:node.codeId}, function(rsp) {
 						if(rsp.status){
 							$dg.treegrid('remove', node.codeId);
 						}

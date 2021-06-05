@@ -3,6 +3,8 @@ package com.erp.action;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -20,7 +22,7 @@ public class SystemCodeAction extends BaseAction
 {
 	private static final long serialVersionUID = -7594149055359363935L;
 	private SystemCodeService systemCodeService;
-	private SystemCode systemCode;
+//	private SystemCode systemCode;
 	private String permissionName;
 	private Integer id;
 	private Integer codePid;
@@ -29,7 +31,7 @@ public class SystemCodeAction extends BaseAction
 	{
 		return codePid;
 	}
-
+	@ModelAttribute
 	public void setCodePid(Integer codePid )
 	{
 		this.codePid = codePid;
@@ -39,27 +41,20 @@ public class SystemCodeAction extends BaseAction
 	{
 		return id;
 	}
-
+	@ModelAttribute
 	public void setId(Integer id )
 	{
 		this.id = id;
 	}
 
-	public SystemCode getSystemCode()
-	{
-		return systemCode;
-	}
-
-	public void setSystemCode(SystemCode systemCode )
-	{
-		this.systemCode = systemCode;
-	}
+ 
 	
 	public String getPermissionName()
 	{
 		return permissionName;
 	}
 
+	@ModelAttribute
 	public void setPermissionName(String permissionName )
 	{
 		this.permissionName = permissionName;
@@ -84,7 +79,7 @@ public class SystemCodeAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findSystemCodeList")
+	@PostMapping(value = "/findSystemCodeList")
 	public String findSystemCodeList() throws Exception
 	{
 		OutputJson(systemCodeService.findSystemCodeList(id));
@@ -124,10 +119,10 @@ public class SystemCodeAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/persistenceSystemCodeDig")
-	public String persistenceSystemCodeDig() throws Exception
+	@PostMapping(value = "/persistenceSystemCodeDig")
+	public String persistenceSystemCodeDig(SystemCode systemCode) throws Exception
 	{
-		OutputJson(getMessage(systemCodeService.persistenceSystemCodeDig(getModel(),permissionName,codePid)),Constants.TEXT_TYPE_PLAIN);
+		OutputJson(getMessage(systemCodeService.persistenceSystemCodeDig(systemCode,permissionName,codePid)),Constants.TEXT_TYPE_PLAIN);
 		return null;
 	}
 	
@@ -144,12 +139,12 @@ public class SystemCodeAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/delSystemCode")
-	public String delSystemCode() throws Exception
+	@PostMapping(value = "/delSystemCode")
+	public String delSystemCode(SystemCode systemCode) throws Exception
 	{
 		Json json=new Json();
 		json.setTitle("提示");
-		if (systemCodeService.delSystemCode(getModel().getCodeId()))
+		if (systemCodeService.delSystemCode(systemCode.getCodeId()))
 		{
 			json.setStatus(true);
 			json.setMessage("数据更新成功!");
@@ -175,17 +170,17 @@ public class SystemCodeAction extends BaseAction
 	*/
 	@ResponseBody
 	@GetMapping(value = "/findSystemCodeByType")
-	public String findSystemCodeByType() throws Exception
+	public String findSystemCodeByType(SystemCode systemCode) throws Exception
 	{
-		OutputJson(systemCodeService.findSystemCodeByType(getModel().getCodeMyid()));
+		OutputJson(systemCodeService.findSystemCodeByType(systemCode.getCodeMyid()));
 		return null;
 	}
-	public SystemCode getModel()
-	{
-		if (null==systemCode)
-		{
-			systemCode=new SystemCode();
-		}
-		return systemCode;
-	}
+//	public SystemCode getModel()
+//	{
+//		if (null==systemCode)
+//		{
+//			systemCode=new SystemCode();
+//		}
+//		return systemCode;
+//	}
 }

@@ -12,11 +12,14 @@ import javax.persistence.EntityManagerFactory;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 //import org.springframework.data.jpa.repository.support.JpaRepositoryFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
@@ -32,54 +35,72 @@ public class PublicDaoImpl<T>  implements PublicDao<T> {
 	@Autowired
     private JdbcTemplate jdbcTemplate;
 	
-
 	@Autowired
-	private SessionFactory sessionFactory;
+    private EntityManagerFactory entityManagerFactory;
+    /**获取sessionFactory*/
+    public SessionFactory getSessionFactory() {
+        return entityManagerFactory.unwrap(SessionFactory.class);
+    }
+
+    private HibernateTemplate getHibernateTemplate(){
+        return new HibernateTemplate(getSessionFactory());
+    }
 	
+
+//	@Autowired
+//	private SessionFactory sessionFactory;
+//	
 	private Session getCurrentSession() {
-		return sessionFactory.getCurrentSession();
+		return getSessionFactory().getCurrentSession();
 	}
  
     /**
      * 泛型的类型
      */
-    private final Class<Entity> entityClass;
+//    private final Class<Entity> entityClass;
  
     /**
      * PublicDaoImpl的构造方法
      */
-    public PublicDaoImpl() {
-        this.entityClass = getSuperClassGenricType(this.getClass(), 0);
-    }
+//    public PublicDaoImpl() {
+//        this.entityClass = getSuperClassGenricType(this.getClass(), 0);
+//    }
  
 //	========================================以下封装一些常用的方法=============================================
  
-    public Entity get(Serializable id) {
-        Assert.notNull(id, "id is required");
-        return (Entity) this.getCurrentSession().get(this.entityClass, id);
-    }
+//    public Entity get(Serializable id) {
+//        Assert.notNull(id, "id is required");
+//        return (Entity) this.getCurrentSession().get(this.entityClass, id);
+//    }
  
-    public Serializable save(Entity entity) {
-        if (entity != null) {
-            return this.getCurrentSession().save(entity);
-        }
-        return null;
-    }
+//    public Serializable save(Entity entity) {
+//        if (entity != null) {
+//            return this.getCurrentSession().save(entity);
+//        }
+//        return null;
+//    }
 	
 	public Serializable save(T o) {
+		Transaction tx = getCurrentSession().beginTransaction();
 		Serializable serializable = this.getCurrentSession().save(o);
 		Constants.getLogs(this.getCurrentSession(), o, Constants.LOGS_INSERT, Constants.LOGS_INSERT_TEXT, Constants.LOGS_INSERT_NAME);
+		tx.commit();
 		return serializable;
 	}
 
 	public void delete(T o) {
+		Transaction tx = getCurrentSession().beginTransaction();
 		this.getCurrentSession().delete(o);
+		tx.commit();
 	}
 
 	public void update(T o) {
+		Transaction tx = getCurrentSession().beginTransaction();
 		this.getCurrentSession().update(o);
 		Constants.getLogs(this.getCurrentSession(), o, Constants.LOGS_UPDATE, Constants.LOGS_UPDATE_TEXT, Constants.LOGS_UPDATE_NAME);
+		tx.commit();
 	}
+	
 	
 	public void deleteToUpdate(T o) {
 		this.getCurrentSession().update(o);
@@ -173,20 +194,20 @@ public class PublicDaoImpl<T>  implements PublicDao<T> {
     /**
      * 获取泛型的类型
      */
-    private static Class getSuperClassGenricType(final Class clazz, final int index) {
-        Type genType = clazz.getGenericSuperclass();
-        if (!(genType instanceof ParameterizedType)) {
-            return Object.class;
-        }
-        Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
-        if (index >= params.length || index < 0) {
-            return Object.class;
-        }
-        if (!(params[index] instanceof Class)) {
-            return Object.class;
-        }
-        return (Class<?>) params[index];
-    }
+//    private static Class getSuperClassGenricType(final Class clazz, final int index) {
+//        Type genType = clazz.getGenericSuperclass();
+//        if (!(genType instanceof ParameterizedType)) {
+//            return Object.class;
+//        }
+//        Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
+//        if (index >= params.length || index < 0) {
+//            return Object.class;
+//        }
+//        if (!(params[index] instanceof Class)) {
+//            return Object.class;
+//        }
+//        return (Class<?>) params[index];
+//    }
     
     
 	//注册监听器
