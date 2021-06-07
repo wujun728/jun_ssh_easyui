@@ -103,12 +103,16 @@ public class PublicDaoImpl<T>  implements PublicDao<T> {
 	
 	
 	public void deleteToUpdate(T o) {
+		Transaction tx = getCurrentSession().beginTransaction();
 		this.getCurrentSession().update(o);
 		Constants.getLogs(this.getCurrentSession(), o, Constants.LOGS_DELETE, Constants.LOGS_DELETE_TEXT, Constants.LOGS_DELETE_NAME);
+		tx.commit();
 	}
 
 	public void saveOrUpdate(T o) {
+		Transaction tx = getCurrentSession().beginTransaction();
 		this.getCurrentSession().saveOrUpdate(o);
+		tx.commit();
 	}
 
 	public List<T> find(String hql) {
@@ -191,30 +195,4 @@ public class PublicDaoImpl<T>  implements PublicDao<T> {
 	
 
  
-    /**
-     * 获取泛型的类型
-     */
-//    private static Class getSuperClassGenricType(final Class clazz, final int index) {
-//        Type genType = clazz.getGenericSuperclass();
-//        if (!(genType instanceof ParameterizedType)) {
-//            return Object.class;
-//        }
-//        Type[] params = ((ParameterizedType) genType).getActualTypeArguments();
-//        if (index >= params.length || index < 0) {
-//            return Object.class;
-//        }
-//        if (!(params[index] instanceof Class)) {
-//            return Object.class;
-//        }
-//        return (Class<?>) params[index];
-//    }
-    
-    
-	//注册监听器
-	/*@PostConstruct
-	public void registerListeners() {
-	    EventListenerRegistry registry = ((SessionFactoryImpl) sessionFactory).getServiceRegistry().getService(EventListenerRegistry.class);
-	    registry.getEventListenerGroup(EventType.POST_COMMIT_INSERT).appendListener(new PostInsert());
-	    registry.getEventListenerGroup(EventType.POST_COMMIT_UPDATE).appendListener(new PostUpdate());
-	}*/
 }
