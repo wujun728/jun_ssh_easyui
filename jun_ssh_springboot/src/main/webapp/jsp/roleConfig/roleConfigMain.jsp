@@ -26,7 +26,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			});
 			$user = $("#user");
 			$user.datagrid({
-				url : "user/userAction!findAllUserList.action",
+				url : "user/findAllUserList",
 				width : 'auto',
 				height : $(this).height()-120,
 				pagination:true,
@@ -46,7 +46,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			});
 			$role = $("#role");
 			$role.datagrid({
-					url : "permission/permissionAssignmentAction!findAllRoleListNotPage.action",
+					url : "permission/findAllRoleListNotPage",
 					width : 'auto',
 					height : $(this).height()-120,
 					pagination:false,
@@ -94,7 +94,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			 });
 			 if(selectRow){
 				 $.ajax({
-						url:"user/userAction!saveUserRoles.action",
+						url:"user/saveUserRoles",
 						data: "userId="+selectRow.userId+"&isCheckedIds="+isCheckedIds,
 						success: function(rsp){
 								parent.$.messager.show({
@@ -120,14 +120,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					});
 			 }
 			 
-			 /*$.post("user/userAction!saveUserRoles.action", {userId:selectRow.userId,isCheckedIds:isCheckedIds}, function(rsp) {
+			 /*$.post("user/saveUserRoles", {userId:selectRow.userId,isCheckedIds:isCheckedIds}, function(rsp) {
 				 $.messager.alert(rsp.title, rsp.message);
 				}, "JSON").error(function() {
 					$.messager.alert("提示", "保存用户角色失败！");
 				});*/
 		 }
 		 function getRoles(rowIndex, rowData){
-			 $.post("user/userAction!findUsersRolesList.action", {userId:rowData.userId}, function(rsp) {
+			 $.post("user/findUsersRolesList", {userId:rowData.userId}, function(rsp) {
 					 $role.datagrid("unselectAll");
 				 if(rsp.length!=0){
 					 $.each(rsp,function(i,e){

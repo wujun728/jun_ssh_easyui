@@ -54,32 +54,9 @@ public class PublicDaoImpl<T>  implements PublicDao<T> {
 		return getSessionFactory().getCurrentSession();
 	}
  
-    /**
-     * 泛型的类型
-     */
-//    private final Class<Entity> entityClass;
- 
-    /**
-     * PublicDaoImpl的构造方法
-     */
-//    public PublicDaoImpl() {
-//        this.entityClass = getSuperClassGenricType(this.getClass(), 0);
-//    }
  
 //	========================================以下封装一些常用的方法=============================================
  
-//    public Entity get(Serializable id) {
-//        Assert.notNull(id, "id is required");
-//        return (Entity) this.getCurrentSession().get(this.entityClass, id);
-//    }
- 
-//    public Serializable save(Entity entity) {
-//        if (entity != null) {
-//            return this.getCurrentSession().save(entity);
-//        }
-//        return null;
-//    }
-	
 	public Serializable save(T o) {
 		Transaction tx = getCurrentSession().beginTransaction();
 		Serializable serializable = this.getCurrentSession().save(o);

@@ -11,7 +11,7 @@
 		});
 		$("#saleId").combotree({
 			width:171,
-			url:"cst/cstAction!findSaleNameList.action",
+			url:"cst/findSaleNameList",
 			idFiled:'id',
 		 	textFiled:'name',
 		 	parentField:'pid',
@@ -26,7 +26,7 @@
 		
 		$("#cityId").combotree({
 			width:171,
-			url:"area/areaAction!findCities.action",
+			url:"area/findCities",
 			idFiled:'id',
 		 	textFiled:'name',
 		 	parentField:'pid',
@@ -41,7 +41,7 @@
 		var typedata=[{"type":"M","typeName":"男"},{"type":"F","typeName":"女"}];
 		 $dg = $("#dg");
 		 $grid=$dg.datagrid({
-			url : "cstContact/cstContactAction!findCustomerContactList.action?customerId="+$("#tempId").val(),
+			url : "cstContact/findCustomerContactList?customerId="+$("#tempId").val(),
 			width : 'auto',
 			height : $(this).height()-380,
 			rownumbers:true,
@@ -80,7 +80,7 @@
 		
 		$("#classId").combobox({
 			width:171,
-			url:"systemCode/systemCodeAction!findSystemCodeByType.action?codeMyid=customerClass",
+			url:"systemCode/findSystemCodeByType?codeMyid=customerClass",
 			valueField: 'codeId',
 			textField: 'name',
 			onSelect:function(value){
@@ -90,7 +90,7 @@
 		
 		$("#levelId").combobox({
 			width:171,
-			url:"systemCode/systemCodeAction!findSystemCodeByType.action?codeMyid=customerLevel",
+			url:"systemCode/findSystemCodeByType?codeMyid=customerLevel",
 			valueField: 'codeId',
 			textField: 'name',
 			onSelect:function(value){
@@ -100,7 +100,7 @@
 		
 		$("#industryId").combobox({
 			width:171,
-			url:"systemCode/systemCodeAction!findSystemCodeByType.action?codeMyid=industry",
+			url:"systemCode/findSystemCodeByType?codeMyid=industry",
 			valueField: 'codeId',
 			textField: 'name',
 			onSelect:function(value){
@@ -110,7 +110,7 @@
 		
 		$("#sizeId").combobox({
 			width:171,
-			url:"systemCode/systemCodeAction!findSystemCodeByType.action?codeMyid=companySize",
+			url:"systemCode/findSystemCodeByType?codeMyid=companySize",
 			valueField: 'codeId',
 			textField: 'name',
 			onSelect:function(value){
@@ -120,7 +120,7 @@
 		
 		$("#creditId").combobox({
 			width:171,
-			url:"systemCode/systemCodeAction!findSystemCodeByType.action?codeMyid=credit",
+			url:"systemCode/findSystemCodeByType?codeMyid=credit",
 			valueField: 'codeId',
 			textField: 'name',
 			onSelect:function(value){
@@ -130,7 +130,7 @@
 		
 		$("#natureId").combobox({
 			width:171,
-			url:"systemCode/systemCodeAction!findSystemCodeByType.action?codeMyid=customerNature",
+			url:"systemCode/findSystemCodeByType?codeMyid=customerNature",
 			valueField: 'codeId',
 			textField: 'name',
 			onSelect:function(value){
@@ -140,7 +140,7 @@
 		
 		$("#currencyId").combobox({
 			width:171,
-			url:"currency/currencyAction!findCurrencyList.action",
+			url:"currency/findCurrencyList",
 			valueField: 'id',
 			textField: 'name',
 			onSelect:function(value){
@@ -149,7 +149,7 @@
 		});
 		
 		$("#form").form({
-			url :"cst/cstAction!persistenceCustomer.action",
+			url :"cst/persistenceCustomer",
 			onSubmit : function() {
 				parent.$.messager.progress({
 					title : '提示',
@@ -236,7 +236,7 @@
 				$("#inserted").val(effectRow["inserted"]);
 				$("#deleted").val(effectRow["deleted"]);
 				$("#updated").val(effectRow["updated"]);
-				/*$.post("companyInfo/companyInfoAction!persistenceCompanyInfo.action", effectRow, function(rsp) {
+				/*$.post("companyInfo/companyInfoAction!persistenceCompanyInfo", effectRow, function(rsp) {
 					if(rsp.status){
 						$dg.datagrid('acceptChanges');
 					}
@@ -263,7 +263,7 @@
 				handler : function() {
 					var d = $(this).closest('.window-body');
 					$("#form1").form({
-						url : "area/areaAction!addCities.action",
+						url : "area/addCities",
 						onSubmit : function() {
 							parent.parent.$.messager.progress({
 								title : '提示',

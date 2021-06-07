@@ -3,7 +3,7 @@
 	$(function() {
 		$("#organizeId").combotree({
 			width:171,
-			url:"orgz/organizationAction!findOrganizationList.action",
+			url:"orgz/findOrganizationList",
 			idFiled:'id',
 		 	textFiled:'name',
 		 	parentField:'pid',
@@ -13,7 +13,7 @@
 		});
 		
 		$("#form").form({
-			url :"user/userAction!persistenceUsersDig.action",
+			url :"user/persistenceUsersDig",
 			onSubmit : function() {
 				parent.$.messager.progress({
 					title : '提示',

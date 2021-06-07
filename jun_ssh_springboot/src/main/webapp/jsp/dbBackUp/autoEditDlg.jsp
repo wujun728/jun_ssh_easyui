@@ -2,7 +2,7 @@
 <script type="text/javascript">
 	$(function() {
 		$("#form").form({
-			url :"dbBackUp/dbBackUpAction!handSchedule.action",
+			url :"dbBackUp/handSchedule",
 			onSubmit : function() {
 				parent.$.messager.progress({
 					title : '提示',

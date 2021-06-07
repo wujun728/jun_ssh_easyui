@@ -10,13 +10,13 @@
 		});
 		$("#pid").combotree({
 			width:171,
-			url:"orgz/organizationAction!findOrganizationList.action",
+			url:"orgz/findOrganizationList",
 			idFiled:'id',
 		 	textFiled:'name',
 		 	parentField:'pid'
 		});
 		$("#form").form({
-			url :"orgz/organizationAction!persistenceOrganization.action",
+			url :"orgz/persistenceOrganization",
 			onSubmit : function() {
 				parent.$.messager.progress({
 					title : '提示',

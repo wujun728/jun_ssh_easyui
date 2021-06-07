@@ -3,7 +3,7 @@
 	$(function() {
 		$("#provinceId").combobox({
 			width:171,
-			url:"area/areaAction!findProvinces.action",
+			url:"area/findProvinces",
 			valueField: 'provinceId',
 			textField: 'name'
 		});

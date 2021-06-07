@@ -115,7 +115,7 @@
 		<input name="tempId" id="tempId"  type="hidden" value="<%=request.getParameter("tempId") %>"/>
 		<form id="form" method="post">
 			<fieldset>
-				<legend><img src="extend/fromedit.png" style="margin-bottom: -3px;"/> 程式编辑</legend>
+				<legend><img src="extend/fromedit.png" style="margin-bottom: -3px;"/> 菜单编辑</legend>
 				<input name="permissionId" id="permissionId"  type="hidden"/>
 				<input name="created" id="created"  type="hidden"/>
 				<input name="creater" id="creater"  type="hidden"/>
@@ -123,26 +123,26 @@
 				<input name="state" id="state"  type="hidden"/>
 				 <table>
 					 <tr>
-					    <th>程式名称</th>
-						<td><input name="name" id="name" placeholder="请输入程式名称" class="easyui-textbox easyui-validatebox" type="text"/></td>
-						<th>父程式名称</th>
+					    <th>菜单名称</th>
+						<td><input name="name" id="name" placeholder="请输入菜单名称" class="easyui-textbox easyui-validatebox" type="text"/></td>
+						<th>父菜单名称</th>
 						<td><input name="pid"  class="easyui-textbox" id="pid" type="text"/><input name="pname" id="pname"  type="hidden"/></td>
 						
 					 </tr>
 					 <tr>
 					    <th>排序编码</th>
 						<td><input name="sort" id="sort" type="text" class="easyui-textbox easyui-validatebox" required="required"/></td>
-						<th>程式图标</th>
+						<th>菜单图标</th>
 						<td><input id="iconCls" name="iconCls" type="text"/></td>
 					 </tr>
 					  <tr>
-					    <th>程式路径</th>
+					    <th>菜单路径</th>
 						<td><input id="url" name="url" type="text" class="easyui-textbox easyui-validatebox" required="required"/></td>
-						<th>程式编码</th>
+						<th>菜单编码</th>
 						<td><input id="myid" name="myid" type="text" class="easyui-textbox easyui-validatebox" required="required"/></td>
 					 </tr>
 					 <tr>
-						<th>程式类型</th>
+						<th>菜单类型</th>
 						<td>
 							<select id="type" class="easyui-combobox" name="type" style="width:171px;" data-options="required:true">
 								<option value="F">菜单</option>

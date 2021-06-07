@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			$(function() {
 				 $dg = $("#dg");
 				 $grid=$dg.datagrid({
-					url : "cst/cstAction!findCustomerList.action",
+					url : "cst/findCustomerList",
 					width : 'auto',
 					height : $(this).height()-85,
 					pagination:true,
@@ -75,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					    if (r){  
 					    	$dg.datagrid('deleteRow', rowIndex);
 					    	$.ajax({
-								url:"cst/cstAction!delCustomer.action",
+								url:"cst/delCustomer",
 								data: "customerId="+row.customerId,
 								success: function(rsp){
 									parent.$.messager.show({

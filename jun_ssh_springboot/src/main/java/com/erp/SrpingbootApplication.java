@@ -12,9 +12,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @ServletComponentScan
-//@EnableTransactionManagement(proxyTargetClass = true)
-//@ImportResource(locations = {"classpath:config/kaptcha.xml"})
-//@EntityScan(basePackages = {"com.erp.model","com.erp.entity"})
+//@ImportResource(locations = {"classpath:config/kaptcha.xml"})  //for beans
+//@EntityScan(basePackages = {"com.erp.model","com.erp.entity"})   //mybatis
 @ComponentScan(basePackages = "com.erp")
 public class SrpingbootApplication  extends SpringBootServletInitializer {
 

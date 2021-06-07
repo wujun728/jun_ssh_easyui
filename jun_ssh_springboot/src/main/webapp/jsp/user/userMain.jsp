@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			$(function() {
 				$dg = $("#dg");
 				$grid=$dg.datagrid({
-					url : "user/userAction!findAllUserList.action",
+					url : "user/findAllUserList",
 					width : 'auto',
 					height :  $(this).height()-90,
 					pagination:true,
@@ -44,7 +44,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 										editor:{
 											type:'combotree',
 											options:{
-												 url:'orgz/organizationAction!findOrganizationList.action',  
+												 url:'orgz/organizationAction!findOrganizationList',  
 											 	 idFiled:'id',
 											 	 textFiled:'name',
 											 	 parentField:'pid',
@@ -132,7 +132,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						if (updated.length) {
 							effectRow["updated"] = JSON.stringify(updated);
 						}
-						$.post("user/userAction!persistenceUsers.action", effectRow, function(rsp) {
+						$.post("user/persistenceUsers", effectRow, function(rsp) {
 							if(rsp.status){
 								$dg.datagrid('acceptChanges');
 							}
@@ -153,7 +153,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					var rowIndex = $dg.datagrid('getRowIndex', row);
 					$dg.datagrid('deleteRow', rowIndex);
 					$.ajax({
-						url:"user/userAction!delUsers.action",
+						url:"user/delUsers",
 						data: "userId="+row.userId,
 						success: function(rsp){
 							parent.$.messager.show({

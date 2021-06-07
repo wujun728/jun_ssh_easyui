@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			});
 			$role = $("#role");
 			$grid=$role.datagrid({
-					url : "permission/permissionAssignmentAction!findAllRoleList.action",
+					url : "permission/findAllRoleList",
 					width : 'auto',
 					height : $(this).height()-120,
 					pagination:true,
@@ -45,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			$function.treegrid({
 				width : 'auto',
 				height : $(this).height()-120,
-				url : "permission/permissionAssignmentAction!findAllFunctionList.action",
+				url : "permission/findAllFunctionList",
 				rownumbers:true,
 				animate: true,
 				collapsible: true,
@@ -151,7 +151,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					if (updated.length) {
 						effectRow["updated"] = JSON.stringify(updated);
 					}
-					$.post("permission/permissionAssignmentAction!persistenceRole.action", effectRow, function(rsp) {
+					$.post("permission/persistenceRole", effectRow, function(rsp) {
 						if(rsp.status){
 							$role.datagrid('acceptChanges');
 						}
@@ -192,7 +192,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			}); 
 		}
 		function getPermission(rowIndex, rowData){ 
-			$.post("permission/permissionAssignmentAction!getRolePermission.action", {roleId:rowData.roleId}, function(rsp) {
+			$.post("permission/getRolePermission", {roleId:rowData.roleId}, function(rsp) {
 						$function.treegrid('unselectAll');
 							if(rsp.length!=0){
 					    	  $.each(rsp,function(i,e){
@@ -222,7 +222,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			});
 			if(selectionRole){
 				$.ajax({
-					url:"permission/permissionAssignmentAction!savePermission.action",
+					url:"permission/savePermission",
 					data: "roleId="+selectionRole.roleId+"&checkedIds="+(checkedIds.length==0?"":checkedIds),
 					success: function(rsp){
 						parent.$.messager.show({
@@ -254,7 +254,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				var rowIndex = $role.datagrid('getRowIndex', row);
 				$role.datagrid('deleteRow', rowIndex);
 				$.ajax({
-					url:"permission/permissionAssignmentAction!delRole.action",
+					url:"permission/delRole",
 					data: "roleId="+row.roleId,
 					success: function(rsp){
 						parent.$.messager.show({

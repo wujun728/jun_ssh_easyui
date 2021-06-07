@@ -7,7 +7,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	response.setDateHeader("Expires", 0); 
 	response.flushBuffer();*/
 %>
-<base href="http://localhost:8081/erp/" />
+<base href="http://localhost:8082/erp/" />
 <!-- <base target="_blank" /> -->
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>

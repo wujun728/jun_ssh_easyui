@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			$(function() {
 				 $dg = $("#dg");
 				 $grid=$dg.datagrid({
-					url : "dbBackUp/dbBackUpAction!findDbBackUpAllList.action",
+					url : "dbBackUp/findDbBackUpAllList",
 					width : 'auto',
 					height : $(this).height()-85,
 					pagination:true,
@@ -61,7 +61,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		
 			function downBackUpFile(fileName){
 				$.ajax({
-					url:"dbBackUp/dbBackUpAction!checkBackUp.action",
+					url:"dbBackUp/checkBackUp",
 					type:"POST",
 					data:"fileName="+fileName,
 					beforeSend: function(){
@@ -75,7 +75,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					},
 					success:function(res){
 						if(res.status){
-							window.location.href="<%=basePath%>dbBackUp/dbBackUpAction!downBackUpFile.action?fileName="+fileName;
+							window.location.href="<%=basePath%>dbBackUp/downBackUpFile?fileName="+fileName;
 						}else{
 							parent.$.messager.show({
 								title : res.title,
@@ -93,7 +93,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					var rowIndex = $dg.datagrid('getRowIndex', row);
 					$dg.datagrid('deleteRow', rowIndex);
 					$.ajax({
-						url:"logs/logsAction!delLogs.action",
+						url:"logs/delLogs",
 						data: "logId="+row.logId,
 						success: function(rsp){
 							parent.$.messager.show({
@@ -146,7 +146,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					href : "jsp/dbBackUp/timeEditDlg.jsp",
 					onLoad:function(){
 						$.ajax({
-							url:"dbBackUp/dbBackUpAction!getScheduleConfig.action",
+							url:"dbBackUp/getScheduleConfig",
 							type:"POST",
 							success:function(res){
 								var f = parent.$.modalDialog.handler.find("#form");

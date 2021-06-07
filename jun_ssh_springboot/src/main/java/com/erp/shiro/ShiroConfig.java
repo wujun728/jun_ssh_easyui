@@ -15,11 +15,13 @@ import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.spring.web.config.DefaultShiroFilterChainDefinition;
 import org.apache.shiro.spring.web.config.ShiroFilterChainDefinition;
 import org.apache.shiro.web.mgt.DefaultWebSessionStorageEvaluator;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.apache.shiro.mgt.SecurityManager;
 
+import com.alibaba.druid.support.http.WebStatFilter;
 import com.erp.service.UserService;
 /**
  * 校验流程
@@ -36,6 +38,7 @@ public class ShiroConfig {
      * 注册shiro的Filter，拦截请求
      */
     @Bean
+    @ConditionalOnMissingBean
     public FilterRegistrationBean<Filter> filterRegistrationBean(SecurityManager securityManager,UserService userService) throws Exception{
         FilterRegistrationBean<Filter> filterRegistration = new FilterRegistrationBean<Filter>();
         filterRegistration.setFilter((Filter)shiroFilter(securityManager, userService).getObject());
@@ -43,9 +46,27 @@ public class ShiroConfig {
         filterRegistration.setAsyncSupported(true);
         filterRegistration.setEnabled(true);
         filterRegistration.setDispatcherTypes(DispatcherType.REQUEST);
+        
+        filterRegistration.setFilter(new WebStatFilter());
+        filterRegistration.addUrlPatterns("/*");
+        filterRegistration.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
 
         return filterRegistration;
     }
+    
+    /**
+     * 注册Filter信息, 监控拦截器
+     * @return
+     */
+//    @Bean
+//    @ConditionalOnMissingBean
+//    public FilterRegistrationBean<Filter> filterRegistrationBean() {
+//        FilterRegistrationBean<Filter> filterRegistrationBean = new FilterRegistrationBean<Filter>();
+//        filterRegistrationBean.setFilter(new WebStatFilter());
+//        filterRegistrationBean.addUrlPatterns("/*");
+//        filterRegistrationBean.addInitParameter("exclusions", "*.js,*.gif,*.jpg,*.png,*.css,*.ico,/druid/*");
+//        return filterRegistrationBean;
+//    }
 
     /**
      * 初始化Authenticator

@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			$(function() {
 				 $dg = $("#dg");
 				 $grid=$dg.datagrid({
-					url : "companyInfo/companyInfoAction!findAllCompanyInfoList.action",
+					url : "companyInfo/findAllCompanyInfoList",
 					width : 'auto',
 					height : $(this).height()-85,
 					pagination:true,
@@ -102,7 +102,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						if (updated.length) {
 							effectRow["updated"] = JSON.stringify(updated);
 						}
-						$.post("companyInfo/companyInfoAction!persistenceCompanyInfo.action", effectRow, function(rsp) {
+						$.post("companyInfo/persistenceCompanyInfo", effectRow, function(rsp) {
 							if(rsp.status){
 								$dg.datagrid('acceptChanges');
 							}
@@ -124,7 +124,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					    if (r){  
 					    	$dg.datagrid('deleteRow', rowIndex);
 							$.ajax({
-								url:"companyInfo/companyInfoAction!delCompanyInfo.action",
+								url:"companyInfo/delCompanyInfo",
 								data: "companyId="+row.companyId,
 								success: function(rsp){
 									parent.$.messager.show({
@@ -228,7 +228,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 							isCheckedIds.push(row.companyId);
 						}
 					});
-					window.location.href="<%=basePath%>excel/excelAction!CompanyInfoExcelExport.action?isCheckedIds="+isCheckedIds;
+					window.location.href="<%=basePath%>excel/CompanyInfoExcelExport?isCheckedIds="+isCheckedIds;
 				}else{
 					parent.$.messager.show({
 						title :"提示",

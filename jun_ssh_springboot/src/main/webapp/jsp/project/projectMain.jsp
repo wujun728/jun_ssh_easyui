@@ -22,7 +22,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 			$(function() {
 				 $dg = $("#dg");
 				 $grid=$dg.datagrid({
-					url : "project/projectAction!findProjectList.action",
+					url : "project/findProjectList",
 					width : 'auto',
 					height : $(this).height()-85,
 					pagination:true,
@@ -64,7 +64,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					    if (r){  
 					    	$dg.datagrid('deleteRow', rowIndex);
 					    	$.ajax({
-								url:"project/projectAction!delProject.action",
+								url:"project/delProject",
 								data: "projectId="+row.projectId,
 								success: function(rsp){
 									parent.$.messager.show({

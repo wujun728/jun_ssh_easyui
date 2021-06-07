@@ -15,7 +15,7 @@
 			tools : 'Img,About',
 			html5Upload : true,
 			upMultiple : 1,
-			upImgUrl : '${pageContext.request.contextPath}/bug/bugAction!upload.action',
+			upImgUrl : '${pageContext.request.contextPath}/bug/upload',
 			upImgExt : 'jpg,jpeg,gif,png',
 			onUpload:function(rst){
 				$.each(rst,function(i,e){
@@ -25,7 +25,7 @@
 		});
 		$("#cityId").combotree({
 			width:171,
-			url:"area/areaAction!findCities.action",
+			url:"area/areaAction!findCities",
 			idFiled:'id',
 		 	textFiled:'name',
 		 	parentField:'pid',
@@ -40,7 +40,7 @@
 		
 		$("#classId").combobox({
 			width:171,
-			url:"systemCode/systemCodeAction!findSystemCodeByType.action?codeMyid=customerClass",
+			url:"systemCode/findSystemCodeByType?codeMyid=customerClass",
 			valueField: 'codeId',
 			textField: 'name',
 			onSelect:function(value){
@@ -49,7 +49,7 @@
 		});
 		$("#brandId").combobox({
 			width:171,
-			url:"item/itemAction!findBrandList.action",
+			url:"item/findBrandList",
 			valueField: 'brandId',
 			textField: 'name',
 			onSelect:function(value){
@@ -58,7 +58,7 @@
 		});
 		
 		$("#form").form({
-			url :"item/itemAction!persistenceItem.action",
+			url :"item/persistenceItem",
 			onSubmit : function() {
 				parent.$.messager.progress({
 					title : '提示',
@@ -107,7 +107,7 @@
 				handler : function() {
 					var d = $(this).closest('.window-body');
 					$("#form1").form({
-						url : "area/areaAction!addCities.action",
+						url : "area/areaAction!addCities",
 						onSubmit : function() {
 							parent.parent.$.messager.progress({
 								title : '提示',
@@ -171,7 +171,7 @@
 				handler : function() {
 					var d = $(this).closest('.window-body');
 					$("#form1").form({
-						url : "item/itemAction!addBrands.action",
+						url : "item/addBrands",
 						onSubmit : function() {
 							parent.parent.$.messager.progress({
 								title : '提示',

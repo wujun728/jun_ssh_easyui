@@ -11,7 +11,7 @@
 		});
 		$("#managerId").combotree({
 			width:171,
-			url:"cst/cstAction!findSaleNameList.action",
+			url:"cst/findSaleNameList",
 			idFiled:'id',
 		 	textFiled:'name',
 		 	parentField:'pid',
@@ -25,7 +25,7 @@
 		});
 		$("#customerId").combobox({
 			width:171,
-			url:"project/projectAction!findCustomers.action",
+			url:"project/findCustomers",
 			valueField: 'customerId',
 			textField: 'name',
 			onSelect:function(value){
@@ -35,7 +35,7 @@
 		
 		$("#classId").combobox({
 			width:171,
-			url:"systemCode/systemCodeAction!findSystemCodeByType.action?codeMyid=projectClass",
+			url:"systemCode/findSystemCodeByType?codeMyid=projectClass",
 			valueField: 'codeId',
 			textField: 'name',
 			onSelect:function(value){
@@ -44,7 +44,7 @@
 		});
 		 $("#sourceId").combobox({
 				width:171,
-				url:"systemCode/systemCodeAction!findSystemCodeByType.action?codeMyid=projectSource",
+				url:"systemCode/findSystemCodeByType?codeMyid=projectSource",
 				valueField: 'codeId',
 				textField: 'name',
 				onSelect:function(value){
@@ -56,7 +56,7 @@
 		var typedata=[{"type":"M","typeName":"男"},{"type":"F","typeName":"女"}];
 		 $dg = $("#dg");
 		 $grid=$dg.datagrid({
-			url : "project/projectAction!findProjectFollowsList.action?projectId="+$("#tempId").val(),
+			url : "project/findProjectFollowsList?projectId="+$("#tempId").val(),
 			width : 'auto',
 			height : $(this).height()-380,
 			rownumbers:true,
@@ -71,7 +71,7 @@
 							editor:{
 								type:'combobox',
 								options:{
-									 url:"systemCode/systemCodeAction!findSystemCodeByType.action?codeMyid=followClass",
+									 url:"systemCode/findSystemCodeByType?codeMyid=followClass",
 									 valueField: 'codeId',
 									 textField: 'name',
 								 	 onSelect:updCellTree,
@@ -85,7 +85,7 @@
 							editor:{
 								type:'combobox',
 								options:{
-									 url:"systemCode/systemCodeAction!findSystemCodeByType.action?codeMyid=followStatus",
+									 url:"systemCode/findSystemCodeByType?codeMyid=followStatus",
 									 valueField: 'codeId',
 									 textField: 'name',
 								 	 onSelect:updCellTree2,
@@ -108,7 +108,7 @@
 		
 		 
 		$("#form").form({
-			url :"project/projectAction!persistenceProject.action",
+			url :"project/persistenceProject",
 			onSubmit : function() {
 				parent.$.messager.progress({
 					title : '提示',
@@ -249,7 +249,7 @@
 				handler : function() {
 					var d = $(this).closest('.window-body');
 					$("#form1").form({
-						url : "area/areaAction!addCities.action",
+						url : "area/addCities",
 						onSubmit : function() {
 							parent.parent.$.messager.progress({
 								title : '提示',

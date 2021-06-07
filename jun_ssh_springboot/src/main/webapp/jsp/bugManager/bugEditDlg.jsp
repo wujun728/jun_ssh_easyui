@@ -7,9 +7,9 @@
 			tools : 'full',
 			html5Upload : true,
 			upMultiple : 4,
-			upLinkUrl : '${pageContext.request.contextPath}/bug/bugAction!upload.action',
+			upLinkUrl : '${pageContext.request.contextPath}/bug/upload',
 			upLinkExt : 'zip,rar,txt,doc,docx,xls,xlsx',
-			upImgUrl : '${pageContext.request.contextPath}/bug/bugAction!upload.action',
+			upImgUrl : '${pageContext.request.contextPath}/bug/upload',
 			upImgExt : 'jpg,jpeg,gif,png',
 			onUpload:function(rst){
 				$.each(rst,function(i,e){
@@ -20,7 +20,7 @@
 			}
 		});
 		$("#form").form({
-			url :"bug/bugAction!addBug.action",
+			url :"bug/addBug",
 			onSubmit : function() {
 				parent.$.messager.progress({
 					title : '提示',

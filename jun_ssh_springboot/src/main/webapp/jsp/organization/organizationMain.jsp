@@ -23,7 +23,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				 $grid=$dg.treegrid({
 					width : 'auto',
 					height : $(this).height()-90,
-					url : "orgz/organizationAction!findOrganizationListTreeGrid.action",
+					url : "orgz/findOrganizationListTreeGrid",
 					rownumbers:true,
 					animate: true,
 					collapsible: true,
@@ -60,7 +60,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 				if(node){
 					parent.$.messager.confirm("提示","确定要删除记录吗?",function(r){  
 					    if (r){  
-							$.post("orgz/organizationAction!delOrganization.action", {id:node.organizationId}, function(rsp) {
+							$.post("orgz/delOrganization", {id:node.organizationId}, function(rsp) {
 								if(rsp.status){
 									$dg.treegrid('remove', node.organizationId);
 								}

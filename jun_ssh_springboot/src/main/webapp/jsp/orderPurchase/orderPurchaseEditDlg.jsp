@@ -6,7 +6,7 @@
 	$(function() {
 		 $dg = $("#dg");
 		 $dg.datagrid({
-			 url :"orderPurchase/orderPurchaseAction!findPurchaseOrderLineList.action?orderPurchaseId="+$("#tempId").val(),
+			 url :"orderPurchase/findPurchaseOrderLineList?orderPurchaseId="+$("#tempId").val(),
 			width : 'auto',
 			height : $(this).height()-420,
 			rownumbers:true,
@@ -78,7 +78,7 @@
 		 
 		 $cb = $("#suplierId");
 		 $cb.combogrid({
-			url : "sup/supAction!findSuplierListNoPage.action",
+			url : "sup/findSuplierListNoPage",
 			width : 171,
 			panelWidth: 400,
 			panelHeight: 300,
@@ -94,7 +94,7 @@
 			            	  $("#suplierName").val(rowData.name);
 			            	  $("#suplierContact").combobox({
 			          			width:171,
-			        			url:"sup/supAction!findSuplierContactListCombobox.action?suplierId="+rowData.suplierId,
+			        			url:"sup/findSuplierContactListCombobox?suplierId="+rowData.suplierId,
 			        			valueField: 'name',
 			        			textField: 'name',
 			        			onSelect:function(value){
@@ -119,7 +119,7 @@
 			}); 
 		$("#classId").combobox({
 			width:171,
-			url:"systemCode/systemCodeAction!findSystemCodeByType.action?codeMyid=purchaseClass",
+			url:"systemCode/findSystemCodeByType?codeMyid=purchaseClass",
 			valueField: 'codeId',
 			textField: 'name',
 			onSelect:function(value){
@@ -129,7 +129,7 @@
 		
 		$("#deliveryMode").combobox({
 			width:171,
-			url:"systemCode/systemCodeAction!findSystemCodeByType.action?codeMyid=deliveryMode",
+			url:"systemCode/findSystemCodeByType?codeMyid=deliveryMode",
 			valueField: 'codeId',
 			textField: 'name',
 			onSelect:function(value){
@@ -139,7 +139,7 @@
 		
 		$("#projectId").combobox({
 			width:171,
-			url:"project/projectAction!findProjectListCombobox.action",
+			url:"project/findProjectListCombobox",
 			valueField: 'projectId',
 			textField: 'name',
 			onSelect:function(value){
@@ -149,7 +149,7 @@
 		
 		$("#warehouseId").combobox({
 			width:171,
-			url:"warehouse/warehouseAction!findWarehouseListCombobox.action",
+			url:"warehouse/findWarehouseListCombobox",
 			valueField: 'warehouseId',
 			textField: 'name',
 			onSelect:function(value){
@@ -159,7 +159,7 @@
 		
 		$("#buyerOrganizationId").combotree({
 			width:171,
-			url:"orgz/organizationAction!findOrganizationList.action",
+			url:"orgz/findOrganizationList",
 			idFiled:'id',
 		 	textFiled:'name',
 		 	parentField:'pid',
@@ -170,7 +170,7 @@
 		
 		$("#currencyId").combobox({
 			width:171,
-			url:"currency/currencyAction!findCurrencyList.action",
+			url:"currency/findCurrencyList",
 			valueField: 'id',
 			textField: 'name',
 			onSelect:function(value){
@@ -179,7 +179,7 @@
 		});
 		
 		$("#form").form({
-			url :"orderPurchase/orderPurchaseAction!persistenceOrderPurchase.action",
+			url :"orderPurchase/persistenceOrderPurchase",
 			onSubmit : function() {
 				parent.$.messager.progress({
 					title : '提示',
@@ -337,7 +337,7 @@
 							var ed = $dg.datagrid('getEditor', {index:index,field:'myid'});
 							var myid=$(ed.target).val();
 							$.ajax({
-								url:"item/itemAction!findItemByMyid.action",
+								url:"item/findItemByMyid",
 								type:"POST",
 								data:"myid="+myid+"&suplierId="+suplierId,
 								success:function(res){
@@ -553,7 +553,7 @@
 				handler : function() {
 					var d = $(this).closest('.window-body');
 					$("#form1").form({
-						url : "area/areaAction!addCities.action",
+						url : "area/addCities",
 						onSubmit : function() {
 							parent.parent.$.messager.progress({
 								title : '提示',

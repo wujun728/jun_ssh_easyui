@@ -2,7 +2,7 @@
 <script type="text/javascript">
 	$(function() {
 		$("#form").form({
-			url :"permission/permissionAssignmentAction!persistenceRoleDlg.action",
+			url :"permission/persistenceRoleDlg",
 			onSubmit : function() {
 				parent.$.messager.progress({
 					title : '提示',

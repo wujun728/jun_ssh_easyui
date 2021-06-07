@@ -27,7 +27,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					//striped:true,
 					//scrollbarSize:0,
 					toolbar:"#tb",
-					url:"systemParameter/systemParameterAction!findParameterList.action",
+					url:"systemParameter/findParameterList",
 					columns: [[
 					    		{field:'name',title:'参数名称',width:parseInt($(this).width()*0.1),sortable:true},
 					    		{field:'myid',title:'参数编码',width:parseInt($(this).width()*0.1),sortable:true},
@@ -116,7 +116,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 						if (updated.length) {
 							effectRow["updated"] = JSON.stringify(updated);
 						}
-						$.post("systemParameter/systemParameterAction!persistenceCompanyInfo.action", effectRow, function(rsp) {
+						$.post("systemParameter/persistenceCompanyInfo", effectRow, function(rsp) {
 							if(rsp.status){
 								$pg.propertygrid('acceptChanges');
 							}
@@ -148,7 +148,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 					var rowIndex = $dg.datagrid('getRowIndex', row);
 					$dg.datagrid('deleteRow', rowIndex);
 					$.ajax({
-						url:"companyInfo/companyInfoAction!delCompanyInfo.action",
+						url:"companyInfo/delCompanyInfo",
 						data: "companyId="+row.companyId,
 						success: function(rsp){
 							parent.$.messager.show({
