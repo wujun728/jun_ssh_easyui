@@ -14,10 +14,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.ibatis.annotations.ResultType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
@@ -104,7 +106,7 @@ public class PermissionAssignmentAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findAllFunctionList")
+	@RequestMapping(method = {RequestMethod.GET,RequestMethod.POST},value = "/findAllFunctionList")
 	public String findAllFunctionList() throws Exception
 	{
 		OutputJson(permissionAssignmentService.findAllFunctionsList(id));
@@ -124,7 +126,7 @@ public class PermissionAssignmentAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findAllRoleList")
+	@RequestMapping(method = {RequestMethod.GET,RequestMethod.POST},value = "/findAllRoleList")
 	public String findAllRoleList() throws Exception
 	{
 		Map<String, Object> map = searchRole();
@@ -158,7 +160,7 @@ public class PermissionAssignmentAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findAllRoleListNotPage")
+	@RequestMapping(method = {RequestMethod.GET,RequestMethod.POST},value = "/findAllRoleListNotPage")
 	public String findAllRoleListNotPage() throws Exception
 	{
 		Map<String, Object> map = searchRole();
@@ -181,7 +183,7 @@ public class PermissionAssignmentAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/getRolePermission")
+	@RequestMapping(method = {RequestMethod.GET,RequestMethod.POST},value = "/getRolePermission")
 	public String getRolePermission() throws Exception
 	{
 		OutputJson(permissionAssignmentService.getRolePermission(getModel().getRoleId()));
@@ -201,7 +203,7 @@ public class PermissionAssignmentAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/savePermission")
+	@RequestMapping(method = {RequestMethod.GET,RequestMethod.POST},value = "/savePermission")
 	public String savePermission() throws Exception
 	{
 		Json json=new Json();
@@ -229,7 +231,7 @@ public class PermissionAssignmentAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/persistenceRole")
+	@RequestMapping(method = {RequestMethod.GET,RequestMethod.POST},value = "/persistenceRole")
 	public String persistenceRole() throws Exception
 	{	
 		Map<String, List<Role>> map=new HashMap<String, List<Role>>();
@@ -260,7 +262,7 @@ public class PermissionAssignmentAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/persistenceRoleDlg")
+	@RequestMapping(method = {RequestMethod.GET,RequestMethod.POST},value = "/persistenceRoleDlg")
 	public String persistenceRoleDlg() throws Exception
 	{
 		OutputJson(getMessage(permissionAssignmentService.persistenceRole(getModel())),Constants.TEXT_TYPE_PLAIN);
@@ -268,7 +270,7 @@ public class PermissionAssignmentAction extends BaseAction
 	}
 
 	@ResponseBody
-	@GetMapping(value = "/delRole")
+	@RequestMapping(method = {RequestMethod.GET,RequestMethod.POST},value = "/delRole")
 	public String delRole() throws Exception
 	{
 		OutputJson(getMessage(permissionAssignmentService.persistenceRole(getModel().getRoleId())));
