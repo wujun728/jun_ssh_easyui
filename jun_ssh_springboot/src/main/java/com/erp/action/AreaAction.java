@@ -34,22 +34,6 @@ public class AreaAction extends BaseAction {
 	@Autowired
 	private AreaService areaService;
 	
-//	@Autowired
-	private City city;
-
-//	public City getCity() {
-//		return city;
-//	}
-//
-//	@Autowired
-//	public void setCity(City city) {
-//		this.city = city;
-//	}
-//
-//	@Autowired
-//	public void setAreaService(AreaService areaService) {
-//		this.areaService = areaService;
-//	}
 
 	@ResponseBody
 	@RequestMapping(value = "/findCities")
@@ -68,15 +52,9 @@ public class AreaAction extends BaseAction {
 
 	@ResponseBody
 	@RequestMapping(value = "/addCities")
-	public String addCities() throws Exception {
-		OutputJson(getMessage(areaService.addCities(getModel())), Constants.TEXT_TYPE_PLAIN);
+	public String addCities(City city) throws Exception {
+		OutputJson(getMessage(areaService.addCities(city)), Constants.TEXT_TYPE_PLAIN);
 		return null;
 	}
 
-	public City getModel() {
-		if (null == city) {
-			city = new City();
-		}
-		return city;
-	}
 }

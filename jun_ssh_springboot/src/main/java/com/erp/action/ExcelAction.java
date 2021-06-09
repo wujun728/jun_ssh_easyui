@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.RequestContextHolder;
@@ -30,21 +31,14 @@ import lombok.extern.slf4j.Slf4j;
 public class ExcelAction extends BaseAction
 {
 	private static final long serialVersionUID = 6711372422886609823L;
+	@Autowired
 	private ExcelService excelService;
 	private String isCheckedIds;
 	
-	public String getIsCheckedIds()
-	{
-		return isCheckedIds;
-	}
+	@ModelAttribute
 	public void setIsCheckedIds(String isCheckedIds )
 	{
 		this.isCheckedIds = isCheckedIds;
-	}
-	@Autowired
-	public void setExcelService(ExcelService excelService )
-	{
-		this.excelService = excelService;
 	}
 	
 	@RequestMapping(value = "/CompanyInfoExcelExport")

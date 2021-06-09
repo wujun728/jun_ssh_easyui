@@ -11,6 +11,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * SuplierContact entity. @author Wujun
@@ -36,7 +37,9 @@ public class SuplierContact implements java.io.Serializable
 	private String mobile;
 	private String description;
 	private String status;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date created;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date lastmod;
 	private Integer creater;
 	private Integer modifyer;

@@ -25,25 +25,10 @@ import lombok.extern.slf4j.Slf4j;
 public class SupAction extends BaseAction 
 {
 	private static final long serialVersionUID = -1687326503418955787L;
-	private Suplier suplier;
+	@Autowired
 	private SupService  supService;
 	
-	public Suplier getSuplier()
-	{
-		return suplier;
-	}
-
-	public void setSuplier(Suplier suplier )
-	{
-		this.suplier = suplier;
-	}
-
-	@Autowired
-	public void setSupService(SupService supService )
-	{
-		this.supService = supService;
-	}
-
+	 
 	/**  
 	* 函数功能说明 
 	* Administrator修改者名字
@@ -58,10 +43,10 @@ public class SupAction extends BaseAction
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/findSuplierContactList")
-	public String findSuplierContactList() throws Exception
+	public String findSuplierContactList(Suplier suplier) throws Exception
 	{
 		GridModel gridModel=new GridModel();
-		gridModel.setRows(supService.findSuplierContactList(getModel().getSuplierId()));
+		gridModel.setRows(supService.findSuplierContactList(suplier.getSuplierId()));
 		gridModel.setTotal(null);
 		OutputJson(gridModel);
 		return null;
@@ -81,9 +66,9 @@ public class SupAction extends BaseAction
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/findSuplierContactListCombobox")
-	public String findSuplierContactListCombobox() throws Exception
+	public String findSuplierContactListCombobox(Suplier suplier) throws Exception
 	{
-		OutputJson(supService.findSuplierContactList(getModel().getSuplierId()));
+		OutputJson(supService.findSuplierContactList(suplier.getSuplierId()));
 		return null;
 	}
 	/**  
@@ -157,7 +142,7 @@ public class SupAction extends BaseAction
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/persistenceSuplier")
-	public String persistenceSuplier() throws Exception
+	public String persistenceSuplier(Suplier suplier) throws Exception
 	{
 		Map<String, List<SuplierContact>> map=new HashMap<String, List<SuplierContact>>();
 		if (inserted!=null&&!"".equals(inserted))
@@ -172,7 +157,7 @@ public class SupAction extends BaseAction
 		{
 			map.put("delList", JSON.parseArray(deleted, SuplierContact.class));
 		}
-		OutputJson(getMessage(supService.persistenceSuplier(getModel(),map)),Constants.TEXT_TYPE_PLAIN);
+		OutputJson(getMessage(supService.persistenceSuplier(suplier,map)),Constants.TEXT_TYPE_PLAIN);
 		return null;
 	}
 	
@@ -190,19 +175,10 @@ public class SupAction extends BaseAction
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/delSuplier")
-	public String delSuplier() throws Exception
+	public String delSuplier(Suplier suplier) throws Exception
 	{
-		OutputJson(getMessage(supService.delSuplier(getModel().getSuplierId())));
+		OutputJson(getMessage(supService.delSuplier(suplier.getSuplierId())));
 		return null;
-	}
-	
-	public Suplier getModel()
-	{
-		if (null==suplier)
-		{
-			suplier=new Suplier();
-		}
-		return suplier;
 	}
 
 }

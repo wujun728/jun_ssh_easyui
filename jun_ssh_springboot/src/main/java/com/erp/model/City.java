@@ -11,6 +11,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * City entity. @author Wujun
@@ -25,7 +26,9 @@ public class City implements java.io.Serializable
 	private Integer cityId;
 	private Integer provinceId;
 	private String name;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date created;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date lastmod;
 	private String status;
 	private Integer creater;

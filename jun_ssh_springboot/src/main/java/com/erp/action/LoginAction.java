@@ -40,23 +40,18 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/system")
 public class LoginAction extends BaseAction {
 	private static final long serialVersionUID = -6019556530071263499L;
+	@Autowired
+	private LoginService loginService;
+	
 	private String userName;
 	private String password;
 	private String captcha;
 	private String userMacAddr;
 	private String userKey;
 
-	public String getUserKey() {
-		return userKey;
-	}
-
 	@ModelAttribute
 	public void setUserKey(String userKey) {
 		this.userKey = userKey;
-	}
-
-	public String getUserMacAddr() {
-		return userMacAddr;
 	}
 
 	@ModelAttribute
@@ -64,39 +59,16 @@ public class LoginAction extends BaseAction {
 		this.userMacAddr = userMacAddr;
 	}
 
-	@Autowired
-	private LoginService loginService;
-
-	public String getCaptcha() {
-		return captcha;
-	}
-
+	@ModelAttribute
 	public void setCaptcha(String captcha) {
 		this.captcha = captcha;
-	}
-
-	public LoginService getLoginService() {
-		return loginService;
-	}
-
-	@Autowired
-	public void setLoginService(LoginService loginService) {
-		this.loginService = loginService;
-	}
-
-	public String getUserName() {
-		return userName;
 	}
 
 	@ModelAttribute
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-
-	public String getPassword() {
-		return password;
-	}
-
+ 
 	@ModelAttribute
 	public void setPassword(String password) {
 		this.password = password;

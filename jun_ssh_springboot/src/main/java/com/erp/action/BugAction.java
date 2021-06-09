@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -44,49 +45,28 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class BugAction extends BaseAction {
 	private static final long serialVersionUID = -3055754336964775139L;
+	@Autowired
 	private BugService bugService;
+	
 	private File filedata;
 	private String filedataFileName;
 	private String filedataContentType;
 
-	public File getFiledata() {
-		return filedata;
-	}
-
+	@ModelAttribute
 	public void setFiledata(File filedata) {
 		this.filedata = filedata;
 	}
 
-	public String getFiledataFileName() {
-		return filedataFileName;
-	}
-
+	@ModelAttribute
 	public void setFiledataFileName(String filedataFileName) {
 		this.filedataFileName = filedataFileName;
 	}
 
-	public String getFiledataContentType() {
-		return filedataContentType;
-	}
-
+	@ModelAttribute
 	public void setFiledataContentType(String filedataContentType) {
 		this.filedataContentType = filedataContentType;
 	}
 
-	private Bug bug;
-
-	public Bug getBug() {
-		return bug;
-	}
-
-	public void setBug(Bug bug) {
-		this.bug = bug;
-	}
-
-	@Autowired
-	public void setBugService(BugService bugService) {
-		this.bugService = bugService;
-	}
 
 	/**
 	 * 函数功能说明 Administrator修改者名字 2013-6-22修改日期 修改内容 @Title:
@@ -115,8 +95,8 @@ public class BugAction extends BaseAction {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/addBug")
-	public String addBug() throws Exception {
-		OutputJson(getMessage(bugService.addBug(getModel())), Constants.TEXT_TYPE_PLAIN);
+	public String addBug(Bug bug) throws Exception {
+		OutputJson(getMessage(bugService.addBug(bug)), Constants.TEXT_TYPE_PLAIN);
 		return null;
 	}
 
@@ -127,8 +107,8 @@ public class BugAction extends BaseAction {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/delBug")
-	public String delBug() throws Exception {
-		OutputJson(getMessage(bugService.delBug(getModel().getBugId())));
+	public String delBug(Bug bug) throws Exception {
+		OutputJson(getMessage(bugService.delBug(bug.getBugId())));
 		return null;
 	}
 
@@ -238,10 +218,4 @@ public class BugAction extends BaseAction {
 
 	}
 
-	public Bug getModel() {
-		if (bug == null) {
-			bug = new Bug();
-		}
-		return bug;
-	}
 }

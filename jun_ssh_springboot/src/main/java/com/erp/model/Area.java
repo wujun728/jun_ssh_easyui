@@ -11,6 +11,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * Area entity. @author Wujun
@@ -24,7 +25,9 @@ public class Area implements java.io.Serializable
 	private static final long serialVersionUID = -2488468164422496390L;
 	private Integer areaId;
 	private String name;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date created;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date lastmod;
 	private String status;
 	private Integer creater;

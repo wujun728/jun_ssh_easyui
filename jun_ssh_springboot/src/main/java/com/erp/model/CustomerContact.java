@@ -11,6 +11,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * CustomerContact entity. @author Wujun
@@ -36,12 +37,15 @@ public class CustomerContact implements java.io.Serializable
 	private String mobile;
 	private String description;
 	private String status;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date created;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date lastmod;
 	private Integer creater;
 	private Integer modifyer;
 	private String fax;
 	private String qq;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date birthday;
 
 	// Constructors

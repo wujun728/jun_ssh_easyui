@@ -17,23 +17,8 @@ import lombok.extern.slf4j.Slf4j;
 public class WarehouseAction extends BaseAction 
 {
 	private static final long serialVersionUID = -4202679640252934032L;
-	private Warehouse warehouse;
-	private WarehouseService warehouseService;
 	@Autowired
-	public void setWarehouseService(WarehouseService warehouseService )
-	{
-		this.warehouseService = warehouseService;
-	}
-
-	public Warehouse getWarehouse()
-	{
-		return warehouse;
-	}
-
-	public void setWarehouse(Warehouse warehouse )
-	{
-		this.warehouse = warehouse;
-	}
+	private WarehouseService warehouseService;
 	
 	/**  
 	* 函数功能说明
@@ -42,7 +27,8 @@ public class WarehouseAction extends BaseAction
 	* 修改内容
 	* @Title: findWarehouseListCombobox 
 	* @Description: TODO:查询所有仓库下拉框格式
-	* @param @return
+	* @param  Warehouse warehouse
+	* @return
 	* @param @throws Exception    设定文件 
 	* @return String    返回类型 
 	* @throws 
@@ -54,14 +40,4 @@ public class WarehouseAction extends BaseAction
 		OutputJson(warehouseService.findWarehouseListCombobox());
 		return null;
 	}
-
-	public Warehouse getModel()
-	{
-		if (null==warehouse)
-		{
-			warehouse=new Warehouse();
-		}
-		return warehouse;
-	}
-
 }

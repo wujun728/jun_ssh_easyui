@@ -12,6 +12,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.erp.util.ExcelVOAttribute;
 
@@ -41,7 +42,9 @@ public class CompanyInfo implements java.io.Serializable
 	@ExcelVOAttribute(name = "联系人", column = "G")
 	private String contact;
 	private String status;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date created;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date lastmod;
 	private String manager;
 	private String bank;

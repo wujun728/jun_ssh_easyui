@@ -16,12 +16,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class CurrencyAction extends BaseAction {
 	private static final long serialVersionUID = -8036970315807711701L;
-	private CurrencyService currencyService;
-
 	@Autowired
-	public void setCurrencyService(CurrencyService currencyService) {
-		this.currencyService = currencyService;
-	}
+	private CurrencyService currencyService;
 
 	/**
 	 * 函数功能说明 Administrator修改者名字 2013-6-25修改日期 修改内容 @Title:

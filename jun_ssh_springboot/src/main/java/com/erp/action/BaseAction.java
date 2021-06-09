@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -31,6 +32,7 @@ import com.erp.dto.Json;
 public class BaseAction extends BaseController
 {
 	private static final long	serialVersionUID	= 7493364888065600947L;
+	
 	public String searchName;
 	public String searchValue;
 	public String inserted;
@@ -53,6 +55,7 @@ public class BaseAction extends BaseController
 	{
 		return searchName;
 	}
+	@ModelAttribute
 	public void setSearchName(String searchName )
 	{
 		this.searchName = searchName;
@@ -61,6 +64,7 @@ public class BaseAction extends BaseController
 	{
 		return searchValue;
 	}
+	@ModelAttribute
 	public void setSearchValue(String searchValue )
 	{
 		this.searchValue = searchValue;
@@ -69,6 +73,7 @@ public class BaseAction extends BaseController
 	{
 		return inserted;
 	}
+	@ModelAttribute
 	public void setInserted(String inserted )
 	{
 		this.inserted = inserted;
@@ -77,6 +82,7 @@ public class BaseAction extends BaseController
 	{
 		return updated;
 	}
+	@ModelAttribute
 	public void setUpdated(String updated )
 	{
 		this.updated = updated;
@@ -85,6 +91,7 @@ public class BaseAction extends BaseController
 	{
 		return deleted;
 	}
+	@ModelAttribute
 	public void setDeleted(String deleted )
 	{
 		this.deleted = deleted;
@@ -93,6 +100,7 @@ public class BaseAction extends BaseController
 	{
 		return page;
 	}
+	@ModelAttribute
 	public void setPage(Integer page )
 	{
 		this.page = page;
@@ -101,6 +109,7 @@ public class BaseAction extends BaseController
 	{
 		return rows;
 	}
+	@ModelAttribute
 	public void setRows(Integer rows )
 	{
 		this.rows = rows;
@@ -109,6 +118,7 @@ public class BaseAction extends BaseController
 	{
 		return searchAnds;
 	}
+	@ModelAttribute
 	public void setSearchAnds(String searchAnds )
 	{
 		this.searchAnds = searchAnds;
@@ -117,6 +127,7 @@ public class BaseAction extends BaseController
 	{
 		return searchColumnNames;
 	}
+	@ModelAttribute
 	public void setSearchColumnNames(String searchColumnNames )
 	{
 		this.searchColumnNames = searchColumnNames;
@@ -125,6 +136,7 @@ public class BaseAction extends BaseController
 	{
 		return searchConditions;
 	}
+	@ModelAttribute
 	public void setSearchConditions(String searchConditions )
 	{
 		this.searchConditions = searchConditions;
@@ -133,6 +145,7 @@ public class BaseAction extends BaseController
 	{
 		return searchVals;
 	}
+	@ModelAttribute
 	public void setSearchVals(String searchVals )
 	{
 		this.searchVals = searchVals;

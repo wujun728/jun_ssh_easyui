@@ -14,6 +14,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * UserRole entity. @author Wujun
@@ -29,7 +30,9 @@ public class UserRole implements java.io.Serializable
 	private Users users;
 	private Role role;
 	private String status;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date created;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date lastmod;
 	private Integer creater;
 	private Integer modifyer;

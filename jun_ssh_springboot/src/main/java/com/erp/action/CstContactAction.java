@@ -18,16 +18,8 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class CstContactAction extends BaseAction {
 	private static final long serialVersionUID = 5833439394298542947L;
-	private CustomerContact customerContact;
+	@Autowired
 	private CstContactService cstContactService;
-
-	public CustomerContact getCustomerContact() {
-		return customerContact;
-	}
-
-	public void setCustomerContact(CustomerContact customerContact) {
-		this.customerContact = customerContact;
-	}
 
 	@Autowired
 	public void setCstContactService(CstContactService cstContactService) {
@@ -42,9 +34,9 @@ public class CstContactAction extends BaseAction {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/findCustomerContactList")
-	public String findCustomerContactList() throws Exception {
+	public String findCustomerContactList(CustomerContact customerContact) throws Exception {
 		GridModel gridModel = new GridModel();
-		gridModel.setRows(cstContactService.findCustomerContactList(getModel().getCustomerId()));
+		gridModel.setRows(cstContactService.findCustomerContactList(customerContact.getCustomerId()));
 		gridModel.setTotal(null);
 		OutputJson(gridModel);
 		return null;
@@ -58,15 +50,9 @@ public class CstContactAction extends BaseAction {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/findCustomerContactListCombobox")
-	public String findCustomerContactListCombobox() throws Exception {
-		OutputJson(cstContactService.findCustomerContactList(getModel().getCustomerId()));
+	public String findCustomerContactListCombobox(CustomerContact customerContact) throws Exception {
+		OutputJson(cstContactService.findCustomerContactList(customerContact.getCustomerId()));
 		return null;
 	}
 
-	public CustomerContact getModel() {
-		if (null == customerContact) {
-			customerContact = new CustomerContact();
-		}
-		return customerContact;
-	}
 }

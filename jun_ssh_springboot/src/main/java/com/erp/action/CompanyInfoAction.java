@@ -39,24 +39,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class CompanyInfoAction extends BaseAction{
 	//private static final Logger logger = Logger.getLogger(LoginAction.class);
-	private static final long serialVersionUID = -3276708781259160129L;
-	private CompanyInfoService companyInfoService;
-	private CompanyInfo companyInfo;
-	
-	public CompanyInfo getCompanyInfo()
-	{
-		return companyInfo;
-	}
-
-	public void setCompanyInfo(CompanyInfo companyInfo )
-	{
-		this.companyInfo = companyInfo;
-	}
-
 	@Autowired
-	public void setCompanyInfoService(CompanyInfoService companyInfoService) {
-		this.companyInfoService = companyInfoService;
-	}
+	private CompanyInfoService companyInfoService;
+
 	
 	/**  
 	* 函数功能说明 
@@ -97,11 +82,11 @@ public class CompanyInfoAction extends BaseAction{
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/persistenceCompanyInfoDlg")
-	public String persistenceCompanyInfoDlg() throws Exception
+	public String persistenceCompanyInfoDlg(CompanyInfo companyInfo) throws Exception
 	{
 		List<CompanyInfo> list=new ArrayList<CompanyInfo>();
-		list.add(getModel());
-		Integer companyId = getModel().getCompanyId();
+		list.add(companyInfo);
+		Integer companyId = companyInfo.getCompanyId();
 		if (null==companyId||"".equals(companyId))
 		{
 			OutputJson(getMessage(companyInfoService.addCompanyInfo(list)), Constants.TEXT_TYPE_PLAIN);
@@ -153,16 +138,9 @@ public class CompanyInfoAction extends BaseAction{
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/delCompanyInfo")
-	public String delCompanyInfo() throws Exception
+	public String delCompanyInfo(CompanyInfo companyInfo) throws Exception
 	{
-		OutputJson(getMessage(companyInfoService.delCompanyInfo(getModel().getCompanyId())));
+		OutputJson(getMessage(companyInfoService.delCompanyInfo(companyInfo.getCompanyId())));
 		return null;
-	}
-	public CompanyInfo getModel()
-	{
-		if(null==companyInfo){
-			companyInfo=new CompanyInfo();
-		}
-		return companyInfo;
 	}
 }

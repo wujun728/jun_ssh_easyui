@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -31,30 +32,17 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class DbBackUpAction extends BaseAction {
 	private static final long serialVersionUID = -1946182036619744959L;
-	private BackupScheduleConfig backupScheduleConfig;
+	
+	@Autowired
 	private DbBackUpService dbBackUpService;
+	
 	private String fileName;
 
-	public String getFileName() {
-		return fileName;
-	}
-
+	@ModelAttribute
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
 	}
 
-	@Autowired
-	public void setDbBackUpService(DbBackUpService dbBackUpService) {
-		this.dbBackUpService = dbBackUpService;
-	}
-
-	public BackupScheduleConfig getBackupScheduleConfig() {
-		return backupScheduleConfig;
-	}
-
-	public void setBackupScheduleConfig(BackupScheduleConfig backupScheduleConfig) {
-		this.backupScheduleConfig = backupScheduleConfig;
-	}
 
 	/**
 	 * 函数功能说明 Administrator修改者名字 2013-6-28修改日期 修改内容 @Title:
@@ -171,9 +159,9 @@ public class DbBackUpAction extends BaseAction {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/schedule")
-	public String schedule() throws Exception {
+	public String schedule(BackupScheduleConfig backupScheduleConfig) throws Exception {
 		dbBackUpService.unSchedule();
-		String msg = dbBackUpService.schedule(getModel().getScheduleHour(), getModel().getScheduleMinute(), "Y");
+		String msg = dbBackUpService.schedule(backupScheduleConfig.getScheduleHour(), backupScheduleConfig.getScheduleMinute(), "Y");
 		Json json = new Json();
 		json.setTitle("提示");
 		json.setStatus(true);
@@ -182,11 +170,5 @@ public class DbBackUpAction extends BaseAction {
 		return null;
 	}
 
-	public BackupScheduleConfig getModel() {
-		if (null == backupScheduleConfig) {
-			backupScheduleConfig = new BackupScheduleConfig();
-		}
-		return backupScheduleConfig;
-	}
 
 }

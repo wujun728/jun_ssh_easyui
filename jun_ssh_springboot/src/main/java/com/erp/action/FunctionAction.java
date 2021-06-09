@@ -56,17 +56,7 @@ public class FunctionAction extends BaseAction {
 	@Autowired
 	private FunctionService functionService;
 
-//	private Permission permission;
-	
 	private Integer id;
-
-//	public Permission getPermission() {
-//		return permission;
-//	}
-//	@ModelAttribute
-//	public void setPermission(Permission permission) {
-//		this.permission = permission;
-//	}
 
 	public Integer getId() {
 		return id;
@@ -156,11 +146,4 @@ public class FunctionAction extends BaseAction {
 		return null;
 	}
 
-//	@ModelAttribute
-//	public Permission getModel() {
-//		if (null == permission) {
-//			permission = new Permission();
-//		}
-//		return permission;
-//	}
 }

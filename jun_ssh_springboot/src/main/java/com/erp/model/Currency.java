@@ -11,6 +11,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * Currency entity. @author Wujun
@@ -24,7 +25,9 @@ public class Currency implements java.io.Serializable
 	private static final long serialVersionUID = -1925563959210881165L;
 	private Integer id;
 	private String name;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date created;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date lastmod;
 	private Integer creater;
 	private Integer modifyer;

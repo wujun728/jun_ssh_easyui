@@ -27,15 +27,6 @@ import lombok.extern.slf4j.Slf4j;
 public class CstAction extends BaseAction {
 	private static final long serialVersionUID = -1829373389433829721L;
 	private CstService cstService;
-	private Customer customer;
-
-	public Customer getCustomer() {
-		return customer;
-	}
-
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
 
 	@Autowired
 	public void setCstService(CstService cstService) {
@@ -91,7 +82,7 @@ public class CstAction extends BaseAction {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/persistenceCustomer")
-	public String persistenceCustomer() throws Exception {
+	public String persistenceCustomer(Customer customer) throws Exception {
 		Map<String, List<CustomerContact>> map = new HashMap<String, List<CustomerContact>>();
 		if (inserted != null && !"".equals(inserted)) {
 			map.put("addList", JSON.parseArray(inserted, CustomerContact.class));
@@ -102,7 +93,7 @@ public class CstAction extends BaseAction {
 		if (deleted != null && !"".equals(deleted)) {
 			map.put("delList", JSON.parseArray(deleted, CustomerContact.class));
 		}
-		OutputJson(getMessage(cstService.persistenceCustomer(getModel(), map)), Constants.TEXT_TYPE_PLAIN);
+		OutputJson(getMessage(cstService.persistenceCustomer(customer, map)), Constants.TEXT_TYPE_PLAIN);
 		return null;
 	}
 
@@ -113,17 +104,11 @@ public class CstAction extends BaseAction {
 	 */
 	@ResponseBody
 	@RequestMapping(value = "/delCustomer")
-	public String delCustomer() throws Exception {
-		OutputJson(getMessage(cstService.delCustomer(getModel().getCustomerId())));
+	public String delCustomer(Customer customer) throws Exception {
+		OutputJson(getMessage(cstService.delCustomer(customer.getCustomerId())));
 		return null;
 	}
 
-	public Customer getModel() {
-		if (null == customer) {
-			customer = new Customer();
-		}
-		return customer;
-	}
 
 	/**
 	 * 函数功能说明 TODO:获取所有销售代表 Administrator修改者名字 2013-6-24修改日期 修改内容 @Title:

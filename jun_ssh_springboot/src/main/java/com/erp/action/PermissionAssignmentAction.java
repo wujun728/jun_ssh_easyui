@@ -18,6 +18,7 @@ import org.apache.ibatis.annotations.ResultType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -50,48 +51,26 @@ import lombok.extern.slf4j.Slf4j;
 public class PermissionAssignmentAction extends BaseAction 
 {
 	private static final long serialVersionUID = -7653440308109010857L;
+	@Autowired
 	private PermissionAssignmentService permissionAssignmentService;
-	private Integer id;
-	private String checkedIds;
-	private Role role;
 	
-
-	public Role getRole()
-	{
-		return role;
-	}
-
-	public void setRole(Role role )
-	{
-		this.role = role;
-	}
-
-
-	public String getCheckedIds()
-	{
-		return checkedIds;
-	}
-
+	
+	private Integer id;
+	
+	
+	private String checkedIds;
+ 
+	@ModelAttribute
 	public void setCheckedIds(String checkedIds )
 	{
 		this.checkedIds = checkedIds;
 	}
-
-	public Integer getId()
-	{
-		return id;
-	}
-
+	@ModelAttribute
 	public void setId(Integer id )
 	{
 		this.id = id;
 	}
 
-	@Autowired
-	public void setPermissionAssignmentService(PermissionAssignmentService permissionAssignmentService )
-	{
-		this.permissionAssignmentService = permissionAssignmentService;
-	}
 	
 	/**  
 	* 函数功能说明 TODO:按节点查询所有程式
@@ -185,9 +164,9 @@ public class PermissionAssignmentAction extends BaseAction
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/getRolePermission")
-	public String getRolePermission() throws Exception
+	public String getRolePermission(Role role) throws Exception
 	{
-		OutputJson(permissionAssignmentService.getRolePermission(getModel().getRoleId()));
+		OutputJson(permissionAssignmentService.getRolePermission(role.getRoleId()));
 		return null;
 	}
 	
@@ -205,10 +184,10 @@ public class PermissionAssignmentAction extends BaseAction
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/savePermission")
-	public String savePermission() throws Exception
+	public String savePermission(Role role) throws Exception
 	{
 		Json json=new Json();
-		if (permissionAssignmentService.savePermission(getModel().getRoleId(), checkedIds))
+		if (permissionAssignmentService.savePermission(role.getRoleId(), checkedIds))
 		{
 			json.setStatus(true);
 			json.setMessage("分配成功！查看已分配权限请重新登录！");
@@ -264,25 +243,17 @@ public class PermissionAssignmentAction extends BaseAction
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/persistenceRoleDlg")
-	public String persistenceRoleDlg() throws Exception
+	public String persistenceRoleDlg(Role role) throws Exception
 	{
-		OutputJson(getMessage(permissionAssignmentService.persistenceRole(getModel())),Constants.TEXT_TYPE_PLAIN);
+		OutputJson(getMessage(permissionAssignmentService.persistenceRole(role)),Constants.TEXT_TYPE_PLAIN);
 		return null;
 	}
 
 	@ResponseBody
 	@RequestMapping(value = "/delRole")
-	public String delRole() throws Exception
+	public String delRole(Role role) throws Exception
 	{
-		OutputJson(getMessage(permissionAssignmentService.persistenceRole(getModel().getRoleId())));
+		OutputJson(getMessage(permissionAssignmentService.persistenceRole(role.getRoleId())));
 		return null;
-	}
-	public Role getModel()
-	{
-		if (null==role)
-		{
-			role =new Role();
-		}
-		return role;
 	}
 }

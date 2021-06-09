@@ -25,22 +25,9 @@ import lombok.extern.slf4j.Slf4j;
 public class ProjectAction extends BaseAction 
 {
 	private static final long serialVersionUID = -8785609987685604362L;
-	private ProjectService projectService;
-	private Project project;
-	public Project getProject()
-	{
-		return project;
-	}
-	public void setProject(Project project )
-	{
-		this.project = project;
-	}
 	
 	@Autowired
-	public void setProjectService(ProjectService projectService )
-	{
-		this.projectService = projectService;
-	}
+	private ProjectService projectService;
 	
 	/**  
 	* 函数功能说明 
@@ -75,9 +62,9 @@ public class ProjectAction extends BaseAction
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/findProjectFollowsList")
-	public String findProjectFollowsList() throws Exception
+	public String findProjectFollowsList(Project project) throws Exception
 	{
-		OutputJson(projectService.findProjectFollowsList(getModel().getProjectId()));
+		OutputJson(projectService.findProjectFollowsList(project.getProjectId()));
 		return null;
 	}
 	
@@ -143,7 +130,7 @@ public class ProjectAction extends BaseAction
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/persistenceProject")
-	public String persistenceProject() throws Exception
+	public String persistenceProject(Project project) throws Exception
 	{
 		Map<String, List<ProjectFollow>> map=new HashMap<String, List<ProjectFollow>>();
 		if (inserted!=null&&!"".equals(inserted))
@@ -158,7 +145,7 @@ public class ProjectAction extends BaseAction
 		{
 			map.put("delList", JSON.parseArray(deleted, ProjectFollow.class));
 		}
-		OutputJson(getMessage(projectService.persistenceProject(getModel(), map)),Constants.TEXT_TYPE_PLAIN);
+		OutputJson(getMessage(projectService.persistenceProject(project, map)),Constants.TEXT_TYPE_PLAIN);
 		return null;
 	}
 	
@@ -176,18 +163,10 @@ public class ProjectAction extends BaseAction
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/delProject")
-	public String delProject() throws Exception
+	public String delProject(Project project) throws Exception
 	{
-		OutputJson(getMessage(projectService.delProject(getModel().getProjectId())));
+		OutputJson(getMessage(projectService.delProject(project.getProjectId())));
 		return null;
 	}
 	
-	public Project getModel()
-	{
-		if (null==project)
-		{
-			project=new Project();
-		}
-		return project;
-	}
 }

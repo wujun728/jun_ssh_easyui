@@ -11,6 +11,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * Project entity. @author Wujun
@@ -25,6 +26,7 @@ public class Project implements java.io.Serializable
 	private Integer projectId;
 	private String myid;
 	private String name;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date setupDate;
 	private Integer classId;
 	private String className;
@@ -36,7 +38,9 @@ public class Project implements java.io.Serializable
 	private Integer sourceId;
 	private String sourceName;
 	private String budget;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date startTime;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date endTime;
 	private String description;
 	private Integer attachmentId;
@@ -46,7 +50,9 @@ public class Project implements java.io.Serializable
 	private String managerName;
 	private Integer managerOrganizationId;
 	private String managerOrganizationName;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date created;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date lastmod;
 	private String status;
 	private Integer creater;

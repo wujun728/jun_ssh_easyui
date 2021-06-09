@@ -11,6 +11,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * OrderSale entity. @author Wujun
@@ -24,6 +25,7 @@ public class OrderSale implements java.io.Serializable
 	private static final long serialVersionUID = 2165814343170720640L;
 	private Integer orderSaleId;
 	private String myid;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date setupDate;
 	private Integer setupAccount;
 	private Integer warehouseId;
@@ -40,6 +42,7 @@ public class OrderSale implements java.io.Serializable
 	private String contactFax;
 	private Integer deliveryMode;
 	private String deliveryModeName;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date estimatedDelivery;
 	private String deliveryAddress;
 	private String orderDesc;
@@ -54,11 +57,13 @@ public class OrderSale implements java.io.Serializable
 	private String enterName;
 	private Integer enterOrganizationId;
 	private String enterOrganizationName;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date enterDate;
 	private Integer auditeId;
 	private String auditeName;
 	private Integer auditeOrganizationId;
 	private String auditeOrganizationName;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date auditeDate;
 	private String auditeStatus;
 	private Integer attachmentId;
@@ -75,7 +80,9 @@ public class OrderSale implements java.io.Serializable
 	private Double taxAmount;
 	private Double totalAmount;
 	private Double advancePayment;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date created;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date lastmod;
 	private String status;
 	private Integer creater;

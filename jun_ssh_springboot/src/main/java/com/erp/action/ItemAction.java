@@ -6,6 +6,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -23,15 +24,11 @@ import lombok.extern.slf4j.Slf4j;
 public class ItemAction extends BaseAction
 {	
 	private static final long serialVersionUID = -5649548096030365832L;
+	@Autowired
 	private ItemService itemService;
-	private Item item;
 	private Integer suplierId;
 	
-	public Integer getSuplierId()
-	{
-		return suplierId;
-	}
-
+	@ModelAttribute
 	public void setSuplierId(Integer suplierId )
 	{
 		this.suplierId = suplierId;
@@ -43,14 +40,6 @@ public class ItemAction extends BaseAction
 		this.itemService = itemService;
 	}
 	
-	public Item getItem()
-	{
-		return item;
-	}
-	public void setItem(Item item )
-	{
-		this.item = item;
-	}
 	
 	/**  
 	* 函数功能说明
@@ -66,9 +55,9 @@ public class ItemAction extends BaseAction
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/findItemByMyid")
-	public String findItemByMyid() throws Exception
+	public String findItemByMyid(Item item) throws Exception
 	{
-		OutputJson(itemService.findItemByMyid(getModel().getMyid(),suplierId));
+		OutputJson(itemService.findItemByMyid(item.getMyid(),suplierId));
 		return null;
 	}
 	
@@ -105,9 +94,9 @@ public class ItemAction extends BaseAction
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/addBrands")
-	public String addBrands() throws Exception
+	public String addBrands(Item item) throws Exception
 	{
-		OutputJson(getMessage(itemService.addBrands(getModel().getName())));
+		OutputJson(getMessage(itemService.addBrands(item.getName())));
 		return null;
 	}
 	/**  
@@ -153,9 +142,9 @@ public class ItemAction extends BaseAction
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/persistenceItem")
-	public String persistenceItem() throws Exception
+	public String persistenceItem(Item item) throws Exception
 	{
-		OutputJson(getMessage(itemService.persistenceItem(getModel())),Constants.TEXT_TYPE_PLAIN);
+		OutputJson(getMessage(itemService.persistenceItem(item)),Constants.TEXT_TYPE_PLAIN);
 		return null;
 	}
 	
@@ -173,18 +162,10 @@ public class ItemAction extends BaseAction
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/delItem")
-	public String delItem() throws Exception
+	public String delItem(Item item) throws Exception
 	{
-		OutputJson(getMessage(itemService.delItem(getModel().getItemId())));
+		OutputJson(getMessage(itemService.delItem(item.getItemId())));
 		return null;
 	}
 	
-	public Item getModel()
-	{
-		if (null==item)
-		{
-			item=new Item();
-		}
-		return item;
-	}
 }

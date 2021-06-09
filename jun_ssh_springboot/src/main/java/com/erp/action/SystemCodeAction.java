@@ -21,49 +21,29 @@ import lombok.extern.slf4j.Slf4j;
 public class SystemCodeAction extends BaseAction 
 {
 	private static final long serialVersionUID = -7594149055359363935L;
+	@Autowired
 	private SystemCodeService systemCodeService;
-//	private SystemCode systemCode;
+
 	private String permissionName;
 	private Integer id;
 	private Integer codePid;
 	
-	public Integer getCodePid()
-	{
-		return codePid;
-	}
 	@ModelAttribute
 	public void setCodePid(Integer codePid )
 	{
 		this.codePid = codePid;
 	}
 
-	public Integer getId()
-	{
-		return id;
-	}
 	@ModelAttribute
 	public void setId(Integer id )
 	{
 		this.id = id;
 	}
 
- 
-	
-	public String getPermissionName()
-	{
-		return permissionName;
-	}
-
 	@ModelAttribute
 	public void setPermissionName(String permissionName )
 	{
 		this.permissionName = permissionName;
-	}
-
-	@Autowired
-	public void setSystemCodeService(SystemCodeService systemCodeService )
-	{
-		this.systemCodeService = systemCodeService;
 	}
 	
 	/**  
@@ -175,12 +155,4 @@ public class SystemCodeAction extends BaseAction
 		OutputJson(systemCodeService.findSystemCodeByType(systemCode.getCodeMyid()));
 		return null;
 	}
-//	public SystemCode getModel()
-//	{
-//		if (null==systemCode)
-//		{
-//			systemCode=new SystemCode();
-//		}
-//		return systemCode;
-//	}
 }

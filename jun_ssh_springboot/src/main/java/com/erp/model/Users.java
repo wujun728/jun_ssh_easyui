@@ -16,6 +16,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * Users entity. @author Wujun
@@ -39,8 +40,11 @@ public class Users implements java.io.Serializable
 	private String email;
 	private String lang;
 	private String theme;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date firstVisit;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date previousVisit;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date lastVisits;
 	private Integer loginCount;
 	private Integer isemployee;
@@ -50,7 +54,9 @@ public class Users implements java.io.Serializable
 	private Integer questionId;
 	private String answer;
 	private Integer isonline;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date created;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date lastmod;
 	private Integer creater;
 	private Integer modifyer;

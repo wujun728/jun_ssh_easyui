@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -26,31 +27,12 @@ import lombok.extern.slf4j.Slf4j;
 public class UserAction extends BaseAction 
 {
 	private static final long serialVersionUID = -8188592660918385632L;
-	private UserService userService;
-	private String isCheckedIds;
-	private Users users;
-	
-	public Users getUsers()
-	{
-		return users;
-	}
-
-	public void setUsers(Users users )
-	{
-		this.users = users;
-	}
-
 	@Autowired
-	public void setUserService(UserService userService )
-	{
-		this.userService = userService;
-	}
+	private UserService userService;
 	
-	public String getIsCheckedIds()
-	{
-		return isCheckedIds;
-	}
+	private String isCheckedIds;
 
+	@ModelAttribute
 	public void setIsCheckedIds(String isCheckedIds )
 	{
 		this.isCheckedIds = isCheckedIds;
@@ -129,9 +111,9 @@ public class UserAction extends BaseAction
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/persistenceUsersDig")
-	public String persistenceUsersDig() throws Exception
+	public String persistenceUsersDig(Users users) throws Exception
 	{
-		OutputJson(getMessage(userService.persistenceUsers(getModel())),Constants.TEXT_TYPE_PLAIN);
+		OutputJson(getMessage(userService.persistenceUsers(users)),Constants.TEXT_TYPE_PLAIN);
 		return null;
 	}
 	
@@ -149,9 +131,9 @@ public class UserAction extends BaseAction
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/delUsers")
-	public String delUsers() throws Exception
+	public String delUsers(Users users) throws Exception
 	{
-		OutputJson(getMessage(userService.delUsers(getModel().getUserId())));
+		OutputJson(getMessage(userService.delUsers(users.getUserId())));
 		return null;
 	}
 	/**  
@@ -168,9 +150,9 @@ public class UserAction extends BaseAction
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/findUsersRolesList")
-	public String findUsersRolesList() throws Exception
+	public String findUsersRolesList(Users users) throws Exception
 	{
-		OutputJson(userService.findUsersRolesList(getModel().getUserId()));
+		OutputJson(userService.findUsersRolesList(users.getUserId()));
 		return null;
 	}
 	/**  
@@ -187,10 +169,10 @@ public class UserAction extends BaseAction
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/saveUserRoles")
-	public String saveUserRoles() throws Exception
+	public String saveUserRoles(Users users) throws Exception
 	{
 		Json json=new Json();
-		if (userService.saveUserRoles(getModel().getUserId(), isCheckedIds)) {
+		if (userService.saveUserRoles(users.getUserId(), isCheckedIds)) {
 			json.setStatus(true);
 			json.setMessage("数据更新成功！");
 		}else {
@@ -198,14 +180,5 @@ public class UserAction extends BaseAction
 		}
 		OutputJson(json);
 		return null;
-	}
-
-	public Users getModel()
-	{ 
-		if (null==users)
-		{
-			users =new Users();
-		}
-		return users;
 	}
 }

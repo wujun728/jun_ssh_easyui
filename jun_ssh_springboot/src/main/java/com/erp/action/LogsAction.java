@@ -22,24 +22,8 @@ import lombok.extern.slf4j.Slf4j;
 public class LogsAction extends BaseAction 
 {
 	private static final long serialVersionUID = 3658084064057123814L;
-	private Log log;
-	private LogsService logsService;
-
-	public Log getLog()
-	{
-		return log;
-	}
-
-	public void setLog(Log log )
-	{
-		this.log = log;
-	}
-
 	@Autowired
-	public void setLogsService(LogsService logsService )
-	{
-		this.logsService = logsService;
-	}
+	private LogsService logsService;
 	
 	/**  
 	* 函数功能说明 TODO:查询所有日志
@@ -84,9 +68,9 @@ public class LogsAction extends BaseAction
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/persistenceLogs")
-	public String persistenceLogs() throws Exception
+	public String persistenceLogs(Log log) throws Exception
 	{
-		OutputJson(getMessage(logsService.persistenceLogs(getModel())),Constants.TEXT_TYPE_PLAIN);
+		OutputJson(getMessage(logsService.persistenceLogs(log)),Constants.TEXT_TYPE_PLAIN);
 		return null;
 	}
 	
@@ -104,18 +88,10 @@ public class LogsAction extends BaseAction
 	*/
 	@ResponseBody
 	@RequestMapping(value = "/delLogs")
-	public String delLogs() throws Exception
+	public String delLogs(Log log) throws Exception
 	{
-		OutputJson(getMessage(logsService.delLogs(getModel().getLogId())));
+		OutputJson(getMessage(logsService.delLogs(log.getLogId())));
 		return null;
 	}
 	
-	public Log getModel()
-	{
-		if (null==log)
-		{
-			log=new Log();
-		}
-		return log;
-	}
 }

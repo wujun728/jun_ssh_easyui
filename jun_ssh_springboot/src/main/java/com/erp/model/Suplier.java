@@ -11,6 +11,7 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  * Suplier entity. @author Wujun
@@ -26,7 +27,9 @@ public class Suplier implements java.io.Serializable
 	private String name;
 	private String myid;
 	private String status;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date created;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date lastmod;
 	private Integer creater;
 	private Integer modifiyer;
@@ -54,6 +57,7 @@ public class Suplier implements java.io.Serializable
 	private String mainBusiness;
 	private Integer sizeId;
 	private String sizeName;
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
 	private Date setupDate;
 	private Integer capital;
 	private String corporation;
