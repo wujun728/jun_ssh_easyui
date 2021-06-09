@@ -74,10 +74,10 @@
     </appender>   -->
   
  <!--- 异步测试，当日志达到缓存区大小时候执行所包的appender -->  
-    <appender name="ASYNC_test" class="org.apache.log4j.AsyncAppender">     
+   <!--  <appender name="ASYNC_test" class="org.apache.log4j.AsyncAppender">     
      <param name="BufferSize" value="10"/>     
      <appender-ref ref="EMAIL_QQ"/>  
-   </appender>  
+   </appender>   -->
  <!-- 设置包限制输出的通道 -->  
     <category name="com.erp" additivity="false">  
  <!-- 日志输出级别，起码可以有5个级别，可以扩展自己的级别，邮件发送必须是ERROR级别不好用，所以最后自己扩展一个邮件发送级别 -->  

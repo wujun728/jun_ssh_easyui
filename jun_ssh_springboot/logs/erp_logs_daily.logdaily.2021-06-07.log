@@ -1,0 +1,2 @@
+[2021-06-07 23:57:36 ERROR] [restartedMain] (com.alibaba.druid.pool.DruidDataSource:760) - testWhileIdle is true, validationQuery not set
+[2021-06-07 23:57:46 ERROR] [restartedMain] (com.alibaba.druid.pool.DruidDataSource:760) - testWhileIdle is true, validationQuery not set

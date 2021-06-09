@@ -106,7 +106,7 @@ public class PermissionAssignmentAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@RequestMapping(method = {RequestMethod.GET,RequestMethod.POST},value = "/findAllFunctionList")
+	@RequestMapping(value = "/findAllFunctionList")
 	public String findAllFunctionList() throws Exception
 	{
 		OutputJson(permissionAssignmentService.findAllFunctionsList(id));
@@ -126,13 +126,14 @@ public class PermissionAssignmentAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@RequestMapping(method = {RequestMethod.GET,RequestMethod.POST},value = "/findAllRoleList")
+	@RequestMapping(value = "/findAllRoleList")
 	public String findAllRoleList() throws Exception
 	{
 		Map<String, Object> map = searchRole();
 		GridModel gridModel=new GridModel();
 		gridModel.setRows(permissionAssignmentService.findAllRoleList(map, page, rows,true));
-		gridModel.setTotal(permissionAssignmentService.getCount(map));
+		Long count = permissionAssignmentService.getCount(map);
+		gridModel.setTotal(count);
 		OutputJson(gridModel);
 		return null;
 	}
@@ -160,7 +161,7 @@ public class PermissionAssignmentAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@RequestMapping(method = {RequestMethod.GET,RequestMethod.POST},value = "/findAllRoleListNotPage")
+	@RequestMapping(value = "/findAllRoleListNotPage")
 	public String findAllRoleListNotPage() throws Exception
 	{
 		Map<String, Object> map = searchRole();
@@ -183,7 +184,7 @@ public class PermissionAssignmentAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@RequestMapping(method = {RequestMethod.GET,RequestMethod.POST},value = "/getRolePermission")
+	@RequestMapping(value = "/getRolePermission")
 	public String getRolePermission() throws Exception
 	{
 		OutputJson(permissionAssignmentService.getRolePermission(getModel().getRoleId()));
@@ -203,7 +204,7 @@ public class PermissionAssignmentAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@RequestMapping(method = {RequestMethod.GET,RequestMethod.POST},value = "/savePermission")
+	@RequestMapping(value = "/savePermission")
 	public String savePermission() throws Exception
 	{
 		Json json=new Json();
@@ -231,7 +232,7 @@ public class PermissionAssignmentAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@RequestMapping(method = {RequestMethod.GET,RequestMethod.POST},value = "/persistenceRole")
+	@RequestMapping(value = "/persistenceRole")
 	public String persistenceRole() throws Exception
 	{	
 		Map<String, List<Role>> map=new HashMap<String, List<Role>>();
@@ -262,7 +263,7 @@ public class PermissionAssignmentAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@RequestMapping(method = {RequestMethod.GET,RequestMethod.POST},value = "/persistenceRoleDlg")
+	@RequestMapping(value = "/persistenceRoleDlg")
 	public String persistenceRoleDlg() throws Exception
 	{
 		OutputJson(getMessage(permissionAssignmentService.persistenceRole(getModel())),Constants.TEXT_TYPE_PLAIN);
@@ -270,7 +271,7 @@ public class PermissionAssignmentAction extends BaseAction
 	}
 
 	@ResponseBody
-	@RequestMapping(method = {RequestMethod.GET,RequestMethod.POST},value = "/delRole")
+	@RequestMapping(value = "/delRole")
 	public String delRole() throws Exception
 	{
 		OutputJson(getMessage(permissionAssignmentService.persistenceRole(getModel().getRoleId())));

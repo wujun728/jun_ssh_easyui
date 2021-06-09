@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
@@ -70,7 +71,7 @@ public class CompanyInfoAction extends BaseAction{
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/persistenceCompanyInfo")
+	@RequestMapping(value = "/persistenceCompanyInfo")
 	public String persistenceCompanyInfo() throws Exception {
 		System.out.println(inserted);
 		//String sdfString="[{"name":"123123","tel":"123","fax":"123","address":"123","zip":"123","email":"123123@qq.com","contact":"123","description":"123123"}]";
@@ -95,7 +96,7 @@ public class CompanyInfoAction extends BaseAction{
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/persistenceCompanyInfoDlg")
+	@RequestMapping(value = "/persistenceCompanyInfoDlg")
 	public String persistenceCompanyInfoDlg() throws Exception
 	{
 		List<CompanyInfo> list=new ArrayList<CompanyInfo>();
@@ -123,7 +124,7 @@ public class CompanyInfoAction extends BaseAction{
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findAllCompanyInfoList")
+	@RequestMapping(value = "/findAllCompanyInfoList")
 	public String findAllCompanyInfoList() throws Exception {
 		Map<String, Object> map=new HashMap<String, Object>();
 		if (null!=searchValue&&!"".equals(searchValue))
@@ -151,7 +152,7 @@ public class CompanyInfoAction extends BaseAction{
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/delCompanyInfo")
+	@RequestMapping(value = "/delCompanyInfo")
 	public String delCompanyInfo() throws Exception
 	{
 		OutputJson(getMessage(companyInfoService.delCompanyInfo(getModel().getCompanyId())));

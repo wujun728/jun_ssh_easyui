@@ -103,7 +103,7 @@ public class LoginAction extends BaseAction {
 	}
 
 	@ResponseBody
-	@PostMapping(value = "/load")
+	@RequestMapping(value = "/load")
 	public String load() throws Exception {
 		Subject subject = SecurityUtils.getSubject();
 		CaptchaUsernamePasswordToken token = new CaptchaUsernamePasswordToken();
@@ -141,7 +141,7 @@ public class LoginAction extends BaseAction {
 		return null;
 	}
 
-	@PostMapping(value = "/login")
+	@RequestMapping(value = "/login")
 	public ResponseEntity<Void> login(/* @RequestBody UserDto loginInfo, */HttpServletRequest request,
 			HttpServletResponse response) {
 		Subject subject = SecurityUtils.getSubject();
@@ -165,7 +165,7 @@ public class LoginAction extends BaseAction {
 		}
 	}
 
-	@GetMapping(value = "/logout2")
+	@RequestMapping(value = "/logout2")
 	public ResponseEntity<Void> logout2() {
 		Subject subject = SecurityUtils.getSubject();
 		if (subject.getPrincipals() != null) {
@@ -183,7 +183,7 @@ public class LoginAction extends BaseAction {
 	 */
 
 	@ResponseBody
-	@PostMapping(value = "/logout")
+	@RequestMapping(value = "/logout")
 	public String logout() throws Exception {
 		SecurityUtils.getSubject().logout();
 		Json json = new Json();
@@ -199,7 +199,7 @@ public class LoginAction extends BaseAction {
 	 */
 
 	@ResponseBody
-	@PostMapping(value = "/findAllFunctionList")
+	@RequestMapping(value = "/findAllFunctionList")
 	public String findAllFunctionList() throws Exception {
 		OutputJson(loginService.findMenuList());
 		return null;

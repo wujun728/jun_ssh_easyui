@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
@@ -86,7 +87,7 @@ public class FunctionAction extends BaseAction {
 	 * 设定文件 @return String 返回类型 @throws
 	 */
 	@ResponseBody
-	@GetMapping(value = "/persistenceFunction")
+	@RequestMapping(value = "/persistenceFunction")
 	public String persistenceFunction() throws Exception {
 		Json json = new Json();
 		if (functionService.persistenceFunction(JSON.parseArray(updated, Permission.class))) {

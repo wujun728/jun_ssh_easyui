@@ -1,13 +1,10 @@
 package com.erp.dao.impl;
 
 import java.io.Serializable;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
 
-import javax.persistence.Entity;
-import javax.persistence.EntityManagerFactory;
+//import javax.persistence.EntityManagerFactory;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -16,13 +13,11 @@ import org.hibernate.Transaction;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Modifying;
+//import org.springframework.data.jpa.repository.Modifying;
 //import org.springframework.data.jpa.repository.support.JpaRepositoryFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Assert;
 
 import com.erp.dao.PublicDao;
 import com.erp.util.Constants;
@@ -36,24 +31,20 @@ public class PublicDaoImpl<T>  implements PublicDao<T> {
     private JdbcTemplate jdbcTemplate;
 	
 	@Autowired
-    private EntityManagerFactory entityManagerFactory;
-    /**获取sessionFactory*/
-    public SessionFactory getSessionFactory() {
-        return entityManagerFactory.unwrap(SessionFactory.class);
-    }
-
-    private HibernateTemplate getHibernateTemplate(){
-        return new HibernateTemplate(getSessionFactory());
-    }
+	private SessionFactory sessionFactory;
 	
-
-//	@Autowired
-//	private SessionFactory sessionFactory;
-//	
 	private Session getCurrentSession() {
-		return getSessionFactory().getCurrentSession();
+		return sessionFactory.getCurrentSession();
 	}
- 
+	/**获取sessionFactory*/
+//	@Autowired
+//    private EntityManagerFactory entityManagerFactory;
+//    public SessionFactory getSessionFactory() {
+//        return entityManagerFactory.unwrap(SessionFactory.class);
+//    }
+//    private HibernateTemplate getHibernateTemplate(){
+//        return new HibernateTemplate(getSessionFactory());
+//    }
  
 //	========================================以下封装一些常用的方法=============================================
  

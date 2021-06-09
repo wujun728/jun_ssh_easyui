@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.erp.model.City;
@@ -51,7 +52,7 @@ public class AreaAction extends BaseAction {
 //	}
 
 	@ResponseBody
-	@GetMapping(value = "/findCities")
+	@RequestMapping(value = "/findCities")
 	public String findCities() throws Exception {
 		OutputJson(areaService.findCities());
 		log.info("");
@@ -59,14 +60,14 @@ public class AreaAction extends BaseAction {
 	}
 
 	@ResponseBody
-	@GetMapping(value = "/findProvinces")
+	@RequestMapping(value = "/findProvinces")
 	public String findProvinces() throws Exception {
 		OutputJson(areaService.findProvinces());
 		return null;
 	}
 
 	@ResponseBody
-	@GetMapping(value = "/addCities")
+	@RequestMapping(value = "/addCities")
 	public String addCities() throws Exception {
 		OutputJson(getMessage(areaService.addCities(getModel())), Constants.TEXT_TYPE_PLAIN);
 		return null;

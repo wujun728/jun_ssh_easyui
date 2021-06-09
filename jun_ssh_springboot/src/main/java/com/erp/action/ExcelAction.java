@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -46,7 +47,7 @@ public class ExcelAction extends BaseAction
 		this.excelService = excelService;
 	}
 	
-	@GetMapping(value = "/CompanyInfoExcelExport")
+	@RequestMapping(value = "/CompanyInfoExcelExport")
 	public String CompanyInfoExcelExport() throws Exception
 	{
 		SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");

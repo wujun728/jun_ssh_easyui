@@ -68,7 +68,7 @@ public class UserAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findAllUserList")
+	@RequestMapping(value = "/findAllUserList")
 	public String findAllUserList() throws Exception
 	{
 		Map<String, Object> map=new HashMap<String, Object>();
@@ -97,7 +97,7 @@ public class UserAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/persistenceUsers")
+	@RequestMapping(value = "/persistenceUsers")
 	public String persistenceUsers() throws Exception
 	{
 		Map<String, List<Users>> map=new HashMap<String, List<Users>>();
@@ -128,7 +128,7 @@ public class UserAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/persistenceUsersDig")
+	@RequestMapping(value = "/persistenceUsersDig")
 	public String persistenceUsersDig() throws Exception
 	{
 		OutputJson(getMessage(userService.persistenceUsers(getModel())),Constants.TEXT_TYPE_PLAIN);
@@ -148,7 +148,7 @@ public class UserAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/delUsers")
+	@RequestMapping(value = "/delUsers")
 	public String delUsers() throws Exception
 	{
 		OutputJson(getMessage(userService.delUsers(getModel().getUserId())));
@@ -167,7 +167,7 @@ public class UserAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findUsersRolesList")
+	@RequestMapping(value = "/findUsersRolesList")
 	public String findUsersRolesList() throws Exception
 	{
 		OutputJson(userService.findUsersRolesList(getModel().getUserId()));
@@ -186,7 +186,7 @@ public class UserAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/saveUserRoles")
+	@RequestMapping(value = "/saveUserRoles")
 	public String saveUserRoles() throws Exception
 	{
 		Json json=new Json();

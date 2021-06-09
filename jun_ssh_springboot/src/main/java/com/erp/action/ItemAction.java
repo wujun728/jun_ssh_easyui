@@ -65,7 +65,7 @@ public class ItemAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findItemByMyid")
+	@RequestMapping(value = "/findItemByMyid")
 	public String findItemByMyid() throws Exception
 	{
 		OutputJson(itemService.findItemByMyid(getModel().getMyid(),suplierId));
@@ -85,7 +85,7 @@ public class ItemAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findBrandList")
+	@RequestMapping(value = "/findBrandList")
 	public String findBrandList() throws Exception{
 		OutputJson(itemService.findBrandList());
 		return null;
@@ -104,7 +104,7 @@ public class ItemAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/addBrands")
+	@RequestMapping(value = "/addBrands")
 	public String addBrands() throws Exception
 	{
 		OutputJson(getMessage(itemService.addBrands(getModel().getName())));
@@ -123,7 +123,7 @@ public class ItemAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findItemList")
+	@RequestMapping(value = "/findItemList")
 	public String findItemList() throws Exception
 	{
 		Map<String, Object> map=new HashMap<String, Object>();
@@ -152,7 +152,7 @@ public class ItemAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/persistenceItem")
+	@RequestMapping(value = "/persistenceItem")
 	public String persistenceItem() throws Exception
 	{
 		OutputJson(getMessage(itemService.persistenceItem(getModel())),Constants.TEXT_TYPE_PLAIN);
@@ -172,7 +172,7 @@ public class ItemAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/delItem")
+	@RequestMapping(value = "/delItem")
 	public String delItem() throws Exception
 	{
 		OutputJson(getMessage(itemService.delItem(getModel().getItemId())));

@@ -23,6 +23,7 @@ import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -93,7 +94,7 @@ public class BugAction extends BaseAction {
 	 * Exception 设定文件 @return String 返回类型 @throws
 	 */
 	@ResponseBody
-	@GetMapping(value = "/findBugList")
+	@RequestMapping(value = "/findBugList")
 	public String findBugList() throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
 		if (null != searchValue && !"".equals(searchValue)) {
@@ -113,7 +114,7 @@ public class BugAction extends BaseAction {
 	 * 返回类型 @throws
 	 */
 	@ResponseBody
-	@GetMapping(value = "/addBug")
+	@RequestMapping(value = "/addBug")
 	public String addBug() throws Exception {
 		OutputJson(getMessage(bugService.addBug(getModel())), Constants.TEXT_TYPE_PLAIN);
 		return null;
@@ -125,7 +126,7 @@ public class BugAction extends BaseAction {
 	 * 返回类型 @throws
 	 */
 	@ResponseBody
-	@GetMapping(value = "/delBug")
+	@RequestMapping(value = "/delBug")
 	public String delBug() throws Exception {
 		OutputJson(getMessage(bugService.delBug(getModel().getBugId())));
 		return null;
@@ -137,7 +138,7 @@ public class BugAction extends BaseAction {
 	 * 返回类型 @throws
 	 */
 	@ResponseBody
-	@PostMapping(value = "/upload")
+	@RequestMapping(value = "/upload")
 	public String upload() throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
 		// HttpServletResponse response=ServletActionContext.getResponse();

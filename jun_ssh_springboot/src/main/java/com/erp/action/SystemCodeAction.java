@@ -79,7 +79,7 @@ public class SystemCodeAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@PostMapping(value = "/findSystemCodeList")
+	@RequestMapping(value = "/findSystemCodeList")
 	public String findSystemCodeList() throws Exception
 	{
 		OutputJson(systemCodeService.findSystemCodeList(id));
@@ -99,7 +99,7 @@ public class SystemCodeAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findAllSystemCodeList")
+	@RequestMapping(value = "/findAllSystemCodeList")
 	public String findAllSystemCodeList() throws Exception
 	{
 		OutputJson(systemCodeService.findSystemCodeList());
@@ -119,7 +119,7 @@ public class SystemCodeAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@PostMapping(value = "/persistenceSystemCodeDig")
+	@RequestMapping(value = "/persistenceSystemCodeDig")
 	public String persistenceSystemCodeDig(SystemCode systemCode) throws Exception
 	{
 		OutputJson(getMessage(systemCodeService.persistenceSystemCodeDig(systemCode,permissionName,codePid)),Constants.TEXT_TYPE_PLAIN);
@@ -139,7 +139,7 @@ public class SystemCodeAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@PostMapping(value = "/delSystemCode")
+	@RequestMapping(value = "/delSystemCode")
 	public String delSystemCode(SystemCode systemCode) throws Exception
 	{
 		Json json=new Json();
@@ -169,7 +169,7 @@ public class SystemCodeAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findSystemCodeByType")
+	@RequestMapping(value = "/findSystemCodeByType")
 	public String findSystemCodeByType(SystemCode systemCode) throws Exception
 	{
 		OutputJson(systemCodeService.findSystemCodeByType(systemCode.getCodeMyid()));

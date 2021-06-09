@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -61,7 +62,7 @@ public class DbBackUpAction extends BaseAction {
 	 * Exception 设定文件 @return String 返回类型 @throws
 	 */
 	@ResponseBody
-	@GetMapping(value = "/findDbBackUpAllList")
+	@RequestMapping(value = "/findDbBackUpAllList")
 	public String findDbBackUpAllList() throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
 		if (null != searchValue && !"".equals(searchValue)) {
@@ -81,7 +82,7 @@ public class DbBackUpAction extends BaseAction {
 	 * Exception 设定文件 @return String 返回类型 @throws
 	 */
 	@ResponseBody
-	@GetMapping(value = "/getScheduleConfig")
+	@RequestMapping(value = "/getScheduleConfig")
 	public String getScheduleConfig() throws Exception {
 		OutputJson(dbBackUpService.getBackupScheduleConfig());
 		return null;
@@ -93,7 +94,7 @@ public class DbBackUpAction extends BaseAction {
 	 * Exception 设定文件 @return String 返回类型 @throws
 	 */
 	@ResponseBody
-	@GetMapping(value = "/handSchedule")
+	@RequestMapping(value = "/handSchedule")
 	public String handSchedule() throws Exception {
 		Json json = new Json();
 		json.setTitle("提示");
@@ -115,7 +116,7 @@ public class DbBackUpAction extends BaseAction {
 	 * 返回类型 @throws
 	 */
 	@ResponseBody
-	@GetMapping(value = "/checkBackUp")
+	@RequestMapping(value = "/checkBackUp")
 	public String checkBackUp() throws Exception {
 		Json json = new Json();
 		json.setTitle("提示");
@@ -153,7 +154,7 @@ public class DbBackUpAction extends BaseAction {
 	 * downBackUpFile @Description: TODO:下载备份文件 @param @return @param @throws
 	 * Exception 设定文件 @return String 返回类型 @throws
 	 */
-	@GetMapping(value = "/downBackUpFile")
+	@RequestMapping(value = "/downBackUpFile")
 	public String downBackUpFile() throws Exception {
 		String zipName = fileName.substring(0, fileName.lastIndexOf(".")) + Constants.FILE_SUFFIX_ZIP;
 		HttpServletResponse response = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes())
@@ -169,7 +170,7 @@ public class DbBackUpAction extends BaseAction {
 	 * 返回类型 @throws
 	 */
 	@ResponseBody
-	@GetMapping(value = "/schedule")
+	@RequestMapping(value = "/schedule")
 	public String schedule() throws Exception {
 		dbBackUpService.unSchedule();
 		String msg = dbBackUpService.schedule(getModel().getScheduleHour(), getModel().getScheduleMinute(), "Y");

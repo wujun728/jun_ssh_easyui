@@ -57,7 +57,7 @@ public class SupAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findSuplierContactList")
+	@RequestMapping(value = "/findSuplierContactList")
 	public String findSuplierContactList() throws Exception
 	{
 		GridModel gridModel=new GridModel();
@@ -80,7 +80,7 @@ public class SupAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findSuplierContactListCombobox")
+	@RequestMapping(value = "/findSuplierContactListCombobox")
 	public String findSuplierContactListCombobox() throws Exception
 	{
 		OutputJson(supService.findSuplierContactList(getModel().getSuplierId()));
@@ -99,7 +99,7 @@ public class SupAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findSuplierList")
+	@RequestMapping(value = "/findSuplierList")
 	public String findSuplierList() throws Exception
 	{
 		Map<String, Object> map=new HashMap<String, Object>();
@@ -128,7 +128,7 @@ public class SupAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findSuplierListNoPage")
+	@RequestMapping(value = "/findSuplierListNoPage")
 	public String findSuplierListNoPage() throws Exception
 	{
 		Map<String, Object> map=new HashMap<String, Object>();
@@ -156,7 +156,7 @@ public class SupAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/persistenceSuplier")
+	@RequestMapping(value = "/persistenceSuplier")
 	public String persistenceSuplier() throws Exception
 	{
 		Map<String, List<SuplierContact>> map=new HashMap<String, List<SuplierContact>>();
@@ -189,7 +189,7 @@ public class SupAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/delSuplier")
+	@RequestMapping(value = "/delSuplier")
 	public String delSuplier() throws Exception
 	{
 		OutputJson(getMessage(supService.delSuplier(getModel().getSuplierId())));

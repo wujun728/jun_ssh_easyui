@@ -48,7 +48,7 @@ public class WarehouseAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findWarehouseListCombobox")
+	@RequestMapping(value = "/findWarehouseListCombobox")
 	public String findWarehouseListCombobox() throws Exception
 	{
 		OutputJson(warehouseService.findWarehouseListCombobox());

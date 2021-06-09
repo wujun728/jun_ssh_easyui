@@ -75,7 +75,7 @@ public class OrganizationAction extends BaseAction
 	* @throws Exception
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findOrganizationList")
+	@RequestMapping(value = "/findOrganizationList")
 	public String findOrganizationList() throws Exception
 	{
 		OutputJson(organizationService.findOrganizationList());
@@ -95,7 +95,7 @@ public class OrganizationAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findOrganizationListTreeGrid")
+	@RequestMapping(value = "/findOrganizationListTreeGrid")
 	public String findOrganizationListTreeGrid() throws Exception
 	{
 		OutputJson(organizationService.findOrganizationList(id));
@@ -115,7 +115,7 @@ public class OrganizationAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/persistenceOrganization")
+	@RequestMapping(value = "/persistenceOrganization")
 	public String persistenceOrganization() throws Exception
 	{
 		OutputJson(getMessage(organizationService.persistenceOrganization(getModel())), Constants.TEXT_TYPE_PLAIN);
@@ -135,7 +135,7 @@ public class OrganizationAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/delOrganization")
+	@RequestMapping(value = "/delOrganization")
 	public String delOrganization() throws Exception
 	{
 		Json json=new Json();

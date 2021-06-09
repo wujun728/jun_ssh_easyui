@@ -55,7 +55,7 @@ public class ProjectAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findCustomers")
+	@RequestMapping(value = "/findCustomers")
 	public String findCustomers() throws Exception
 	{
 		OutputJson(projectService.findCustomers());
@@ -74,7 +74,7 @@ public class ProjectAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findProjectFollowsList")
+	@RequestMapping(value = "/findProjectFollowsList")
 	public String findProjectFollowsList() throws Exception
 	{
 		OutputJson(projectService.findProjectFollowsList(getModel().getProjectId()));
@@ -94,7 +94,7 @@ public class ProjectAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findProjectList")
+	@RequestMapping(value = "/findProjectList")
 	public String findProjectList() throws Exception
 	{
 		Map<String, Object> map=new HashMap<String, Object>();
@@ -123,7 +123,7 @@ public class ProjectAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findProjectListCombobox")
+	@RequestMapping(value = "/findProjectListCombobox")
 	public String findProjectListCombobox() throws Exception
 	{
 		OutputJson(projectService.findProjectListCombobox());
@@ -142,7 +142,7 @@ public class ProjectAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/persistenceProject")
+	@RequestMapping(value = "/persistenceProject")
 	public String persistenceProject() throws Exception
 	{
 		Map<String, List<ProjectFollow>> map=new HashMap<String, List<ProjectFollow>>();
@@ -175,7 +175,7 @@ public class ProjectAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/delProject")
+	@RequestMapping(value = "/delProject")
 	public String delProject() throws Exception
 	{
 		OutputJson(getMessage(projectService.delProject(getModel().getProjectId())));

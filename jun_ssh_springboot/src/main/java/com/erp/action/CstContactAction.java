@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.erp.dto.GridModel;
@@ -40,7 +41,7 @@ public class CstContactAction extends BaseAction {
 	 * 返回类型 @throws
 	 */
 	@ResponseBody
-	@GetMapping(value = "/findCustomerContactList")
+	@RequestMapping(value = "/findCustomerContactList")
 	public String findCustomerContactList() throws Exception {
 		GridModel gridModel = new GridModel();
 		gridModel.setRows(cstContactService.findCustomerContactList(getModel().getCustomerId()));
@@ -56,7 +57,7 @@ public class CstContactAction extends BaseAction {
 	 * 返回类型 @throws
 	 */
 	@ResponseBody
-	@GetMapping(value = "/findCustomerContactListCombobox")
+	@RequestMapping(value = "/findCustomerContactListCombobox")
 	public String findCustomerContactListCombobox() throws Exception {
 		OutputJson(cstContactService.findCustomerContactList(getModel().getCustomerId()));
 		return null;

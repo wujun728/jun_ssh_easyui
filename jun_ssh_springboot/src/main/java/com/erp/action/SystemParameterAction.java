@@ -40,7 +40,7 @@ public class SystemParameterAction extends BaseAction
 	}
 
 	@ResponseBody
-	@GetMapping(value = "/findSystemCodeList")
+	@RequestMapping(value = "/findSystemCodeList")
 	public String persistenceCompanyInfo() throws Exception {
 		Map<String, List<Parameter>> map=new HashMap<String, List<Parameter>>();
 		map.put("addList", JSON.parseArray(inserted, Parameter.class));
@@ -51,7 +51,7 @@ public class SystemParameterAction extends BaseAction
 	}
 
 	@ResponseBody
-	@GetMapping(value = "/findParameterList")
+	@RequestMapping(value = "/findParameterList")
 	public String findParameterList() throws Exception
 	{
 		OutputJson(systemParameterService.findParameterList(type));

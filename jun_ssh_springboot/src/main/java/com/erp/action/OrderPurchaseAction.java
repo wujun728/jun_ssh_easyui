@@ -58,7 +58,7 @@ public class OrderPurchaseAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findPurchaseOrderLineList")
+	@RequestMapping(value = "/findPurchaseOrderLineList")
 	public String findPurchaseOrderLineList() throws Exception
 	{
 		GridModel gridModel=new GridModel();
@@ -69,7 +69,7 @@ public class OrderPurchaseAction extends BaseAction
 	}
 	
 	@ResponseBody
-	@GetMapping(value = "/findPurchaseOrderList")
+	@RequestMapping(value = "/findPurchaseOrderList")
 	public String findPurchaseOrderList() throws Exception
 	{
 		Map<String, Object> map=new HashMap<String, Object>();
@@ -97,7 +97,7 @@ public class OrderPurchaseAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/persistenceOrderPurchase")
+	@RequestMapping(value = "/persistenceOrderPurchase")
 	public String persistenceOrderPurchase() throws Exception
 	{
 		Map<String, List<OrderPurchaseLine>> map=new HashMap<String, List<OrderPurchaseLine>>();
@@ -130,7 +130,7 @@ public class OrderPurchaseAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/delOrderPurchase")
+	@RequestMapping(value = "/delOrderPurchase")
 	public String delOrderPurchase() throws Exception
 	{
 		OutputJson(getMessage(orderPurchaseService.delOrderPurchase(getModel().getOrderPurchaseId())));

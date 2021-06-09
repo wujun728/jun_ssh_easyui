@@ -55,7 +55,7 @@ public class OrderSaleAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findOrderSaleLineList")
+	@RequestMapping(value = "/findOrderSaleLineList")
 	public String findOrderSaleLineList() throws Exception
 	{
 		GridModel gridModel=new GridModel();
@@ -79,7 +79,7 @@ public class OrderSaleAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findOrderSaleList")
+	@RequestMapping(value = "/findOrderSaleList")
 	public String findOrderSaleList() throws Exception
 	{
 		Map<String, Object> map=new HashMap<String, Object>();
@@ -108,7 +108,7 @@ public class OrderSaleAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/persistenceOrderSale")
+	@RequestMapping(value = "/persistenceOrderSale")
 	public String persistenceOrderSale() throws Exception
 	{
 		Map<String, List<OrderSaleLine>> map=new HashMap<String, List<OrderSaleLine>>();
@@ -141,7 +141,7 @@ public class OrderSaleAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/delOrderSale")
+	@RequestMapping(value = "/delOrderSale")
 	public String delOrderSale() throws Exception
 	{
 		OutputJson(getMessage(orderSaleService.delOrderSale(getModel().getOrderSaleId())));

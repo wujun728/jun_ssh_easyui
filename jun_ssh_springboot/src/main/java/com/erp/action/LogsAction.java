@@ -54,7 +54,7 @@ public class LogsAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/findLogsAllList")
+	@RequestMapping(value = "/findLogsAllList")
 	public String findLogsAllList() throws Exception
 	{
 		Map<String, Object> map=new HashMap<String, Object>();
@@ -83,7 +83,7 @@ public class LogsAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/persistenceLogs")
+	@RequestMapping(value = "/persistenceLogs")
 	public String persistenceLogs() throws Exception
 	{
 		OutputJson(getMessage(logsService.persistenceLogs(getModel())),Constants.TEXT_TYPE_PLAIN);
@@ -103,7 +103,7 @@ public class LogsAction extends BaseAction
 	* @throws 
 	*/
 	@ResponseBody
-	@GetMapping(value = "/delLogs")
+	@RequestMapping(value = "/delLogs")
 	public String delLogs() throws Exception
 	{
 		OutputJson(getMessage(logsService.delLogs(getModel().getLogId())));

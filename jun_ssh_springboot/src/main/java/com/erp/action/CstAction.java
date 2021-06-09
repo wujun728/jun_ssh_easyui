@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.alibaba.fastjson.JSON;
@@ -47,7 +48,7 @@ public class CstAction extends BaseAction {
 	 * Exception 设定文件 @return String 返回类型 @throws
 	 */
 	@ResponseBody
-	@GetMapping(value = "/findCustomerList")
+	@RequestMapping(value = "/findCustomerList")
 	public String findCustomerList() throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
 		if (null != searchValue && !"".equals(searchValue)) {
@@ -68,7 +69,7 @@ public class CstAction extends BaseAction {
 	 * 返回类型 @throws
 	 */
 	@ResponseBody
-	@GetMapping(value = "/findCustomerListNoPage")
+	@RequestMapping(value = "/findCustomerListNoPage")
 	public String findCustomerListNoPage() throws Exception {
 		Map<String, Object> map = new HashMap<String, Object>();
 		if (null != searchValue && !"".equals(searchValue)) {
@@ -89,7 +90,7 @@ public class CstAction extends BaseAction {
 	 * 返回类型 @throws
 	 */
 	@ResponseBody
-	@GetMapping(value = "/persistenceCustomer")
+	@RequestMapping(value = "/persistenceCustomer")
 	public String persistenceCustomer() throws Exception {
 		Map<String, List<CustomerContact>> map = new HashMap<String, List<CustomerContact>>();
 		if (inserted != null && !"".equals(inserted)) {
@@ -111,7 +112,7 @@ public class CstAction extends BaseAction {
 	 * 设定文件 @return String 返回类型 @throws
 	 */
 	@ResponseBody
-	@GetMapping(value = "/delCustomer")
+	@RequestMapping(value = "/delCustomer")
 	public String delCustomer() throws Exception {
 		OutputJson(getMessage(cstService.delCustomer(getModel().getCustomerId())));
 		return null;

@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.erp.service.CurrencyService;
@@ -28,7 +29,7 @@ public class CurrencyAction extends BaseAction {
 	 * Exception 设定文件 @return String 返回类型 @throws
 	 */
 	@ResponseBody
-	@GetMapping(value = "/findCurrencyList")
+	@RequestMapping(value = "/findCurrencyList")
 	public String findCurrencyList() throws Exception {
 		OutputJson(currencyService.findCurrencyList());
 		return null;
