@@ -119,7 +119,7 @@ public class MyShiroRealm extends AuthorizingRealm
 		{
 			SessionFactory s = this.sessionFactory;
 			String hql="from Users t where t.status='A' and t.name=:name";
-			Users users=(Users)s.getCurrentSession().createQuery(hql).setParameter("name", username).uniqueResult();
+			Users users=(Users)s.openSession().createQuery(hql).setParameter("name", username).uniqueResult();
 			if (users != null)
 			{
 				Subject subject=SecurityUtils.getSubject();

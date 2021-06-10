@@ -1,20 +1,20 @@
 package com.erp;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.data.jpa.JpaRepositoriesAutoConfiguration;
+import org.springframework.boot.autoconfigure.orm.jpa.HibernateJpaAutoConfiguration;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.ImportResource;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @SpringBootApplication
 @ServletComponentScan
 //@ImportResource(locations = {"classpath:config/kaptcha.xml"})  //for beans
 //@EntityScan(basePackages = {"com.erp.model","com.erp.entity"})   //mybatis
 @ComponentScan(basePackages = "com.erp")
+@EnableAutoConfiguration(exclude=HibernateJpaAutoConfiguration.class)
 public class SrpingbootApplication  extends SpringBootServletInitializer {
 
     @Override

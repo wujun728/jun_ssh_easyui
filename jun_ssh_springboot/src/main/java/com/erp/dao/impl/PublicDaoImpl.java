@@ -18,6 +18,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.erp.dao.PublicDao;
 import com.erp.util.Constants;
@@ -47,7 +48,7 @@ public class PublicDaoImpl<T>  implements PublicDao<T> {
 //    }
  
 //	========================================以下封装一些常用的方法=============================================
- 
+	@Transactional
 	public Serializable save(T o) {
 		Transaction tx = getCurrentSession().beginTransaction();
 		Serializable serializable = this.getCurrentSession().save(o);
@@ -55,13 +56,14 @@ public class PublicDaoImpl<T>  implements PublicDao<T> {
 		tx.commit();
 		return serializable;
 	}
-
+	@Transactional
 	public void delete(T o) {
 		Transaction tx = getCurrentSession().beginTransaction();
 		this.getCurrentSession().delete(o);
 		tx.commit();
 	}
 
+	@Transactional
 	public void update(T o) {
 		Transaction tx = getCurrentSession().beginTransaction();
 		this.getCurrentSession().update(o);
@@ -69,14 +71,14 @@ public class PublicDaoImpl<T>  implements PublicDao<T> {
 		tx.commit();
 	}
 	
-	
+	@Transactional
 	public void deleteToUpdate(T o) {
 		Transaction tx = getCurrentSession().beginTransaction();
 		this.getCurrentSession().update(o);
 		Constants.getLogs(this.getCurrentSession(), o, Constants.LOGS_DELETE, Constants.LOGS_DELETE_TEXT, Constants.LOGS_DELETE_NAME);
 		tx.commit();
 	}
-
+	@Transactional
 	public void saveOrUpdate(T o) {
 		Transaction tx = getCurrentSession().beginTransaction();
 		this.getCurrentSession().saveOrUpdate(o);
@@ -84,16 +86,16 @@ public class PublicDaoImpl<T>  implements PublicDao<T> {
 	}
 
 	public List<T> find(String hql) {
-		return this.getCurrentSession().createQuery(hql).list();
+		return this.sessionFactory.openSession().createQuery(hql).list();
 	}
 	
 	@SuppressWarnings("rawtypes")
 	public List findBySQL(String sql) {
-		return this.getCurrentSession().createSQLQuery(sql).list();
+		return this.sessionFactory.openSession().createSQLQuery(sql).list();
 	}
 	
 	public List<T> find(String hql, Map<String, Object> params) {
-		Query q = this.getCurrentSession().createQuery(hql);
+		Query q = this.sessionFactory.openSession().createQuery(hql);
 		if (params != null && !params.isEmpty()) {
 			for (String key : params.keySet()) {
 				q.setParameter(key, params.get(key));
@@ -109,7 +111,7 @@ public class PublicDaoImpl<T>  implements PublicDao<T> {
 		if (rows == null || rows < 1) {
 			rows = 10;
 		}
-		Query q = this.getCurrentSession().createQuery(hql);
+		Query q = this.sessionFactory.openSession().createQuery(hql);
 		if (params != null && !params.isEmpty()) {
 			for (String key : params.keySet()) {
 				q.setParameter(key, params.get(key));
@@ -120,7 +122,7 @@ public class PublicDaoImpl<T>  implements PublicDao<T> {
 
 
 	public T get(Class<T> c, Serializable id) {
-		return (T) this.getCurrentSession().get(c, id);
+		return (T) this.sessionFactory.openSession().get(c, id);
 	}
 	
 	public T get(String hql, Map<String, Object>  param) {
@@ -133,11 +135,11 @@ public class PublicDaoImpl<T>  implements PublicDao<T> {
 	}
 
 	public Long count(String hql) {
-		return (Long) this.getCurrentSession().createQuery(hql).uniqueResult();
+		return (Long) this.sessionFactory.openSession().createQuery(hql).uniqueResult();
 	}
 	
 	public Long count(String hql, Map<String, Object> params) {
-		Query q = this.getCurrentSession().createQuery(hql);
+		Query q = this.sessionFactory.openSession().createQuery(hql);
 		if (params != null && !params.isEmpty()) {
 			for (String key : params.keySet()) {
 				q.setParameter(key, params.get(key));
@@ -148,11 +150,11 @@ public class PublicDaoImpl<T>  implements PublicDao<T> {
 	
 
 	public Integer executeHql(String hql) {
-		return this.getCurrentSession().createQuery(hql).executeUpdate();
+		return this.sessionFactory.openSession().createQuery(hql).executeUpdate();
 	}
 	
 	public Integer executeHql(String hql, Map<String, Object> params) {
-		Query q = this.getCurrentSession().createQuery(hql);
+		Query q = this.sessionFactory.openSession().createQuery(hql);
 		if (params != null && !params.isEmpty()) {
 			for (String key : params.keySet()) {
 				q.setParameter(key, params.get(key));

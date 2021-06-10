@@ -33,7 +33,7 @@ public class HibernateConfig {
 		log.info("执行sessionFactoryBean()");
 		LocalSessionFactoryBean sessionFactoryBean = new LocalSessionFactoryBean();
 		sessionFactoryBean.setDataSource(dataSource);
-		sessionFactoryBean.setPackagesToScan("com.erp.model","com.erp.dao");// dao和entity的公共包
+		sessionFactoryBean.setPackagesToScan("com.erp.model","com.erp.dao","com.erp.dao.impl");// dao和entity的公共包
 		Properties properties = new Properties();
 
 
@@ -90,9 +90,8 @@ public class HibernateConfig {
 	@Bean
 	public BeanNameAutoProxyCreator beanNameAutoProxyCreator() throws Exception {
 		BeanNameAutoProxyCreator beanNameAutoProxyCreator = new BeanNameAutoProxyCreator();
-		beanNameAutoProxyCreator.setBeanNames("*ServiceImpl");
+		beanNameAutoProxyCreator.setBeanNames("*ServiceImpl","*DaoImpl");
 		beanNameAutoProxyCreator.setInterceptorNames("transactionInterceptor");
-	
 		return beanNameAutoProxyCreator;
 	}
 }
