@@ -18,6 +18,10 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.erp.entity.User;
+
+import lombok.Data;
+
 /**
  * Users entity. @author Wujun
  */
@@ -25,6 +29,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 @Table(name = "USERS")
 @DynamicUpdate(true)
 @DynamicInsert(true)
+@Data
 public class Users implements java.io.Serializable
 {
 	private static final long serialVersionUID = 3091722681204768199L;

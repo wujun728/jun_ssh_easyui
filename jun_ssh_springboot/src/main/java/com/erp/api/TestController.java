@@ -96,7 +96,7 @@ public class TestController extends BaseController {
 			ResponseEntity<User> re = restTemplate.getForEntity("http://localhost:8080/tao-manager-web/get/{id}",
 					User.class, "呜呜呜呜");
 			System.out.println(re.getStatusCode());
-			System.out.println(re.getBody().getUsername());
+			System.out.println(re.getBody().getName());
 			// 新增,创建
 		} else if ("post".equals(method)) {
 			HttpHeaders headers = new HttpHeaders();

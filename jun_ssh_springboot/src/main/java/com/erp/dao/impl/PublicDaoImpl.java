@@ -6,7 +6,7 @@ import java.util.Map;
 
 //import javax.persistence.EntityManagerFactory;
 
-import org.hibernate.Query;
+import org.hibernate.query.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -16,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.data.jpa.repository.Modifying;
 //import org.springframework.data.jpa.repository.support.JpaRepositoryFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.orm.hibernate5.HibernateTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

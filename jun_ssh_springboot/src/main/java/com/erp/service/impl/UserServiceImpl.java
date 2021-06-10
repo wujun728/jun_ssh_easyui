@@ -15,13 +15,17 @@ import com.erp.dto.UserRoleModel;
 import com.erp.model.Role;
 import com.erp.model.UserRole;
 import com.erp.model.Users;
+import com.erp.repository.UserDAO;
 import com.erp.service.UserService;
 import com.erp.shiro.ShiroUser;
 import com.erp.util.Constants;
 import com.erp.util.PageUtil;
 
+import lombok.extern.slf4j.Slf4j;
+
 @Service("userService")
 @SuppressWarnings("rawtypes")
+@Slf4j
 public class UserServiceImpl implements UserService
 {
 	    
@@ -29,6 +33,9 @@ public class UserServiceImpl implements UserService
 //	    	userDao.deleteById(1L);;
 //	    }
 	    
+	@Autowired
+    private UserDAO userDAO;
+	 
 	private PublicDao<Users> publicDao;
 	private PublicDao publicDaoSQL;
 	
@@ -60,6 +67,8 @@ public class UserServiceImpl implements UserService
 		{
 			users.setUserRoles(null);
 		}
+		log.info(userDAO.findAll().toString());
+		
 		return list;
 	}
 	

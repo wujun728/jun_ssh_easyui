@@ -125,7 +125,8 @@ public class PermissionAssignmentServiceImpl implements PermissionAssignmentServ
 	{
 		String hql="select count(*) from Role t where t.status='A' ";
 		hql+=Constants.getSearchConditionsHQL("t", param);
-		return publicDao.count(hql, param);
+		return publicDao.count(hql);
+//		return publicDao.count(hql, param);
 	}
 	
 	public boolean savePermission(Integer roleId,String checkedIds)
