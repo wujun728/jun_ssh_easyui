@@ -373,13 +373,20 @@
 			<scope>runtime</scope>
 			<optional>true</optional>
 		</dependency> 
-		
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
+		
+		<!-- dbutils依赖包 -->
+		<dependency>
+			<groupId>commons-dbutils</groupId>
+			<artifactId>commons-dbutils</artifactId>
+			<version>1.5</version>
+		</dependency>
+		
     </dependencies>
 
     <build>
