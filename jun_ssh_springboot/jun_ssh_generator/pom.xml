@@ -30,6 +30,19 @@
 			<artifactId>jun_ssh_utils</artifactId>
 			<version>1.0</version>
 		</dependency>
+		<dependency>
+			<groupId>com.jun.plugin</groupId>
+			<artifactId>jun_ssh_jpa</artifactId>
+			<version>1.0</version>
+		</dependency>
+		
+		<!-- <dependency>
+			<groupId>klg.j2ee</groupId>
+			<artifactId>klg.j2ee.data</artifactId>
+			<version>1.0.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/klg.j2ee.jar</systemPath>
+		</dependency> -->
 		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -52,13 +65,6 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>klg.j2ee</groupId>
-			<artifactId>klg.j2ee.data</artifactId>
-			<version>1.0.0</version>
-			<scope>system</scope>
-			<systemPath>${project.basedir}/lib/klg.j2ee.jar</systemPath>
-		</dependency>
 		<!-- jsp 支持 -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>

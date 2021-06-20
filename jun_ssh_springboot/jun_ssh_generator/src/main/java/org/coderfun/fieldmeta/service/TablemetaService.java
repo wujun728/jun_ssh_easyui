@@ -6,7 +6,7 @@ import org.coderfun.fieldmeta.entity.EntityField;
 import org.coderfun.fieldmeta.entity.PageField;
 import org.coderfun.fieldmeta.entity.Tablemeta;
 
-import klg.j2ee.common.dataaccess.BaseService;
+import klg.common.dataaccess.BaseService;
 
 public interface TablemetaService extends BaseService<Tablemeta, Long>{
 	

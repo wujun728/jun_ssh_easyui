@@ -1,6 +1,6 @@
 package org.coderfun.common.exception;
 
-import klg.j2ee.common.model.IErrorCode;
+import klg.common.exception.IErrorCode;
 
 public class AppException extends RuntimeException {
 

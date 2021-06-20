@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import klg.j2ee.common.model.EasyUIPage;
-import klg.j2ee.common.model.JsonData;
-import klg.j2ee.query.jpa.expr.AExpr;
+import klg.common.model.EasyUIPage;
+import klg.common.model.JsonData;
+import klg.query.jpa.expr.AExpr;
 
 @Controller("adminProjectController")
 @RequestMapping("/admin/action/project")

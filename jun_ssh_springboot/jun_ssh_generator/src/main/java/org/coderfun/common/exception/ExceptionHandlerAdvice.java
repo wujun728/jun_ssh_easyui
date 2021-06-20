@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.method.HandlerMethod;
 
-import klg.j2ee.common.model.JsonData;
+import klg.common.model.JsonData;
 
 @ControllerAdvice
 public class ExceptionHandlerAdvice {

@@ -8,7 +8,7 @@ import javax.persistence.Query;
 import org.coderfun.fieldmeta.entity.EntityField;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import klg.j2ee.common.dataaccess.BaseRepository;
+import klg.common.dataaccess.BaseRepository;
 
 public class EntityFieldDAOImpl {
 	@Autowired

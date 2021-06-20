@@ -5,7 +5,7 @@ import org.coderfun.sys.dict.entity.CodeClass;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import klg.j2ee.common.dataaccess.BaseServiceImpl;
+import klg.common.dataaccess.BaseServiceImpl;
 
 @Service
 public class CodeClassServiceImpl  extends BaseServiceImpl<CodeClass, Long> implements CodeClassService{

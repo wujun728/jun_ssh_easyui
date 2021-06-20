@@ -27,9 +27,9 @@ import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
+import klg.common.dataaccess.BaseServiceImpl;
 import klg.common.utils.BeanTools;
-import klg.j2ee.common.dataaccess.BaseServiceImpl;
-import klg.j2ee.query.jpa.expr.AExpr;
+import klg.query.jpa.expr.AExpr;
 
 @Service
 public class TablemetaServiceImpl  extends BaseServiceImpl<Tablemeta, Long> implements TablemetaService{

@@ -9,10 +9,8 @@ import org.coderfun.common.exception.ErrorCodeEnum;
 import org.coderfun.fieldmeta.entity.Module;
 import org.coderfun.fieldmeta.entity.Module_;
 import org.coderfun.fieldmeta.entity.Project;
-import org.coderfun.fieldmeta.entity.Project_;
 import org.coderfun.fieldmeta.service.ModuleService;
 import org.coderfun.fieldmeta.service.ProjectService;
-import org.coderfun.sys.dict.SystemCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -25,9 +23,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import klg.j2ee.common.model.EasyUIPage;
-import klg.j2ee.common.model.JsonData;
-import klg.j2ee.query.jpa.expr.AExpr;
+import klg.common.model.EasyUIPage;
+import klg.common.model.JsonData;
+import klg.query.jpa.expr.AExpr;
 
 
 @Controller("adminModuleController")

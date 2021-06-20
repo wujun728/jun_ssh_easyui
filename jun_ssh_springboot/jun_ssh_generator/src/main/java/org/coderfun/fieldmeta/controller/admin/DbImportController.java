@@ -18,9 +18,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import klg.common.utils.MyPrinter;
-import klg.j2ee.common.model.JsonData;
-import klg.j2ee.query.jpa.expr.AExpr;
+import klg.common.model.JsonData;
+import klg.query.jpa.expr.AExpr;
 
 @Controller("adminDBImportController")
 @RequestMapping("/admin/action/dbImport")

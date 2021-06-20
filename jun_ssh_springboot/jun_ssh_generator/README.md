@@ -1,3 +1,25 @@
+元数据
+	实体元数据
+		http://localhost:8087/admin/pages/fieldmeta/entitymeta.jsp
+	项目管理
+		http://localhost:8087/admin/pages/config/project.jsp
+	模块管理
+		http://localhost:8087/admin/pages/config/module.jsp
+配置管理
+	可选字段
+		http://localhost:8087/admin/pages/fieldmeta/optionfield.jsp
+	实体基类
+		http://localhost:8087/admin/pages/fieldmeta/baseentity.jsp
+	校验规则
+		http://localhost:8087/admin/pages/config/validation.jsp
+	字段映射
+		http://localhost:8087/admin/pages/config/typemapping.jsp
+	数据字典
+		http://localhost:8087/admin/pages/dict/dict.jsp
+	模板文件
+		http://localhost:8087/admin/pages/config/templatefile.jsp
+
+
 # fieldmeta: 基于springboot的字段元数据管理
 version:beta-1.0 <br>
 [演示地址](http://http://47.100.120.24:8080/)：http://47.100.120.24:8080/ <br>

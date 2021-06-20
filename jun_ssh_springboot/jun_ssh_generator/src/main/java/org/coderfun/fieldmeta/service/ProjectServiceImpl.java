@@ -7,8 +7,8 @@ import org.coderfun.sys.dict.SystemCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import klg.j2ee.common.dataaccess.BaseServiceImpl;
-import klg.j2ee.query.jpa.expr.AExpr;
+import klg.common.dataaccess.BaseServiceImpl;
+import klg.query.jpa.expr.AExpr;
 
 @Service
 public class ProjectServiceImpl  extends BaseServiceImpl<Project, Long> implements ProjectService{

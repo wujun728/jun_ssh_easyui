@@ -11,12 +11,14 @@
 	
 	
     <modules>
-        <module>jun_ssh_springboot</module>
         <module>jun_ssh_utils</module>
+        <module>jun_ssh_jpa</module>
+        <module>jun_ssh_springboot</module>
         <module>jun_ssh_generator</module>
     </modules>
 
     <dependencies>
+    	 
     </dependencies>
 
     <properties>
@@ -42,6 +44,11 @@
 	        <dependency>
 				<groupId>com.jun.plugin</groupId>
 				<artifactId>jun_ssh_utils</artifactId>
+				<version>1.0</version>
+			</dependency>
+	        <dependency>
+				<groupId>com.jun.plugin</groupId>
+				<artifactId>jun_ssh_jpa</artifactId>
 				<version>1.0</version>
 			</dependency>
         	

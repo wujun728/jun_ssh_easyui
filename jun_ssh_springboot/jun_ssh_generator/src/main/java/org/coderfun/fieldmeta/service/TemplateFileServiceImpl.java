@@ -20,8 +20,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import klg.common.dataaccess.BaseServiceImpl;
 import klg.common.utils.FileTools;
-import klg.j2ee.common.dataaccess.BaseServiceImpl;
 
 /**
  * 

@@ -22,7 +22,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.time.DateFormatUtils;
 import org.coderfun.fieldmeta.entity.EntityField;
 import org.coderfun.fieldmeta.entity.EntityField_;
-import org.coderfun.fieldmeta.entity.Module_;
 import org.coderfun.fieldmeta.entity.PageField;
 import org.coderfun.fieldmeta.entity.PageField_;
 import org.coderfun.fieldmeta.entity.Tablemeta;
@@ -46,7 +45,7 @@ import org.springframework.stereotype.Service;
 
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-import klg.j2ee.query.jpa.expr.AExpr;
+import klg.query.jpa.expr.AExpr;
 
 /**
  * 

@@ -1,6 +1,6 @@
 package org.coderfun.common.exception;
 
-import klg.j2ee.common.model.IErrorCode;
+import klg.common.exception.IErrorCode;
 
 /**
  * 错误码，参考新浪微博 open api
@@ -62,6 +62,12 @@ public enum ErrorCodeEnum implements IErrorCode {
 	public String getMessageFormat() {
 		// TODO Auto-generated method stub
 		return this.messageFormat;
+	}
+
+	@Override
+	public int getHttpStatus() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

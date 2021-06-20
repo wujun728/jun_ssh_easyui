@@ -2,7 +2,7 @@ package org.coderfun.fieldmeta.service;
 
 import org.coderfun.fieldmeta.entity.Project;
 
-import klg.j2ee.common.dataaccess.BaseService;
+import klg.common.dataaccess.BaseService;
 
 public interface ProjectService extends BaseService<Project, Long>{
 	

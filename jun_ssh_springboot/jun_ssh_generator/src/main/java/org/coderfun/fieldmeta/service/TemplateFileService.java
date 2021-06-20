@@ -6,7 +6,7 @@ import java.io.IOException;
 import org.coderfun.fieldmeta.entity.TemplateFile;
 import org.springframework.web.multipart.MultipartFile;
 
-import klg.j2ee.common.dataaccess.BaseService;
+import klg.common.dataaccess.BaseService;
 
 
 

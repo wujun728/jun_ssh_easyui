@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.zeroturnaround.zip.ZipUtil;
 
-import klg.j2ee.common.model.JsonData;
+import klg.common.model.JsonData;
 
 @Controller("adminGenController")
 @RequestMapping("/admin/action/gen")

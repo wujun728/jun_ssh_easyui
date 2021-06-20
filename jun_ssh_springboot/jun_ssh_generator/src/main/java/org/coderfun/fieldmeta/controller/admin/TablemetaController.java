@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import klg.j2ee.common.model.EasyUIPage;
-import klg.j2ee.common.model.JsonData;
+import klg.common.model.EasyUIPage;
+import klg.common.model.JsonData;
 
 @Controller("adminTablemetaController")
 @RequestMapping("/admin/action/tablemeta")

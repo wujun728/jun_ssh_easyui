@@ -3,7 +3,6 @@ package org.coderfun.dbimport.service;
 import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.List;
-import java.util.Set;
 
 import javax.transaction.Transactional;
 
@@ -25,8 +24,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import klg.common.utils.BeanTools;
-import klg.common.utils.MyPrinter;
-import klg.j2ee.query.jpa.expr.AExpr;
+import klg.query.jpa.expr.AExpr;
+//import klg.j2ee.query.jpa.expr.AExpr;
 
 @Service
 public class DbImportServiceImpl implements DbImportService {
