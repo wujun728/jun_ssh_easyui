@@ -8,16 +8,21 @@
 	<version>0.0.1-SNAPSHOT</version>
 
 	<parent>
-		<groupId>coderfun</groupId>
-		<artifactId>coderfun-bom</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<groupId>com.jun.plugin</groupId>
+		<artifactId>jun_ssh_springboot_parent</artifactId>
+		<version>1.0</version>
 	</parent>
 
 	<dependencies>
 		<dependency>
-			<groupId>coderfun</groupId>
-			<artifactId>coderfun-klg-jpa</artifactId>
-			<version>0.1.1</version>
+			<groupId>com.jun.plugin</groupId>
+			<artifactId>jun_ssh_utils</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.jun.plugin</groupId>
+			<artifactId>jun_ssh_jpa</artifactId>
+			<version>1.0</version>
 		</dependency>
 
 		<dependency>

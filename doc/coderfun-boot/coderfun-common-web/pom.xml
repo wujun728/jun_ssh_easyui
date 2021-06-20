@@ -2,9 +2,9 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
-		<groupId>coderfun</groupId>
-		<artifactId>coderfun-bom</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<groupId>com.jun.plugin</groupId>
+		<artifactId>jun_ssh_springboot_parent</artifactId>
+		<version>1.0</version>
 	</parent>
 
 
@@ -27,9 +27,9 @@
 		</dependency>
 
 		<dependency>
-			<groupId>klg.common</groupId>
-			<artifactId>xutils</artifactId>
-			<version>0.1.0</version>
+			<groupId>com.jun.plugin</groupId>
+			<artifactId>jun_ssh_utils</artifactId>
+			<version>1.0</version>
 		</dependency>
 
 		<dependency>
