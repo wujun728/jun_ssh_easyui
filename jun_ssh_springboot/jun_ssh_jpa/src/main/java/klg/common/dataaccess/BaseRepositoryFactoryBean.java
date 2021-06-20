@@ -8,7 +8,6 @@ import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.data.jpa.repository.support.JpaEntityInformation;
-import org.springframework.data.jpa.repository.support.JpaRepositoryFactory;
 import org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean;
 import org.springframework.data.repository.Repository;
 import org.springframework.data.repository.core.RepositoryInformation;
@@ -41,6 +40,7 @@ public class BaseRepositoryFactoryBean<R extends Repository<T, ID>, T, ID extend
 		return new BaseRepositoryFactory(entityManager);
 	}
 
+	@Override
 	public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
 		ContextHolder.appContext = applicationContext;
 	}
@@ -71,4 +71,5 @@ public class BaseRepositoryFactoryBean<R extends Repository<T, ID>, T, ID extend
 			return BaseRepositoryImpl.class;
 		}
 	}
+
 }

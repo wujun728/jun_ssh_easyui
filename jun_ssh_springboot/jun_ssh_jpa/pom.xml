@@ -15,12 +15,14 @@
 	<packaging>jar</packaging>
 	
 	<dependencies>
+<!-- 		@EnableJpaRepositories(basePackages = "your.packages", 
+	repositoryBaseClass = GenericJpaRepositoryImpl.class, repositoryFactoryBeanClass = GenericJpaRepositoryFactoryBean.class) -->
 		<dependency>
 			<groupId>com.slyak</groupId>
 			<artifactId>spring-data-jpa-extra</artifactId>
 			<version>2.1.2.RELEASE</version>
-			<scope>system</scope> 
-			<systemPath>${project.basedir}/lib/spring-data-jpa-extra-2.1.2.RELEASE.jar</systemPath>
+			<!--  <scope>system</scope>  
+			 <systemPath>${project.basedir}/lib/spring-data-jpa-extra-2.1.2.RELEASE.jar</systemPath> -->
 		</dependency>
 		
 		<dependency>
