@@ -40,7 +40,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="packagesToScan">
 			<list>
-				<value>org.coderfun</value>
+				<value>com.jun.plugin</value>
 			</list>
 		</property>
 		<property name="jpaVendorAdapter">
@@ -60,7 +60,7 @@
 
 	<!-- factory-class="demo.jpa.respository.BaseDAOFactoryBean" -->
 	<jpa:repositories base-package="org.coderfun"
-		base-class="klg.common.dataaccess.BaseRepositoryImpl"
+		base-class="com.jun.plugin.common.dataaccess.BaseRepositoryImpl"
 		entity-manager-factory-ref="entityManagerFactory"
 		transaction-manager-ref="transactionManager" repository-impl-postfix="Impl" />
 </beans>

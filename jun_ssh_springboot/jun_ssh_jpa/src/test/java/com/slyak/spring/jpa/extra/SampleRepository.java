@@ -8,9 +8,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
+import com.jun.plugin.common.dataaccess.BaseRepository;
 import com.slyak.spring.jpa.TemplateQuery;
-
-import klg.common.dataaccess.BaseRepository;
 
 /**
  * .

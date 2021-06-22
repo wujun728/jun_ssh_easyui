@@ -163,8 +163,6 @@ CREATE TABLE `user`  (
 -- Records of user
 -- ----------------------------
 INSERT INTO `user` VALUES (1, 'admin', 'admin', 'admin', 1);
-INSERT INTO `user` VALUES (2, 'klguang1', 'klguang1', 'hehe1', 3);
-INSERT INTO `user` VALUES (6, 'klguang', '', 'klguang', 4);
 INSERT INTO `user` VALUES (7, NULL, NULL, '君君', 4);
 INSERT INTO `user` VALUES (8, NULL, NULL, '你好', 3);
 INSERT INTO `user` VALUES (9, NULL, NULL, '阿三地方', 4);

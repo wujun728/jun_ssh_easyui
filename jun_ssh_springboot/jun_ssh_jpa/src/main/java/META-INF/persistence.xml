@@ -7,11 +7,11 @@
 	<persistence-unit name="XSpringJpa"
 		transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>klg.common.dataaccess.entity.BaseEntity</class>
-		<class>klg.common.dataaccess.entity.OrderEntity</class>
-		<class>klg.common.dataaccess.entity.VersionEntity</class>
-		<class>klg.common.tree.EasyUITreeNode</class>
-		<class>klg.common.tree.enumpath.TreeNodeEntity</class>
+		<class>com.jun.plugin.common.dataaccess.entity.BaseEntity</class>
+		<class>com.jun.plugin.common.dataaccess.entity.OrderEntity</class>
+		<class>com.jun.plugin.common.dataaccess.entity.VersionEntity</class>
+		<class>com.jun.plugin.common.tree.EasyUITreeNode</class>
+		<class>com.jun.plugin.common.tree.enumpath.TreeNodeEntity</class>
 	</persistence-unit>
 
 </persistence>

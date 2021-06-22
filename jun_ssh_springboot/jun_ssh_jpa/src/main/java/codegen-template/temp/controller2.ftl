@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import klg.common.model.EasyUIPage;
-import klg.common.model.JsonData;
+import com.jun.plugin.common.model.EasyUIPage;
+import com.jun.plugin.common.model.JsonData;
 import ${basePackage}.entity.${entityName};
 import ${basePackage}.service.${entityName}Service;
 

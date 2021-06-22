@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
-import basetest.BaseTest;
-import klg.common.utils.MyPrinter;
+import com.jun.plugin.basetest.BaseTest;
+import com.jun.plugin.common.utils.MyPrinter;
 
 /**
  * .

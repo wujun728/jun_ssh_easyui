@@ -33,7 +33,7 @@
 		<property name="dataSource" ref="dataSource" />
 		<property name="packagesToScan">
 			<list>
-				<value>demo.fieldmeta</value>
+				<value>com.jun.plugin.demo</value>
 			</list>
 		</property>
 		<property name="jpaVendorAdapter">
@@ -52,8 +52,8 @@
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
 	<!-- factory-class="demo.jpa.respository.BaseDAOFactoryBean" -->
-	<jpa:repositories base-package="demo.fieldmeta"
-		base-class="klg.common.dataaccess.BaseRepositoryImpl"
+	<jpa:repositories base-package="com.jun.plugin.demo"
+		base-class="com.jun.plugin.common.dataaccess.BaseRepositoryImpl"
 		entity-manager-factory-ref="entityManagerFactory"
 		transaction-manager-ref="transactionManager" repository-impl-postfix="Impl" />
 </beans>
