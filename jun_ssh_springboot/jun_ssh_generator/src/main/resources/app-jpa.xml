@@ -59,7 +59,7 @@
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
 	<!-- factory-class="demo.jpa.respository.BaseDAOFactoryBean" -->
-	<jpa:repositories base-package="org.coderfun"
+	<jpa:repositories base-package="com.jun.plugin"
 		base-class="com.jun.plugin.common.dataaccess.BaseRepositoryImpl"
 		entity-manager-factory-ref="entityManagerFactory"
 		transaction-manager-ref="transactionManager" repository-impl-postfix="Impl" />
