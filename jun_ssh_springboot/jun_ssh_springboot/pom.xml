@@ -436,6 +436,27 @@
             </resource>
         </resources>
     </build>
+    
+    <!-- <build>
+		<plugins>
+			当目录结构发生变动，右键工程 maven->update project
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<configuration>
+					class文件会自动打JAR包
+					<archiveClasses>false</archiveClasses>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					合并多个war
+					<overlays>
+						<overlay>
+								<groupId>com.jun.plugin</groupId>
+								<artifactId>jun_ssh_common_web</artifactId>
+						</overlay>
+					</overlays>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build> -->
 
 
 </project>
