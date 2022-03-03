@@ -3,7 +3,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
     <groupId>com.jun.plugin</groupId>
-	<artifactId>jun_ssh_parent</artifactId>
+	<artifactId>jun_ssh_easyui</artifactId>
 	<version>1.0</version>
 	<packaging>pom</packaging>
 	
@@ -12,7 +12,7 @@
 	<module>jun_ssh_springboot</module>
   </modules> 
 
-  <name>jun_ssh_parent</name>
+  <name>jun_ssh_easyui</name>
   <url>http://www.oracle.com</url>
 
   <properties>
